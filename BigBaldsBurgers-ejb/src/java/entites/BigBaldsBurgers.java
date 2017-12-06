@@ -14,7 +14,85 @@ public class BigBaldsBurgers implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String nom;
+    private String adresse;
+    private String telephone;
+    private String email;
+    private String siret;
+    private String url;
+    private String logo;
 
+    public BigBaldsBurgers() {
+    }
+
+    public BigBaldsBurgers(String nom, String adresse, String telephone, String email, String siret, String url, String logo) {
+        this.nom = nom;
+        this.adresse = adresse;
+        this.telephone = telephone;
+        this.email = email;
+        this.siret = siret;
+        this.url = url;
+        this.logo = logo;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSiret() {
+        return siret;
+    }
+
+    public void setSiret(String siret) {
+        this.siret = siret;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
+    
+    
+    
     public Long getId() {
         return id;
     }
@@ -23,29 +101,11 @@ public class BigBaldsBurgers implements Serializable {
         this.id = id;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof BigBaldsBurgers)) {
-            return false;
-        }
-        BigBaldsBurgers other = (BigBaldsBurgers) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
+    
 
     @Override
     public String toString() {
-        return "entites.BigBaldsBurgers[ id=" + id + " ]";
+        return "entites.BigBaldsBurgers[" + nom +" "+adresse+" "+telephone+" "+email+" "+siret+" "+url+" "+logo+ " ]";
     }
 
 }
