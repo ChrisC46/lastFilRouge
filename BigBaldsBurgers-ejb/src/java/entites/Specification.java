@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -15,12 +16,23 @@ public class Specification implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String commentSpec;
+    
+    @ManyToOne
+    private LigneDeCommande ligneDeCo;
 
     public Specification() {
     }
 
     public Specification(String commentSpec) {
         this.commentSpec = commentSpec;
+    }
+
+    public LigneDeCommande getLigneDeCo() {
+        return ligneDeCo;
+    }
+
+    public void setLigneDeCo(LigneDeCommande ligneDeCo) {
+        this.ligneDeCo = ligneDeCo;
     }
 
     public Long getId() {

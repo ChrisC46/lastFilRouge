@@ -1,38 +1,89 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package entites;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
-/**
- *
- * @author cdi312
- */
+
 @Entity
 public class Commande implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Float prixTotal;
     private Date date;
 
+    @ManyToOne
+    private Emplacement numTable;
+    @ManyToOne
+    private Employe serveur;
+    @OneToMany(mappedBy = "commande")
+    private Collection<Paiement>payer;
+    @ManyToOne
+    private Status suiviCommande;
+    @OneToMany(mappedBy = "commande")
+    private Collection<LigneDeCommande>ligneDeCo;
     
     public Commande() {
+        payer = new ArrayList<>();
+        ligneDeCo = new ArrayList<>();
     }
 
     public Commande(Float prixTotal, Date date) {
+        this();
         this.prixTotal = prixTotal;
         this.date = date;
+    }
+
+    public Collection<LigneDeCommande> getLigneDeCo() {
+        return ligneDeCo;
+    }
+
+    public void setLigneDeCo(Collection<LigneDeCommande> ligneDeCo) {
+        this.ligneDeCo = ligneDeCo;
+    }
+
+    public Collection<Paiement> getPayer() {
+        return payer;
+    }
+
+    public void setPayer(Collection<Paiement> payer) {
+        this.payer = payer;
+    }
+
+    public Status getSuiviCommande() {
+        return suiviCommande;
+    }
+
+    public void setSuiviCommande(Status suiviCommande) {
+        this.suiviCommande = suiviCommande;
+    }
+
+
+    public Employe getServeur() {
+        return serveur;
+    }
+
+    public void setServeur(Employe serveur) {
+        this.serveur = serveur;
+    }
+
+    public Emplacement getNumTable() {
+        return numTable;
+    }
+
+    public void setNumTable(Emplacement numTable) {
+        this.numTable = numTable;
     }
           
     

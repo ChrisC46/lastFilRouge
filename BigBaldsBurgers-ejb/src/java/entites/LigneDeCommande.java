@@ -2,10 +2,14 @@
 package entites;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 
 @Entity
@@ -16,13 +20,47 @@ public class LigneDeCommande implements Serializable {
     private Long id;
     private int qteCommande;
     private float prixLigneDeCo;
+    
+    @ManyToOne
+    private Status suiviCuisine;
+    @ManyToOne
+    private Commande commande;
+    @OneToMany
+    private Collection<Specification>commentSpec;
 
     public LigneDeCommande() {
+        commentSpec = new ArrayList<>();
     }
 
     public LigneDeCommande(int qteCommande, float prixLigneDeCo) {
+        this();
         this.qteCommande = qteCommande;
         this.prixLigneDeCo = prixLigneDeCo;
+    }
+
+    public Collection<Specification> getCommentSpec() {
+        return commentSpec;
+    }
+
+    public void setCommentSpec(Collection<Specification> commentSpec) {
+        this.commentSpec = commentSpec;
+    }
+
+    
+    public Commande getCommande() {
+        return commande;
+    }
+
+    public void setCommande(Commande commande) {
+        this.commande = commande;
+    }
+
+    public Status getSuiviCuisine() {
+        return suiviCuisine;
+    }
+
+    public void setSuiviCuisine(Status suiviCuisine) {
+        this.suiviCuisine = suiviCuisine;
     }
     
     

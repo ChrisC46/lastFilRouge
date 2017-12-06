@@ -1,37 +1,59 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package entites;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
-/**
- *
- * @author cdi312
- */
+
 @Entity
 public class Emplacement implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+    @Column(nullable = false)
     private String numero;
+    @Column(nullable = false)
     private int nbrePlaces;
 
     
+    @OneToMany(mappedBy = "numTable")
+    private Collection<Commande> commande;
+    @ManyToOne
+    private Status dispoTable;
+    
     public Emplacement() {
+        commande = new ArrayList();
     }
 
     public Emplacement(String numero, int nbrePlaces) {
+        this();
         this.numero = numero;
         this.nbrePlaces = nbrePlaces;
+    }
+
+    public Collection<Commande> getCommande() {
+        return commande;
+    }
+
+    public void setCommande(Collection<Commande> commande) {
+        this.commande = commande;
+    }
+
+    public Status getDispoTable() {
+        return dispoTable;
+    }
+
+    public void setDispoTable(Status dispoTable) {
+        this.dispoTable = dispoTable;
     }
         
     

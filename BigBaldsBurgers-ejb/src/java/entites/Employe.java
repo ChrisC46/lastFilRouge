@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 
 @Entity
@@ -27,9 +28,12 @@ public class Employe implements Serializable {
 
     @ManyToMany
     private Collection<Droits> typeDroit;
+    @OneToMany(mappedBy = "serveur")
+    private Collection<Commande>commande;
   
     public Employe() {
         typeDroit = new ArrayList<>();
+        commande = new ArrayList<>();
     }
 
     public Employe(int matricule, String nom, String prenom, String telephone, String email, String login) {
@@ -40,6 +44,14 @@ public class Employe implements Serializable {
         this.telephone = telephone;
         this.email = email;
         this.login = login;
+    }
+
+    public Collection<Commande> getCommande() {
+        return commande;
+    }
+
+    public void setCommande(Collection<Commande> commande) {
+        this.commande = commande;
     }
 
     public Collection<Droits> getTypeDroit() {

@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -17,22 +18,33 @@ public class Paiement implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int reference;
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
     @ManyToMany
     private Collection<TypeDePaiement> typePaiements;
+    @ManyToOne
+    private Collection<Commande> commande;
 
     public Paiement() {
         typePaiements = new ArrayList<>();
+        commande = new ArrayList<>();
     }
 
     public Paiement(int reference, Date date) {
         this();
         this.reference = reference;
         this.date = date;
+    }
+
+    public Collection<Commande> getCommande() {
+        return commande;
+    }
+
+    public void setCommande(Collection<Commande> commande) {
+        this.commande = commande;
     }
 
     public Long getId() {
