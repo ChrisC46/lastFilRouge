@@ -23,7 +23,7 @@ public class Ingredients implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
-    private String nomIngredient;
+    private String nom;
     @Column(nullable = false)
     private int prix;
     private String origine;
@@ -31,18 +31,18 @@ public class Ingredients implements Serializable {
     public Ingredients() {
     }
 
-    public Ingredients(String nomIngredient, int prix, String origine) {
-        this.nomIngredient = nomIngredient;
+    public Ingredients(String nom, int prix, String origine) {
+        this.nom = nom;
         this.prix = prix;
         this.origine = origine;
     }
 
     public String getNomIngredient() {
-        return nomIngredient;
+        return nom;
     }
 
-    public void setNomIngredient(String nomIngredient) {
-        this.nomIngredient = nomIngredient;
+    public void setNomIngredient(String nom) {
+        this.nom = nom;
     }
 
     public int getPrix() {

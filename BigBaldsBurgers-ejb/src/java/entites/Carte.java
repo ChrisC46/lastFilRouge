@@ -23,21 +23,21 @@ public class Carte implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
-    private String nomCarte;
+    private String nom;
 
     public Carte() {
     }
 
-    public Carte(String nomCarte) {
-        this.nomCarte = nomCarte;
+    public Carte(String nom) {
+        this.nom = nom;
     }
 
     public String getNomCarte() {
-        return nomCarte;
+        return nom;
     }
 
-    public void setNomCarte(String nomCarte) {
-        this.nomCarte = nomCarte;
+    public void setNomCarte(String nom) {
+        this.nom = nom;
     }
     
     
@@ -50,29 +50,11 @@ public class Carte implements Serializable {
         this.id = id;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Carte)) {
-            return false;
-        }
-        Carte other = (Carte) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
+  
 
     @Override
     public String toString() {
-        return "entites.Carte[ id=" + id + " ]";
+        return "entites.Carte[ " + nom + " ]";
     }
     
 }

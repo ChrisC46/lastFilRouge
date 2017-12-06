@@ -22,41 +22,41 @@ public class Tva implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nomTva;
-    private float tauxTva;
-    private Date dateTva;
+    private String nom;
+    private float taux;
+    private Date date;
 
     public Tva() {
     }
 
-    public Tva(String nomTva, float tauxTva, Date dateTva) {
-        this.nomTva = nomTva;
-        this.tauxTva = tauxTva;
-        this.dateTva = dateTva;
+    public Tva(String nom, float taux, Date date) {
+        this.nom = nom;
+        this.taux = taux;
+        this.date = date;
     }
 
     public String getNomTva() {
-        return nomTva;
+        return nom;
     }
 
-    public void setNomTva(String nomTva) {
-        this.nomTva = nomTva;
+    public void setNomTva(String nom) {
+        this.nom = nom;
     }
 
     public float getTauxTva() {
-        return tauxTva;
+        return taux;
     }
 
-    public void setTauxTva(float tauxTva) {
-        this.tauxTva = tauxTva;
+    public void setTauxTva(float taux) {
+        this.taux = taux;
     }
 
     public Date getDateTva() {
-        return dateTva;
+        return date;
     }
 
-    public void setDateTva(Date dateTva) {
-        this.dateTva = dateTva;
+    public void setDateTva(Date date) {
+        this.date = date;
     }
     
     
@@ -74,7 +74,7 @@ public class Tva implements Serializable {
 
     @Override
     public String toString() {
-        return "entites.Tva[ id=" + id + " ]";
+        return "entites.Tva[ taux TVA=" + taux+ " ]";
     }
     
 }

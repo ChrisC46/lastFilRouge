@@ -23,21 +23,21 @@ public class CategorieFormule implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
-    private String nomCF;
+    private String nom;
 
     public CategorieFormule() {
     }
 
-    public CategorieFormule(String nomCF) {
-        this.nomCF = nomCF;
+    public CategorieFormule(String nom) {
+        this.nom = nom;
     }
 
     public String getNomCF() {
-        return nomCF;
+        return nom;
     }
 
-    public void setNomCF(String nomCF) {
-        this.nomCF = nomCF;
+    public void setNomCF(String nom) {
+        this.nom = nom;
     }
     
     
@@ -54,7 +54,7 @@ public class CategorieFormule implements Serializable {
 
     @Override
     public String toString() {
-        return "entites.CategorieFormule[" + nomCF + " ]";
+        return "entites.CategorieFormule[" + nom + " ]";
     }
     
 }
