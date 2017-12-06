@@ -1,21 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package entites;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
-/**
- *
- * @author Tofi
- */
+
 @Entity
 public class CategorieFormule implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -24,11 +22,23 @@ public class CategorieFormule implements Serializable {
     private Long id;
     @Column(nullable = false)
     private String nom;
+    @OneToMany(mappedBy = "categorieFormule")
+    private Collection<Formule> formules;
+    @OneToMany(mappedBy = "categorieFormule")
+    private Collection<Produit> produits;
+    @ManyToMany
+    private Collection<Promotion> promotions;
+    @ManyToOne
+    private Carte carte;
 
     public CategorieFormule() {
+        formules = new ArrayList();
+        produits = new ArrayList();
+        promotions = new ArrayList();
     }
 
     public CategorieFormule(String nom) {
+        this();
         this.nom = nom;
     }
 
@@ -38,6 +48,46 @@ public class CategorieFormule implements Serializable {
 
     public void setNomCF(String nom) {
         this.nom = nom;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public Collection<Formule> getFormules() {
+        return formules;
+    }
+
+    public void setFormules(Collection<Formule> formules) {
+        this.formules = formules;
+    }
+
+    public Collection<Produit> getProduits() {
+        return produits;
+    }
+
+    public void setProduits(Collection<Produit> produits) {
+        this.produits = produits;
+    }
+
+    public Collection<Promotion> getPromotions() {
+        return promotions;
+    }
+
+    public void setPromotions(Collection<Promotion> promotions) {
+        this.promotions = promotions;
+    }
+
+    public Carte getCarte() {
+        return carte;
+    }
+
+    public void setCarte(Carte carte) {
+        this.carte = carte;
     }
     
     

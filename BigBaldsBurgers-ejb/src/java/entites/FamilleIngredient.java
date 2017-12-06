@@ -7,11 +7,14 @@ package entites;
 
 import com.sun.istack.Nullable;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -26,11 +29,15 @@ public class FamilleIngredient implements Serializable {
     private Long id;
     @Column(nullable = false)
     private String ingredientFamille;
+    @OneToMany(mappedBy = "familleIngredient")
+    private Collection<Ingredients> ingredients;
 
     public FamilleIngredient() {
+        ingredients = new ArrayList();
     }
 
     public FamilleIngredient(String ingredientFamille) {
+        this();
         this.ingredientFamille = ingredientFamille;
     }
 
@@ -40,6 +47,14 @@ public class FamilleIngredient implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Collection<Ingredients> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Collection<Ingredients> ingredients) {
+        this.ingredients = ingredients;
     }
 
     

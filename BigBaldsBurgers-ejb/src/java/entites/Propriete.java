@@ -1,21 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package entites;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
-/**
- *
- * @author Tofi
- */
+
 @Entity
 public class Propriete implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -26,11 +22,15 @@ public class Propriete implements Serializable {
     private String nom;
     private String valeur;
     private String unite;
+    @OneToMany(mappedBy = "propriete")
+    private Collection<Produit> produits;
 
     public Propriete() {
+        produits = new ArrayList();
     }
 
     public Propriete(String nom, String valeur, String unite) {
+        this();
         this.nom = nom;
         this.valeur = valeur;
         this.unite = unite;
@@ -58,6 +58,38 @@ public class Propriete implements Serializable {
 
     public void setUnitePropriete(String unite) {
         this.unite = unite;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getValeur() {
+        return valeur;
+    }
+
+    public void setValeur(String valeur) {
+        this.valeur = valeur;
+    }
+
+    public String getUnite() {
+        return unite;
+    }
+
+    public void setUnite(String unite) {
+        this.unite = unite;
+    }
+
+    public Collection<Produit> getProduits() {
+        return produits;
+    }
+
+    public void setProduits(Collection<Produit> produits) {
+        this.produits = produits;
     }
     
     

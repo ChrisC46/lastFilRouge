@@ -1,21 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package entites;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
-/**
- *
- * @author Tofi
- */
+
 @Entity
 public class Promotion implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -25,11 +21,15 @@ public class Promotion implements Serializable {
     private float remise;
     private Date dateDebutPromo;
     private Date dateFinPromo;
+    @ManyToMany(mappedBy = "promotions")
+    private Collection<CategorieFormule> categorieFormule;
 
     public Promotion() {
+        categorieFormule = new ArrayList();
     }
 
     public Promotion(float remise, Date dateDebutPromo, Date dateFinPromo) {
+        this();
         this.remise = remise;
         this.dateDebutPromo = dateDebutPromo;
         this.dateFinPromo = dateFinPromo;
@@ -57,6 +57,14 @@ public class Promotion implements Serializable {
 
     public void setDateFinPromo(Date dateFinPromo) {
         this.dateFinPromo = dateFinPromo;
+    }
+
+    public Collection<CategorieFormule> getCategorieFormule() {
+        return categorieFormule;
+    }
+
+    public void setCategorieFormule(Collection<CategorieFormule> categorieFormule) {
+        this.categorieFormule = categorieFormule;
     }
     
     

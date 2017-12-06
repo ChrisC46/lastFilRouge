@@ -27,6 +27,12 @@ public class LigneDeCommande implements Serializable {
     private Commande commande;
     @OneToMany
     private Collection<Specification>commentSpec;
+    @ManyToOne
+    private CategorieProduit categorieProduit;
+    @ManyToOne
+    private Produit produit;
+    @ManyToOne
+    private Formule formule;
 
     public LigneDeCommande() {
         commentSpec = new ArrayList<>();
@@ -84,8 +90,32 @@ public class LigneDeCommande implements Serializable {
         return prixLigneDeCo;
     }
 
+    public Formule getFormule() {
+        return formule;
+    }
+
+    public void setFormule(Formule formule) {
+        this.formule = formule;
+    }
+
     public void setPrixLigneDeCo(float prixLigneDeCo) {
         this.prixLigneDeCo = prixLigneDeCo;
+    }
+
+    public CategorieProduit getCategorieProduit() {
+        return categorieProduit;
+    }
+
+    public void setCategorieProduit(CategorieProduit categorieProduit) {
+        this.categorieProduit = categorieProduit;
+    }
+
+    public Produit getProduit() {
+        return produit;
+    }
+
+    public void setProduit(Produit produit) {
+        this.produit = produit;
     }
 
  
