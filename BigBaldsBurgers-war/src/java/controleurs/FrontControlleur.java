@@ -5,12 +5,10 @@
  */
 package controleurs;
 
-import controleurs.secondaires.SousControleur;
 import java.io.IOException;
-import java.util.Enumeration;
-import java.util.HashMap;
-import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,53 +16,30 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Tofi
+ * @author cdi313
  */
-public class FrontControleur extends HttpServlet {
-    
-    private HashMap<String, SousControleur> mp;
+@WebServlet(name = "FrontControlleur", urlPatterns = {"/FrontControlleur"})
+public class FrontControlleur extends HttpServlet {
 
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config); //To change body of generated methods, choose Tools | Templates.        
-        mp = new HashMap<>();
-        Enumeration<String> noms = config.getInitParameterNames();
-        while(noms.hasMoreElements()){
-            String nom = noms.nextElement();
-            String valeur = config.getInitParameter(nom);
-            try {
-                SousControleur sc = (SousControleur) Class.forName(valeur).newInstance();
-                mp.put(nom, sc);
-            } catch (ClassNotFoundException ex) {
-                
-            } catch (InstantiationException ex) {
-            
-            } catch (IllegalAccessException ex) {
-            
-            }
-        }
-    }
-
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        HttpSession session = request.getSession();
-        String section = request.getParameter("section");
-        String page = "/WEB-INF/home.jsp";
+        String url = "/WEB-INF/home.jsp";
 
-        if (section!= null && mp.containsKey(section)) {
-            SousControleur sc = mp.get(section);
-            //page = sc.executer(request, response);
-        }
- 
-        page = response.encodeURL(page);
-        Boolean ok = (Boolean) request.getAttribute("redirect");
-        if(ok != null && ok){
-            response.sendRedirect(page);
-        }else{
-            getServletContext().getRequestDispatcher(page).include(request, response);
-        }
+        HttpSession session = request.getSession();
+        ServletContext application = this.getServletContext();
+        
+        
+        request.getRequestDispatcher(url).include(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -105,11 +80,7 @@ public class FrontControleur extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
-    
-    
-    
-    
-    
-    
+
 }
+
+
