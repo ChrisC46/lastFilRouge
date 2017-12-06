@@ -21,6 +21,12 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-*/nbproject/private/
-*/buid/
-*/dist/
+/nbproject/private/
+/BigBaldsBurgers-ejb/nbproject/private/
+/BigBaldsBurgers-war/nbproject/private/
+/BigBaldsBurgers-ejb/dist/
+/BigBaldsBurgers-ejb/build/
+/BigBaldsBurgers-war/build/
+/BigBaldsBurgers-war/dist/
+/build/
+/dist/
