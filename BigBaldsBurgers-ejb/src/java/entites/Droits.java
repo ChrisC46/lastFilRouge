@@ -6,10 +6,13 @@
 package entites;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 /**
  *
@@ -24,12 +27,24 @@ public class Droits implements Serializable {
     
     private String nom;
 
+    @ManyToMany(mappedBy = "typeDroit")
+    private Collection<Employe> employe;
     
     public Droits() {
+        employe = new ArrayList<>();
     }
 
     public Droits(String nom) {
+        this();
         this.nom = nom;
+    }
+
+    public Collection<Employe> getEmploye() {
+        return employe;
+    }
+
+    public void setEmploye(Collection<Employe> employe) {
+        this.employe = employe;
     }
     
     
