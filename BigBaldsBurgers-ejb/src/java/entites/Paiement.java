@@ -1,26 +1,36 @@
 package entites;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
-public class Paiment implements Serializable {
+public class Paiement implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int reference;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
+    @ManyToMany
+    private Collection<TypeDePaiement> typePaiements;
 
-    public Paiment() {
+    public Paiement() {
+        typePaiements = new ArrayList<>();
     }
 
-    public Paiment(int reference, Date date) {
+    public Paiement(int reference, Date date) {
+        this();
         this.reference = reference;
         this.date = date;
     }
@@ -49,6 +59,15 @@ public class Paiment implements Serializable {
         this.date = date;
     }
 
+    public Collection<TypeDePaiement> getTypePaiements() {
+        return typePaiements;
+    }
+
+    public void setTypePaiements(Collection<TypeDePaiement> typePaiements) {
+        this.typePaiements = typePaiements;
+    }
+    
+    
     @Override
     public String toString() {
         return "refPaiment " + reference + " datePaiment : " + date;
