@@ -4,16 +4,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>home Resto</title>
+        <title>Big Balds Burgers</title>
     </head>
     <body>
-        <nav>
-            <c:url value="FrontContoleur?section=menu-main" var="url01" />
-            <c:import url="${url01}" />
-        </nav>
+    
         <div>
             <h1>Big Balds Burgers</h1>
             <p> ici interface serveur/cuisinier/resp caisse </p>
+            <nav>
+                <ul>
+                    <c:url value="FrontControlleur?section=serveur" var="url01" />
+                    <li><a href="${url01}">Serveur</a></li>
+                    <li>Cuisinier</li>
+                    <li>Caisse</li>
+                </ul>
+            </nav>
             
             
         </div>
