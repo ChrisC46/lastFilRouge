@@ -6,13 +6,11 @@
 package controleurs;
 
 import java.io.IOException;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -34,12 +32,24 @@ public class FrontControlleur extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = "/WEB-INF/home.jsp";
-
-        HttpSession session = request.getSession();
-        ServletContext application = this.getServletContext();
+        String section = request.getParameter("section");
+        
+        if(section == null ){
+            
+        }
+        if(section.equals("serveur")){
+            url = "/WEB-INF/jspclient/accueil.jsp";
+        } 
         
         
+        url = response.encodeURL(url);
         request.getRequestDispatcher(url).include(request, response);
+        
+        
+        
+        
+   
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
