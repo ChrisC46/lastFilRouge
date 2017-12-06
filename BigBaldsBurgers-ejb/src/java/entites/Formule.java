@@ -68,7 +68,7 @@ public class Formule implements Serializable {
 
     @Override
     public String toString() {
-        return "entites.Formule[ id=" + id + " ]";
+        return "entites.Formule[ nom de la formule= " + nom +  " ]";
     }
     
 }
