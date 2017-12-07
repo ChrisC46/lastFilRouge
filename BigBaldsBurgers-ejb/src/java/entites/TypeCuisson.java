@@ -19,14 +19,25 @@ public class TypeCuisson implements Serializable {
     private String cuisson;
     @ManyToMany(mappedBy = "typeCuisson")
     private Collection<Produit> produits;
+    @ManyToMany
+    private Collection<LigneDeCommande>ligneDeCo;
 
     public TypeCuisson() {
         produits = new ArrayList();
+        ligneDeCo = new ArrayList<>();
     }
 
     public TypeCuisson(String cuisson) {
         this();
         this.cuisson = cuisson;
+    }
+
+    public Collection<LigneDeCommande> getLigneDeCo() {
+        return ligneDeCo;
+    }
+
+    public void setLigneDeCo(Collection<LigneDeCommande> ligneDeCo) {
+        this.ligneDeCo = ligneDeCo;
     }
 
     public Long getId() {
