@@ -2,6 +2,7 @@
 package entites;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +15,9 @@ public class BigBaldsBurgers implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column (nullable = false)
     private String nom;
+    @Column (nullable = false)
     private String adresse;
     private String telephone;
     private String email;
