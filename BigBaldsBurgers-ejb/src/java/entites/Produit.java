@@ -31,7 +31,7 @@ public class Produit implements Serializable {
     private Propriete propriete;
     @ManyToOne
     private Tva tva;
-    @ManyToMany
+    @ManyToOne
     private CategorieProduit categorieProduit;
     @OneToMany(mappedBy = "produit")
     private Collection<LigneDeCommande> ligneDeCommandes;

@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -33,15 +34,26 @@ public class LigneDeCommande implements Serializable {
     private Produit produit;
     @ManyToOne
     private Formule formule;
+    @ManyToMany
+    private Collection<TypeCuisson>typeCuisson;
 
     public LigneDeCommande() {
         commentSpec = new ArrayList<>();
+        typeCuisson = new ArrayList<>();
     }
 
     public LigneDeCommande(int qteCommande, float prixLigneDeCo) {
         this();
         this.qteCommande = qteCommande;
         this.prixLigneDeCo = prixLigneDeCo;
+    }
+
+    public Collection<TypeCuisson> getTypeCuisson() {
+        return typeCuisson;
+    }
+
+    public void setTypeCuisson(Collection<TypeCuisson> typeCuisson) {
+        this.typeCuisson = typeCuisson;
     }
 
     public Collection<Specification> getCommentSpec() {
