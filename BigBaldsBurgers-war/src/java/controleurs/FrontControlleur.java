@@ -5,7 +5,9 @@
  */
 package controleurs;
 
+import entites.Formule;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,13 +35,24 @@ public class FrontControlleur extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String url = "/WEB-INF/home.jsp";
         String section = request.getParameter("section");
+        String consulter = request.getParameter("consulter");
         
-        if(section == null ){
-            
-        }
+       if(section == null){
+                
+            }
         if(section.equals("serveur")){
-            url = "/WEB-INF/jspclient/accueil.jsp";
+            url = "/WEB-INF/accueil.jsp";
         } 
+        
+      if("menus".equals(consulter)){
+          ArrayList<Formule> maListe = new ArrayList<>();
+         Formule f01 = new Formule("A", "menu A", 15f, "img");
+         Formule f02 = new Formule("B", "menu B", 30f, "img");
+          maListe.add(f01);
+          maListe.add(f02);
+          request.setAttribute("collection", maListe);
+          System.out.println("test");
+      }
         
         
         url = response.encodeURL(url);
