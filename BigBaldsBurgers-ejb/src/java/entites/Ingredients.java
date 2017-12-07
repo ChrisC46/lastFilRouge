@@ -43,6 +43,13 @@ public class Ingredients implements Serializable {
         produits = new ArrayList();
     }
 
+    public Ingredients(String nom) {
+        this();
+        this.nom = nom;
+    }
+
+    
+    
     public Ingredients(String nom, int prix, String origine) {
         this();
         this.nom = nom;
