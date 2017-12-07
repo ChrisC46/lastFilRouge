@@ -31,7 +31,7 @@ public class Formule implements Serializable {
     @ManyToOne
     private CategorieFormule categorieFormule;
     
-    
+      
     public Formule() {
         produits = new ArrayList();
         ligneDeCommandes = new ArrayList();

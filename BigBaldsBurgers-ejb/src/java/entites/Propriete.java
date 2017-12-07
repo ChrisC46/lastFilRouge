@@ -20,7 +20,9 @@ public class Propriete implements Serializable {
     private Long id;
     @Column(nullable = false)
     private String nom;
+    @Column(nullable = false)
     private String valeur;
+    @Column(nullable = false)
     private String unite;
     @OneToMany(mappedBy = "propriete")
     private Collection<Produit> produits;
