@@ -4,6 +4,7 @@ package entites;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,10 +21,13 @@ public class Employe implements Serializable {
     private Long id;
 
     private int matricule;
+    @Column (nullable = false)
     private String nom;
+    @Column (nullable = false)
     private String prenom;
     private String telephone;
     private String email;
+    @Column (nullable = false)
     private String login;
 
     @ManyToMany
