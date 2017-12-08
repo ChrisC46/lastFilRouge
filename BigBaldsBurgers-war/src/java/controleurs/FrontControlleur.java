@@ -5,13 +5,9 @@
  */
 package controleurs;
 
-<<<<<<< HEAD
-import entites.Formule;
-import entites.LigneDeCommande;
-import entites.LigneDeCommande_;
-=======
+
+
 import controleurs.secondaire.SousControleur;
->>>>>>> master
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -58,7 +54,7 @@ public class FrontControlleur extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         String section = request.getParameter("section");
-<<<<<<< HEAD
+
         String consulter = request.getParameter("consulter");
         String actionPanier = request.getParameter("panier");
         String nomJsp = "promotions.jsp";
@@ -67,15 +63,15 @@ public class FrontControlleur extends HttpServlet {
         request.setAttribute("lajsp", nomJsp);
 
         if (section == null) {
-=======
+
         String page = "/WEB-INF/home.jsp";
->>>>>>> master
+
 
         if (section!= null && mp.containsKey(section)) {
             SousControleur sc = mp.get(section);
             page = sc.executer(request, response);
         }
-<<<<<<< HEAD
+
 
         /* DEBUT LIEN POUR ACCUEIL - CHOIX CARTE */
         /* --------------  NIVEAU 1 --------------   */
@@ -139,7 +135,7 @@ public class FrontControlleur extends HttpServlet {
         url = response.encodeURL(url);
         request.getRequestDispatcher(url).include(request, response);
 
-    }
+    }}
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -154,7 +150,7 @@ public class FrontControlleur extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-=======
+
  
         page = response.encodeURL(page);
         //System.out.println(">>>>>>>>>>>>> page = "+page);
@@ -164,7 +160,7 @@ public class FrontControlleur extends HttpServlet {
         }else{
             getServletContext().getRequestDispatcher(page).include(request, response);
         }
->>>>>>> master
+
     }
 
 }
