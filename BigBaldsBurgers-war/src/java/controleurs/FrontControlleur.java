@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -33,36 +34,31 @@ public class FrontControlleur extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = "/WEB-INF/home.jsp";
+        request.setCharacterEncoding("UTF-8");
         String section = request.getParameter("section");
         String consulter = request.getParameter("consulter");
+        String url = "/WEB-INF/home.jsp";
         
-       if(section == null){
-                
-            }
-        if(section.equals("serveur")){
+        if (section == null) {
+
+        }
+        if ("serveur".equals(section)) {
             url = "/WEB-INF/accueil.jsp";
-        } 
-        
-      if("menus".equals(consulter)){
-          ArrayList<Formule> maListe = new ArrayList<>();
-         Formule f01 = new Formule("A", "menu A", 15f, "img");
-         Formule f02 = new Formule("B", "menu B", 30f, "img");
-          maListe.add(f01);
-          maListe.add(f02);
-          request.setAttribute("collection", maListe);
-          System.out.println("test");
-      }
-        
-        
+        }
+
+        if ("menus".equals(consulter)) {
+            ArrayList<Formule> maListe = new ArrayList<>();
+            Formule f01 = new Formule("A", "menu A", 15f, "img");
+            Formule f02 = new Formule("B", "menu B", 30f, "img");
+            maListe.add(f01);
+            maListe.add(f02);
+            request.setAttribute("collection", maListe);
+            System.out.println("test");
+        }
+
         url = response.encodeURL(url);
         request.getRequestDispatcher(url).include(request, response);
-        
-        
-        
-        
-   
-       
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -105,5 +101,3 @@ public class FrontControlleur extends HttpServlet {
     }// </editor-fold>
 
 }
-
-
