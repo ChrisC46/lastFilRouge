@@ -36,13 +36,8 @@
         </div>
 
         <div class="container">
-            <c:forEach items="${collection}"  var="p">
-                <div class="produit">
-                    <p>${p.nom}</p>
-                    <p>${p.description}</p>
-                    <p class="prix"><strong>${p.prix}</strong></p>
-                </div>
-            </c:forEach>
+            
+            <jsp:include page="${lajsp}" />
             <p>${nom}</p>
         </div>
 

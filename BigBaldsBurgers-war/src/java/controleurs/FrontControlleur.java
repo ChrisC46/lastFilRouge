@@ -37,8 +37,12 @@ public class FrontControlleur extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String section = request.getParameter("section");
         String consulter = request.getParameter("consulter");
+        String nomJsp = "promotions.jsp";
         String url = "/WEB-INF/home.jsp";
         
+        request.setAttribute("lajsp", nomJsp);
+        
+
         if (section == null) {
 
         }
@@ -47,13 +51,26 @@ public class FrontControlleur extends HttpServlet {
         }
 
         if ("menus".equals(consulter)) {
-            ArrayList<Formule> maListe = new ArrayList<>();
-            Formule f01 = new Formule("A", "menu A", 15f, "img");
-            Formule f02 = new Formule("B", "menu B", 30f, "img");
-            maListe.add(f01);
-            maListe.add(f02);
-            request.setAttribute("collection", maListe);
+            nomJsp = "nos-menus.jsp";
+            request.setAttribute("lajsp", nomJsp);
+
+            /*
+             ArrayList<Formule> maListe = new ArrayList<>();
+             Formule f01 = new Formule("A", "menu A", 15f, "img");
+             Formule f02 = new Formule("B", "menu B", 30f, "img");
+             maListe.add(f01);
+             maListe.add(f02);
+             request.setAttribute("collection", maListe);
+             */
             System.out.println("test");
+        }
+        
+        if("offres".equals(consulter)){
+            nomJsp = "promotions.jsp";
+            request.setAttribute("lajsp", nomJsp);
+        }
+        if("burgers".equals(consulter)){
+            nomJsp = "burger.jsp"
         }
 
         url = response.encodeURL(url);
