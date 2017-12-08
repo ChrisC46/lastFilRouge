@@ -24,7 +24,7 @@ public class CategorieFormule implements Serializable {
     private String nom;
     @OneToMany(mappedBy = "categorieFormule")
     private Collection<Formule> formules;
-    @OneToMany(mappedBy = "categorieFormule")
+    @OneToMany(mappedBy = "categorieFormuleProduit")
     private Collection<Produit> produits;
     @ManyToMany
     private Collection<Promotion> promotions;

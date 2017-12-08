@@ -20,7 +20,7 @@ public class TypeDePaiement implements Serializable {
     
     @Column (nullable = false)
     private String nom;
-    @ManyToMany(mappedBy = "typePaiements")
+    @ManyToMany
     private Collection<Paiement> paiements;
 
     public TypeDePaiement() {

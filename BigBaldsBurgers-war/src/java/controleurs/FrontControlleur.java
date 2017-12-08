@@ -10,12 +10,14 @@ import entites.LigneDeCommande;
 import entites.LigneDeCommande_;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import traitement.JeuDeTestLocal;
 
 /**
  *
@@ -23,6 +25,8 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "FrontControlleur", urlPatterns = {"/FrontControlleur"})
 public class FrontControlleur extends HttpServlet {
+    @EJB
+    private JeuDeTestLocal jeuDeTest;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,6 +37,7 @@ public class FrontControlleur extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -93,6 +98,18 @@ public class FrontControlleur extends HttpServlet {
 
         if ("add".equals(actionPanier)) {
 
+        }
+        
+        if ("creerJeuDeTest".equals(section)){
+            try {
+                jeuDeTest.creerDonnees();
+                request.setAttribute("dClasse", "info");
+                request.setAttribute("msg", "données créées !");
+            } catch (Exception ex){
+                ex.printStackTrace();
+                request.setAttribute("dClasse", "erreur");
+                request.setAttribute("msg", "echec de votre action");
+            }
         }
 
         /* Fin LIEN POUR ACCUEIL - CHOIX CARTE */

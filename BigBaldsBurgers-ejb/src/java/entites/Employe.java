@@ -33,11 +33,11 @@ public class Employe implements Serializable {
     @ManyToMany
     private Collection<Droits> typeDroit;
     @OneToMany(mappedBy = "serveur")
-    private Collection<Commande>commande;
+    private Collection<Commande>commandeServeur;
   
     public Employe() {
         typeDroit = new ArrayList<>();
-        commande = new ArrayList<>();
+        commandeServeur = new ArrayList<>();
     }
 
     public Employe(int matricule, String nom, String prenom, String telephone, String email, String login) {
@@ -51,11 +51,11 @@ public class Employe implements Serializable {
     }
 
     public Collection<Commande> getCommande() {
-        return commande;
+        return commandeServeur;
     }
 
     public void setCommande(Collection<Commande> commande) {
-        this.commande = commande;
+        this.commandeServeur = commande;
     }
 
     public Collection<Droits> getTypeDroit() {

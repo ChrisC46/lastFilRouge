@@ -23,14 +23,14 @@ public class Paiement implements Serializable {
     private int reference;
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
-    @ManyToMany
+    @ManyToMany(mappedBy = "paiements")
     private Collection<TypeDePaiement> typePaiements;
     @ManyToOne
-    private Collection<Commande> commande;
+    private Commande commandes;
 
     public Paiement() {
         typePaiements = new ArrayList<>();
-        commande = new ArrayList<>();
+        
     }
 
     public Paiement(int reference, Date date) {
@@ -39,13 +39,17 @@ public class Paiement implements Serializable {
         this.date = date;
     }
 
-    public Collection<Commande> getCommande() {
-        return commande;
+    public Commande getCommandes() {
+        return commandes;
     }
 
-    public void setCommande(Collection<Commande> commande) {
-        this.commande = commande;
+    public void setCommandes(Commande commandes) {
+        this.commandes = commandes;
     }
+
+  
+  
+    
 
     public Long getId() {
         return id;

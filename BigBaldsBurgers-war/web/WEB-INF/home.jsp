@@ -15,12 +15,14 @@
                 <ul>
                     <c:url value="FrontControlleur?section=serveur" var="url01" />
                     <li><a href="${url01}">Serveur</a></li>
+                    <c:url value="FrontControlleur?section=creerJeuDeTest" var="url02" />
+                    <li><a href="${url02}">creerJeuDeTest</a></li>
                     <li>Cuisinier</li>
                     <li>Caisse</li>
                 </ul>
             </nav>
             
-            
+                    <p class="${dClasse}">${msg}</p>
         </div>
         
     </body>

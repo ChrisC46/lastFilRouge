@@ -35,11 +35,11 @@ public class LigneDeCommande implements Serializable {
     @ManyToOne
     private Formule formule;
     @ManyToMany
-    private Collection<TypeCuisson>typeCuisson;
+    private Collection<TypeCuisson>typeCuissonLigneCo;
 
     public LigneDeCommande() {
         commentSpec = new ArrayList<>();
-        typeCuisson = new ArrayList<>();
+        typeCuissonLigneCo = new ArrayList<>();
     }
 
     public LigneDeCommande(int qteCommande, float prixLigneDeCo) {
@@ -48,13 +48,15 @@ public class LigneDeCommande implements Serializable {
         this.prixLigneDeCo = prixLigneDeCo;
     }
 
-    public Collection<TypeCuisson> getTypeCuisson() {
-        return typeCuisson;
+    public Collection<TypeCuisson> getTypeCuissonLigneCo() {
+        return typeCuissonLigneCo;
     }
 
-    public void setTypeCuisson(Collection<TypeCuisson> typeCuisson) {
-        this.typeCuisson = typeCuisson;
+    public void setTypeCuissonLigneCo(Collection<TypeCuisson> typeCuissonLigneCo) {
+        this.typeCuissonLigneCo = typeCuissonLigneCo;
     }
+
+  
 
     public Collection<Specification> getCommentSpec() {
         return commentSpec;

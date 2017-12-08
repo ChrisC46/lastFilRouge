@@ -17,9 +17,9 @@ public class TypeCuisson implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String cuisson;
-    @ManyToMany(mappedBy = "typeCuisson")
+    @ManyToMany(mappedBy = "typeCuissonProduit")
     private Collection<Produit> produits;
-    @ManyToMany
+    @ManyToMany(mappedBy = "typeCuissonLigneCo")
     private Collection<LigneDeCommande>ligneDeCo;
 
     public TypeCuisson() {

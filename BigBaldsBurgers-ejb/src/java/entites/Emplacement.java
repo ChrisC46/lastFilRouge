@@ -26,12 +26,12 @@ public class Emplacement implements Serializable {
 
     
     @OneToMany(mappedBy = "numTable")
-    private Collection<Commande> commande;
+    private Collection<Commande> commandeEmplacement;
     @ManyToOne
     private Status dispoTable;
     
     public Emplacement() {
-        commande = new ArrayList();
+        commandeEmplacement = new ArrayList();
     }
 
     public Emplacement(String numero, int nbrePlaces) {
@@ -41,11 +41,11 @@ public class Emplacement implements Serializable {
     }
 
     public Collection<Commande> getCommande() {
-        return commande;
+        return commandeEmplacement;
     }
 
-    public void setCommande(Collection<Commande> commande) {
-        this.commande = commande;
+    public void setCommande(Collection<Commande> commandeEmplacement) {
+        this.commandeEmplacement = commandeEmplacement;
     }
 
     public Status getDispoTable() {
