@@ -1,5 +1,5 @@
 
-package traitement2;
+package traitement;
 
 import entites.Droits;
 import java.util.List;
