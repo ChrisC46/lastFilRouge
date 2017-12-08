@@ -36,16 +36,16 @@ public class Produit implements Serializable {
     @OneToMany(mappedBy = "produit")
     private Collection<LigneDeCommande> ligneDeCommandes;
     @ManyToMany
-    private Collection<TypeCuisson> typeCuisson;
+    private Collection<TypeCuisson> typeCuissonProduit;
     @ManyToMany
     private Collection<Formule> formules;
     @ManyToOne
-    private CategorieFormule categorieFormule;
+    private CategorieFormule categorieFormuleProduit;
 
     public Produit() {
         ingredients = new ArrayList();
         ligneDeCommandes = new ArrayList();
-        typeCuisson = new ArrayList();
+        typeCuissonProduit = new ArrayList();
         formules = new ArrayList();
     }
 
@@ -125,12 +125,12 @@ public class Produit implements Serializable {
         return prix;
     }
 
-    public Collection<TypeCuisson> getTypeCuisson() {
-        return typeCuisson;
+    public Collection<TypeCuisson> getTypeCuissonProduit() {
+        return typeCuissonProduit;
     }
 
-    public void setTypeCuisson(Collection<TypeCuisson> typeCuisson) {
-        this.typeCuisson = typeCuisson;
+    public void setTypeCuisson(Collection<TypeCuisson> typeCuissonProduit) {
+        this.typeCuissonProduit = typeCuissonProduit;
     }
 
     public void setPrix(float prix) {
@@ -170,11 +170,11 @@ public class Produit implements Serializable {
     }
 
     public CategorieFormule getCategorieFormule() {
-        return categorieFormule;
+        return categorieFormuleProduit;
     }
 
-    public void setCategorieFormule(CategorieFormule categorieFormule) {
-        this.categorieFormule = categorieFormule;
+    public void setCategorieFormule(CategorieFormule categorieFormuleProduit) {
+        this.categorieFormuleProduit = categorieFormuleProduit;
     }
     
     

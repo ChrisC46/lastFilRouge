@@ -29,7 +29,7 @@ public class Commande implements Serializable {
     private Emplacement numTable;
     @ManyToOne
     private Employe serveur;
-    @OneToMany(mappedBy = "commande")
+    @OneToMany(mappedBy = "commandes")
     private Collection<Paiement>payer;
     @ManyToOne
     private Status suiviCommande;
