@@ -6,6 +6,8 @@
 package controleurs;
 
 import entites.Formule;
+import entites.LigneDeCommande;
+import entites.LigneDeCommande_;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
@@ -37,15 +39,18 @@ public class FrontControlleur extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String section = request.getParameter("section");
         String consulter = request.getParameter("consulter");
+        String actionPanier = request.getParameter("panier");
         String nomJsp = "promotions.jsp";
         String url = "/WEB-INF/home.jsp";
-        
+
         request.setAttribute("lajsp", nomJsp);
-        
 
         if (section == null) {
 
         }
+
+        /* DEBUT LIEN POUR ACCUEIL - CHOIX CARTE */
+        /* --------------  NIVEAU 1 --------------   */
         if ("serveur".equals(section)) {
             url = "/WEB-INF/accueil.jsp";
         }
@@ -54,25 +59,43 @@ public class FrontControlleur extends HttpServlet {
             nomJsp = "nos-menus.jsp";
             request.setAttribute("lajsp", nomJsp);
 
-            /*
-             ArrayList<Formule> maListe = new ArrayList<>();
-             Formule f01 = new Formule("A", "menu A", 15f, "img");
-             Formule f02 = new Formule("B", "menu B", 30f, "img");
-             maListe.add(f01);
-             maListe.add(f02);
-             request.setAttribute("collection", maListe);
-             */
-            System.out.println("test");
         }
-        
-        if("offres".equals(consulter)){
+
+        if ("offres".equals(consulter)) {
             nomJsp = "promotions.jsp";
             request.setAttribute("lajsp", nomJsp);
         }
-        if("burgers".equals(consulter)){
-            nomJsp = "burger.jsp"
+        if ("burgers".equals(consulter)) {
+            nomJsp = "burgers.jsp";
+            request.setAttribute("lajsp", nomJsp);
+
+        }
+        if ("accompagnements".equals(consulter)) {
+            nomJsp = "accompagnements.jsp";
+            request.setAttribute("lajsp", nomJsp);
         }
 
+        if ("desserts".equals(consulter)) {
+            nomJsp = "desserts.jsp";
+            request.setAttribute("lajsp", nomJsp);
+        }
+        if ("boissons".equals(consulter)) {
+            nomJsp = "boissons.jsp";
+            request.setAttribute("lajsp", nomJsp);
+        }
+        
+        /* --------------  NIVEAU 2 --------------   */
+        if ("menu".equals(consulter)) {
+            nomJsp = "menu.jsp";
+            request.setAttribute("lajsp", nomJsp);
+
+        }
+
+        if ("add".equals(actionPanier)) {
+
+        }
+
+        /* Fin LIEN POUR ACCUEIL - CHOIX CARTE */
         url = response.encodeURL(url);
         request.getRequestDispatcher(url).include(request, response);
 

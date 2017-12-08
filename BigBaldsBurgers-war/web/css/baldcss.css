@@ -8,11 +8,56 @@ and open the template in the editor.
     Author     : cdi313
 */
 
-
+.separ{
+    clear: both;
+}
 ul {
     list-style-type: none;
+    padding:0px 0px 0px 0px;
 }
 li  {
     float:left;
     margin: 5px 5px 5px 5px;
+}
+
+h1 {
+    
+}
+.container {
+    width: 70%;
+    float:left;
+    border: 1px solid ;
+
+}
+.container h2{
+    margin: 1% 2% 2% 2%;
+}
+
+.detailsCommande {
+    width:10%;
+    float:right;
+}
+.test{
+    border: 1px solid ;
+}
+.menuBar {
+    display:block;
+    clear:both;
+    border: 1px solid ;
+}
+
+.produit-grid{
+    width: 15%;
+    margin: 0% 2% 2% 2%;
+    
+       border: 1px solid red;
+    float:left;
+}
+
+.produit {
+    
+}
+
+.separ {
+    clear:both;
 }
