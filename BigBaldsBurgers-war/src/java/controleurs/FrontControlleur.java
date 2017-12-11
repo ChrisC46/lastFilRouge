@@ -29,6 +29,7 @@ import javax.servlet.http.HttpSession;
 public class FrontControlleur extends HttpServlet {
      private HashMap<String, SousControleur> mp;
 
+     /*
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config); //To change body of generated methods, choose Tools | Templates.        
@@ -51,7 +52,7 @@ public class FrontControlleur extends HttpServlet {
             }
         }
     }
-
+*/
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -67,20 +68,22 @@ public class FrontControlleur extends HttpServlet {
         request.setAttribute("lajsp", nomJsp);
 
         if (section == null) {
+        }
 
         //String page = "/WEB-INF/home.jsp";
-
-
+        
+        /*
         if (section!= null && mp.containsKey(section)) {
             SousControleur sc = mp.get(section);
             url = sc.executer(request, response);
         }
-
+*/
 
         /* DEBUT LIEN POUR ACCUEIL - CHOIX CARTE */
         /* --------------  NIVEAU 1 --------------   */
         if ("serveur".equals(section)) {
             url = "/WEB-INF/accueil.jsp";
+            System.out.println("TEST");
         }
 
         if ("menus".equals(consulter)) {
@@ -139,7 +142,7 @@ public class FrontControlleur extends HttpServlet {
         url = response.encodeURL(url);
         request.getRequestDispatcher(url).include(request, response);
 
-    }}
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

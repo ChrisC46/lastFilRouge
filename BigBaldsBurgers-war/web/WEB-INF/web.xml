@@ -15,10 +15,12 @@
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
+    <!-- 
     <ejb-local-ref>
         <ejb-ref-name>JeuDeTest</ejb-ref-name>
         <ejb-ref-type>Session</ejb-ref-type>
         <local>traitement.JeuDeTestLocal</local>
-        <ejb-link>BigBaldsBurgers-ejbPU.jar#JeuDeTest</ejb-link>
+        <ejb-link>BigBaldsBurgers-ejbPU.jar#JeuDeTest</ejb-link> 
     </ejb-local-ref>
+    -->
 </web-app>
