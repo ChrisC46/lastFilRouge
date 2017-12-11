@@ -56,8 +56,23 @@ h1 {
 
 .produit {
     
+    
 }
 
 .separ {
     clear:both;
+}
+
+.prix{
+    text-align:right;
+}
+
+.menu-choix{
+    width:23%;
+    margin: 0% 5% 2% 5%;
+    float:left;
+}
+
+.menu-choix-input{
+    text-align: center;
 }

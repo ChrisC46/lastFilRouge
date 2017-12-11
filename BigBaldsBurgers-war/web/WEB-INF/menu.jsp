@@ -4,7 +4,8 @@
     <h2>Menu ${nomMenu}</h2>
     <h3 class="separ">Entrée</h3>
     <div class="menu-choix">
-        <p>BLALBLB </p>
+        <h4>Entrée 1</h4>
+        <p>lorem ipsum lorem ipsum lorem ipsum  </p>
         <div class="menu-choix-input">
             <input type="radio" id="entree1"name="entree" value="entree1">
         </div>
@@ -12,7 +13,8 @@
 
 
     <div class="menu-choix">
-        <p>lorem ipsum lorem ipsum lorem ipsum </p> a   
+        <h4>Entrée 2</h4>
+        <p>lorem ipsum lorem ipsum lorem ipsum </p>  
         <div class="menu-choix-input">
             <input type="radio" id="entree2" name="entree" value="entree2">
         </div>
@@ -20,13 +22,41 @@
         <!-- <label for="entree2">Entrée 2</label> -->
     </div>
     <div class="menu-choix">
+        <h4>Entrée 3</h4>
         <p>lorem ipsum lorem ipsum lorem ipsum </p>
         <div class="menu-choix-input">
-            <input type="radio" id="entree3" name="entree" value="entree3">
-            
+            <input type="radio" id="entree3" name="entree" value="entree3"> 
+        </div>
+    </div>
+    
+     <h3 class="separ">Plat</h3>
+    <div class="menu-choix">
+        <h4>Plat 1</h4>
+        <p>lorem ipsum lorem ipsum lorem ipsum  </p>
+        <div class="menu-choix-input">
+            <input type="radio" id="entree1"name="entree" value="entree1">
         </div>
     </div>
 
+
+    <div class="menu-choix">
+        <h4>Plat 2</h4>
+        <p>lorem ipsum lorem ipsum lorem ipsum </p>  
+        <div class="menu-choix-input">
+            <input type="radio" id="entree2" name="entree" value="entree2">
+        </div>
+
+        <!-- <label for="entree2">Entrée 2</label> -->
+    </div>
+    <div class="menu-choix">
+        <h4>Plat 3</h4>
+        <p>lorem ipsum lorem ipsum lorem ipsum </p>
+        <div class="menu-choix-input">
+            <input type="radio" id="entree3" name="entree" value="entree3"> 
+        </div>
+    </div>
+
+</div>
     <!--
     <ul>
         <li>Entrée 1 <input type="radio" value="plat1"/></li>
