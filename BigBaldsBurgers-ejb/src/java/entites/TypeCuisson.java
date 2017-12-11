@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class TypeCuisson implements Serializable {
@@ -19,7 +20,7 @@ public class TypeCuisson implements Serializable {
     private String cuisson;
     @ManyToMany(mappedBy = "typeCuissonProduit")
     private Collection<Produit> produits;
-    @ManyToMany(mappedBy = "typeCuissonLigneCo")
+    @OneToMany(mappedBy = "typeCuissonLigneCo")
     private Collection<LigneDeCommande>ligneDeCo;
 
     public TypeCuisson() {

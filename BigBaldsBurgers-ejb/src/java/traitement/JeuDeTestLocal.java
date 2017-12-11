@@ -14,6 +14,6 @@ import javax.ejb.Local;
 @Local
 public interface JeuDeTestLocal {
 
-    public void creerDonnees();
+    public  void creerDonnees();
     
 }

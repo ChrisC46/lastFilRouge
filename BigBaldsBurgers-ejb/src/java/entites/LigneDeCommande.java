@@ -17,7 +17,7 @@ import javax.persistence.OneToMany;
 public class LigneDeCommande implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int qteCommande;
     private float prixLigneDeCo;
@@ -34,12 +34,12 @@ public class LigneDeCommande implements Serializable {
     private Produit produit;
     @ManyToOne
     private Formule formule;
-    @ManyToMany
-    private Collection<TypeCuisson>typeCuissonLigneCo;
+    @ManyToOne
+    private TypeCuisson typeCuissonLigneCo;
 
     public LigneDeCommande() {
         commentSpec = new ArrayList<>();
-        typeCuissonLigneCo = new ArrayList<>();
+        
     }
 
     public LigneDeCommande(int qteCommande, float prixLigneDeCo) {
@@ -48,13 +48,16 @@ public class LigneDeCommande implements Serializable {
         this.prixLigneDeCo = prixLigneDeCo;
     }
 
-    public Collection<TypeCuisson> getTypeCuissonLigneCo() {
+    public TypeCuisson getTypeCuissonLigneCo() {
         return typeCuissonLigneCo;
     }
 
-    public void setTypeCuissonLigneCo(Collection<TypeCuisson> typeCuissonLigneCo) {
+    public void setTypeCuissonLigneCo(TypeCuisson typeCuissonLigneCo) {
         this.typeCuissonLigneCo = typeCuissonLigneCo;
     }
+
+  
+  
 
   
 

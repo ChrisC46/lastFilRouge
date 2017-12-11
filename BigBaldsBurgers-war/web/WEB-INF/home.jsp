@@ -13,9 +13,9 @@
             <p> ici interface serveur/cuisinier/resp caisse </p>
             <nav>
                 <ul>
-                    <c:url value="FrontControlleur?section=serveur" var="url01" />
+                    <c:url value="FrontControleur?section=serveur" var="url01" />
                     <li><a href="${url01}">Serveur</a></li>
-                    <c:url value="FrontControlleur?section=creerJeuDeTest" var="url02" />
+                    <c:url value="FrontControleur?section=creerJeuDeTest" var="url02" />
                     <li><a href="${url02}">creerJeuDeTest</a></li>
                     <li>Cuisinier</li>
                     <li>Caisse</li>

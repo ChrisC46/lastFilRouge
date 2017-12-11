@@ -4,31 +4,31 @@
 <div class="produit-grid">
     <h3>Menu A</h3>
     <p class="prix"><strong>15€ </strong></p>
-    <c:url value="FrontControlleur?section=serveur&&consulter=menu" var="url01" />
+    <c:url value="FrontControleur?section=serveur&&consulter=menu" var="url01" />
     <p><a href="${url01}">Click!</a></p>
 </div>
 <div class="produit-grid">
     <h3>Menu B</h3>
     <p class="prix"><strong>15€ </strong></p>
-    <c:url value="FrontControlleur?section=serveur&&consulter=menu" var="url01" />
+    <c:url value="FrontControleur?section=serveur&&consulter=menu" var="url01" />
     <p><a href="${url01}">Click!</a></p>
 </div>
 <div class="produit-grid">
     <h3>Menu C</h3>
     <p class="prix"><strong>15€ </strong></p>
-    <c:url value="FrontControlleur?section=serveur&&consulter=menu" var="url01" />
+    <c:url value="FrontControleur?section=serveur&&consulter=menu" var="url01" />
     <p><a href="${url01}">Click!</a></p>
 </div>
 <div class="produit-grid">
     <h3>Menu D</h3>
-    <c:url value="FrontControlleur?section=serveur&&consulter=menu" var="url01" />
+    <c:url value="FrontControleur?section=serveur&&consulter=menu" var="url01" />
         <p class="prix"><strong>15€ </strong></p>
     <p><a href="${url01}">Click!</a></p>
 </div>
 <div class="produit-grid">
     <h3>Menu F</h3>
     <p class="prix"><strong>15€ </strong></p>
-    <c:url value="FrontControlleur?section=serveur&&consulter=menu" var="url01" />
+    <c:url value="FrontControleur?section=serveur&&consulter=menu" var="url01" />
      
     <p><a href="${url01}">Click!</a></p>
 </div>
@@ -39,7 +39,7 @@
         <p>${p.nom}</p>
         <p>${p.description}</p>
         <p class="prix"><strong> ${p.prix}</strong></p>
-                <c:url value="FrontControlleur?section=serveur&&consulter=menu" var="url01" />
+                <c:url value="FrontControleur?section=serveur&&consulter=menu" var="url01" />
         <p><a href="${url01}">Click!</a></p>
     </div>
 </c:forEach>
