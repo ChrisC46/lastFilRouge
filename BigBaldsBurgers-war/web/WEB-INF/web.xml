@@ -4,8 +4,8 @@
         <servlet-name>FrontControleur</servlet-name>
         <servlet-class>controleurs.FrontControleur</servlet-class>
         <init-param>
-            <param-name>creerJeuxDeTest</param-name>
-            <param-value>controleurs.secondaires.DonneesCreateCtrl</param-value>
+            <param-name>creerJeuDeTest</param-name>
+            <param-value>controleurs.secondaire.DonneesCreateCtrl</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>
@@ -15,4 +15,10 @@
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
+    <ejb-local-ref>
+        <ejb-ref-name>JeuDeTest</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>traitement.JeuDeTestLocal</local>
+        <ejb-link>BigBaldsBurgers-ejb.jar#JeuDeTest</ejb-link>
+    </ejb-local-ref>
 </web-app>

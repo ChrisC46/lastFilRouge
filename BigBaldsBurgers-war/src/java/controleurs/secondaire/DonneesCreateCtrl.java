@@ -34,7 +34,7 @@ public class DonneesCreateCtrl implements Serializable, SousControleur{
    private JeuDeTestLocal lookupJeuDeTestLocal() {
        try {
            Context c = new InitialContext();
-           return (JeuDeTestLocal) c.lookup("java:global/BigBaldsBurgers-ejbPU/BigBaldsBurgers-ejbPU-ejb/JeuDeTest!traitement.JeuDeTestLocal");
+           return (JeuDeTestLocal) c.lookup("java:global/BigBaldsBurgers/BigBaldsBurgers-ejb/JeuDeTest!traitement.JeuDeTestLocal");
        } catch (NamingException ne) {
            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
            throw new RuntimeException(ne);
