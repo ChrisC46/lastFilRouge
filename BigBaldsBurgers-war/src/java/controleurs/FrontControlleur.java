@@ -13,6 +13,7 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,6 +23,9 @@ import javax.servlet.http.HttpSession;
  *
  * @author Tofi
  */
+
+
+@WebServlet(name = "FrontControlleur", urlPatterns = {"/FrontControlleur"})
 public class FrontControlleur extends HttpServlet {
      private HashMap<String, SousControleur> mp;
 
@@ -64,12 +68,12 @@ public class FrontControlleur extends HttpServlet {
 
         if (section == null) {
 
-        String page = "/WEB-INF/home.jsp";
+        //String page = "/WEB-INF/home.jsp";
 
 
         if (section!= null && mp.containsKey(section)) {
             SousControleur sc = mp.get(section);
-            page = sc.executer(request, response);
+            url = sc.executer(request, response);
         }
 
 
@@ -121,7 +125,7 @@ public class FrontControlleur extends HttpServlet {
         
         if ("creerJeuDeTest".equals(section)){
             try {
-                jeuDeTest.creerDonnees();
+                //jeuDeTest.creerDonnees();
                 request.setAttribute("dClasse", "info");
                 request.setAttribute("msg", "données créées !");
             } catch (Exception ex){
@@ -146,21 +150,24 @@ public class FrontControlleur extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Override
+    
+    
+ @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-
- 
-        page = response.encodeURL(page);
-        //System.out.println(">>>>>>>>>>>>> page = "+page);
-        Boolean ok = (Boolean) request.getAttribute("redirect");
-        if(ok != null && ok){
-            response.sendRedirect(page);
-        }else{
-            getServletContext().getRequestDispatcher(page).include(request, response);
-        }
-
     }
 
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
 }
+
