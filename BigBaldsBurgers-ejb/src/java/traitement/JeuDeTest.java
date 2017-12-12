@@ -88,7 +88,11 @@ public class JeuDeTest implements JeuDeTestLocal {
         
         
         CategorieFormule carteFormule = new CategorieFormule("Les menus des BigBalds");
+        CategorieFormule carteResto = new CategorieFormule("La carte des BigBalds");
         em.persist(carteFormule);
+        em.persist(carteResto);
+        carteFormule.setCarte(nomCarte);
+        carteResto.setCarte(nomCarte);
         
         Date promoStart = new GregorianCalendar(2017, 11, 11, 10, 00).getTime();
         Date promoEnd = new GregorianCalendar(2018, 0, 14, 23, 59).getTime();
