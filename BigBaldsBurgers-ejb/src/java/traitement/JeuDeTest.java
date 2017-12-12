@@ -5,12 +5,25 @@
  */
 package traitement;
 
+import entites.BigBaldsBurgers;
+import entites.Carte;
+import entites.CategorieFormule;
+import entites.CategorieProduit;
 import entites.Droits;
+import entites.Emplacement;
 import entites.Employe;
 import entites.FamilleIngredient;
 import entites.Ingredients;
 import entites.Produit;
+import entites.Promotion;
 import entites.Propriete;
+import entites.Specification;
+import entites.Status;
+import entites.Tva;
+import entites.TypeCuisson;
+import entites.TypeDePaiement;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -53,6 +66,87 @@ public class JeuDeTest implements JeuDeTestLocal {
         Ingredients sauceCeasar = new Ingredients("sauce caesar");
         Ingredients mozarella = new Ingredients("mozzarella");
         
+        Date today = new GregorianCalendar(2017, 11, 11).getTime();
+        Tva tvaAlcool = new Tva("tvaAlcool", 20.00F, today);
+        Tva tvaCarte = new Tva("tvaCarte", 10.00F, today);
+        Tva tvaFormule = new Tva("tvaFormule", 10.00F, today);
+        em.persist(tvaAlcool);
+        em.persist(tvaCarte);
+        em.persist(tvaFormule);
+        
+        TypeCuisson bleu = new TypeCuisson("Bleu");
+        TypeCuisson saignant = new TypeCuisson("Saignant");
+        TypeCuisson aPoint = new TypeCuisson("A point");
+        TypeCuisson bienCuit = new TypeCuisson("Bien cuit");
+        TypeCuisson roseVolailles = new TypeCuisson("Rose");
+        em.persist(bleu);
+        em.persist(saignant);
+        em.persist(aPoint);
+        em.persist(bienCuit);
+        em.persist(roseVolailles);
+        
+        Carte nomCarte = new Carte("BigBaldsBurgers");
+        em.persist(nomCarte);
+        
+        CategorieFormule carteFormule = new CategorieFormule("Les menus des BigBalds");
+        em.persist(carteFormule);
+        
+        Date promoStart = new GregorianCalendar(2017, 11, 11, 10, 00).getTime();
+        Date promoEnd = new GregorianCalendar(2018, 0, 14, 23, 59).getTime();
+        Promotion promo = new Promotion(10.00F, promoStart, promoEnd);
+        em.persist(promo);
+        
+        CategorieProduit cuisine = new CategorieProduit("cuisine");
+        CategorieProduit bar = new CategorieProduit("bar");
+        em.persist(cuisine);
+        em.persist(bar);
+        
+        TypeDePaiement cb = new TypeDePaiement("CB");
+        TypeDePaiement cheque = new TypeDePaiement("cheque");
+        TypeDePaiement especes = new TypeDePaiement("especes");
+        TypeDePaiement ticketResto = new TypeDePaiement("ticket resto");
+        em.persist(cb);
+        em.persist(cheque);
+        em.persist(especes);
+        em.persist(ticketResto);
+        
+        
+        
+        Status staTransmis = new Status("commande transmise", "Votre commande est transmise à la cuisine, un instant de patience :-)");
+        Status staEnPrepa = new Status("commande en preparation", "Le chef accepte votre challenge, il active sa team");
+        Status staPret = new Status("commande prete", "Challenge réussi ! Votre commande est prête");
+        Status staSelect = new Status("selection en cours", "Faite vos jeux ! A tous les coups on se regale");
+        Status staTableDispo = new Status("table disponible");
+        Status staTablePasDispo = new Status("table non disponible");
+        Status staTableClean = new Status("table à debarasser");
+        em.persist(staEnPrepa);
+        em.persist(staPret);
+        em.persist(staSelect);
+        em.persist(staTableClean);
+        em.persist(staTableDispo);
+        em.persist(staTablePasDispo);
+        em.persist(staTransmis);
+        
+        Emplacement table01 = new Emplacement("01", 4);
+        Emplacement table02 = new Emplacement("02", 2);
+        Emplacement table03 = new Emplacement("03", 6);
+        Emplacement table04 = new Emplacement("04", 4);
+        Emplacement table05 = new Emplacement("05", 8);
+        em.persist(table01);
+        em.persist(table02);
+        em.persist(table03);
+        em.persist(table04);
+        em.persist(table05);
+        
+        BigBaldsBurgers bbg = new BigBaldsBurgers("BigBaldsBurgers","1 rue de la soif 75008 PARIS", "0172607631", "bigbaldsburgers@bbg.fr","12345678900043", "www.bigbaldsburgers.com", "X");
+        em.persist(bbg);
+        
+        Specification ketchup = new Specification("ketchup");
+        Specification sansSel = new Specification("sans sel");
+        Specification mayo = new Specification("mayonnaise");
+        em.persist(ketchup);
+        em.persist(sansSel);
+        em.persist(mayo);
         
 
         Droits d01 = new Droits("serveur");
