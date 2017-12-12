@@ -13,6 +13,7 @@ import entites.Droits;
 import entites.Emplacement;
 import entites.Employe;
 import entites.FamilleIngredient;
+import entites.Formule;
 import entites.Ingredients;
 import entites.Produit;
 import entites.Promotion;
@@ -318,6 +319,50 @@ public class JeuDeTest implements JeuDeTestLocal {
         
         
         
-
+        
+        Formule formule1 = new Formule("StartBaldMeal", "Entrée + burger + boisson(33cl) au choix", 12.99f, null);
+        Formule formule2 = new Formule("EndtBaldMeal", "Burger + désert + boisson(33cl) au choix", 13.99f, null);
+        Formule formule3 = new Formule("FullBaldMeal", "Entrée + burger + désert + boisson(33cl) au choix", 15.99f, null);
+        em.persist(formule1);
+        em.persist(formule2);
+        em.persist(formule3);
+        
+        formule1.setCategorieFormule(carteFormule);
+        formule2.setCategorieFormule(carteFormule);
+        formule3.setCategorieFormule(carteFormule);
+ 
+        onionRings.getFormules().add(formule1);
+        onionRings.getFormules().add(formule3);
+        mozzaStick.getFormules().add(formule1);
+        mozzaStick.getFormules().add(formule3);
+        brownie.getFormules().add(formule2);
+        brownie.getFormules().add(formule3);
+        mousseAuChocolat.getFormules().add(formule2);
+        mousseAuChocolat.getFormules().add(formule3);
+        leBigBald.getFormules().add(formule1);
+        leBigBald.getFormules().add(formule2);
+        leBigBald.getFormules().add(formule3);
+        leChrisBurger.getFormules().add(formule1);
+        leChrisBurger.getFormules().add(formule2);
+        leChrisBurger.getFormules().add(formule3);
+        leVeganBald.getFormules().add(formule1);
+        leVeganBald.getFormules().add(formule2);
+        leVeganBald.getFormules().add(formule3);
+        leCheeseBald.getFormules().add(formule1);
+        leCheeseBald.getFormules().add(formule2);
+        leCheeseBald.getFormules().add(formule3);
+        cocaCola33.getFormules().add(formule1);
+        cocaCola33.getFormules().add(formule2);
+        cocaCola33.getFormules().add(formule3);
+        cocaColaL33.getFormules().add(formule1);
+        cocaColaL33.getFormules().add(formule2);
+        cocaColaL33.getFormules().add(formule3);
+        orangeJuice33.getFormules().add(formule1);
+        orangeJuice33.getFormules().add(formule2);
+        orangeJuice33.getFormules().add(formule3);
+        iceTea33.getFormules().add(formule1);
+        iceTea33.getFormules().add(formule2);
+        iceTea33.getFormules().add(formule3);
+ 
     }
 }
