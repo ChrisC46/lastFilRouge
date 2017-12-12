@@ -24,7 +24,7 @@ public class Propriete implements Serializable {
     private String valeur;
     @Column(nullable = false)
     private String unite;
-    @ManyToMany(mappedBy = "propriete")
+    @ManyToMany(mappedBy = "proprietes")
     private Collection<Produit> produits;
 
     public Propriete() {
