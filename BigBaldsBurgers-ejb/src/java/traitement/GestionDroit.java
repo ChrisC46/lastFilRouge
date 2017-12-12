@@ -5,7 +5,6 @@
  */
 package traitement;
 
-import entites.Droits;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,10 +18,5 @@ public class GestionDroit implements GestionDroitLocal {
 
     @PersistenceContext(unitName = "BigBaldsBurgers-ejbPU")
     private EntityManager em;
-    
-    public Droits creerDroit(){
-        
-        return null;
-    }
    
 }

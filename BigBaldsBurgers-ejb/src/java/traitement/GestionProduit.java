@@ -5,7 +5,6 @@
  */
 package traitement;
 
-import entites.Produit;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -20,9 +19,6 @@ public class GestionProduit implements GestionProduitLocal {
     @PersistenceContext(unitName = "BigBaldsBurgers-ejbPU")
     private EntityManager em;
     
-    public boolean verifDispo(String nom){
-        
-        
-        return true;
-    }
+    
+    
 }
