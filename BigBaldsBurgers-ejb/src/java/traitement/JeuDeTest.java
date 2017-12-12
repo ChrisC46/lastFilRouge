@@ -85,6 +85,8 @@ public class JeuDeTest implements JeuDeTestLocal {
         Carte nomCarte = new Carte("BigBaldsBurgers");
         em.persist(nomCarte);
         
+        
+        
         CategorieFormule carteFormule = new CategorieFormule("Les menus des BigBalds");
         em.persist(carteFormule);
         
