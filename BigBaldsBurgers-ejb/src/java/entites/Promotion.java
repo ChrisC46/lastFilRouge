@@ -23,9 +23,9 @@ public class Promotion implements Serializable {
     private Long id;
     @Column(nullable = false)
     private float remise;
-    @Temporal(TemporalType.TIME)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dateDebutPromo;
-    @Temporal(TemporalType.TIME)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dateFinPromo;
     @ManyToMany(mappedBy = "promotions")
     private Collection<CategorieFormule> categorieFormule;

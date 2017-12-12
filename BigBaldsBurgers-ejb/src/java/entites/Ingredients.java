@@ -29,8 +29,6 @@ public class Ingredients implements Serializable {
     private Long id;
     @Column(nullable = false)
     private String nom;
-    @Column(nullable = false)
-    private int prix;
     private String origine;
     @ManyToOne
     private Disponibilite disponibilite;
@@ -53,7 +51,6 @@ public class Ingredients implements Serializable {
     public Ingredients(String nom, int prix, String origine) {
         this();
         this.nom = nom;
-        this.prix = prix;
         this.origine = origine;
     }
 
@@ -63,14 +60,6 @@ public class Ingredients implements Serializable {
 
     public void setNomIngredient(String nom) {
         this.nom = nom;
-    }
-
-    public int getPrix() {
-        return prix;
-    }
-
-    public void setPrix(int prix) {
-        this.prix = prix;
     }
 
     public String getOrigine() {
