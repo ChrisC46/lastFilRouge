@@ -28,7 +28,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-
 @Stateless
 public class JeuDeTest implements JeuDeTestLocal {
 
@@ -62,7 +61,7 @@ public class JeuDeTest implements JeuDeTestLocal {
         Ingredients sauceGorgon = new Ingredients("sauce gorgonzola");
         Ingredients sauceCeasar = new Ingredients("sauce caesar");
         Ingredients mozarella = new Ingredients("mozzarella");
-        
+
         Date today = new GregorianCalendar(2017, 11, 11).getTime();
         Tva tvaAlcool = new Tva("tvaAlcool", 20.00F, today);
         Tva tvaCarte = new Tva("tvaCarte", 10.00F, today);
@@ -70,7 +69,7 @@ public class JeuDeTest implements JeuDeTestLocal {
         em.persist(tvaAlcool);
         em.persist(tvaCarte);
         em.persist(tvaFormule);
-        
+
         TypeCuisson bleu = new TypeCuisson("Bleu");
         TypeCuisson saignant = new TypeCuisson("Saignant");
         TypeCuisson aPoint = new TypeCuisson("A point");
@@ -81,25 +80,23 @@ public class JeuDeTest implements JeuDeTestLocal {
         em.persist(aPoint);
         em.persist(bienCuit);
         em.persist(roseVolailles);
-        
+
         Carte nomCarte = new Carte("BigBaldsBurgers");
         em.persist(nomCarte);
-        
-        
-        
+
         CategorieFormule carteFormule = new CategorieFormule("Les menus des BigBalds");
         em.persist(carteFormule);
-        
+
         Date promoStart = new GregorianCalendar(2017, 11, 11, 10, 00).getTime();
         Date promoEnd = new GregorianCalendar(2018, 0, 14, 23, 59).getTime();
         Promotion promo = new Promotion(10.00F, promoStart, promoEnd);
         em.persist(promo);
-        
+
         CategorieProduit cuisine = new CategorieProduit("cuisine");
         CategorieProduit bar = new CategorieProduit("bar");
         em.persist(cuisine);
         em.persist(bar);
-        
+
         TypeDePaiement cb = new TypeDePaiement("CB");
         TypeDePaiement cheque = new TypeDePaiement("cheque");
         TypeDePaiement especes = new TypeDePaiement("especes");
@@ -108,9 +105,7 @@ public class JeuDeTest implements JeuDeTestLocal {
         em.persist(cheque);
         em.persist(especes);
         em.persist(ticketResto);
-        
-        
-        
+
         Status staTransmis = new Status("commande transmise", "Votre commande est transmise à la cuisine, un instant de patience :-)");
         Status staEnPrepa = new Status("commande en preparation", "Le chef accepte votre challenge, il active sa team");
         Status staPret = new Status("commande prete", "Challenge réussi ! Votre commande est prête");
@@ -125,7 +120,7 @@ public class JeuDeTest implements JeuDeTestLocal {
         em.persist(staTableDispo);
         em.persist(staTablePasDispo);
         em.persist(staTransmis);
-        
+
         Emplacement table01 = new Emplacement("01", 4);
         Emplacement table02 = new Emplacement("02", 2);
         Emplacement table03 = new Emplacement("03", 6);
@@ -136,17 +131,16 @@ public class JeuDeTest implements JeuDeTestLocal {
         em.persist(table03);
         em.persist(table04);
         em.persist(table05);
-        
-        BigBaldsBurgers bbg = new BigBaldsBurgers("BigBaldsBurgers","1 rue de la soif 75008 PARIS", "0172607631", "bigbaldsburgers@bbg.fr","12345678900043", "www.bigbaldsburgers.com", "X");
+
+        BigBaldsBurgers bbg = new BigBaldsBurgers("BigBaldsBurgers", "1 rue de la soif 75008 PARIS", "0172607631", "bigbaldsburgers@bbg.fr", "12345678900043", "www.bigbaldsburgers.com", "X");
         em.persist(bbg);
-        
+
         Specification ketchup = new Specification("ketchup");
         Specification sansSel = new Specification("sans sel");
         Specification mayo = new Specification("mayonnaise");
         em.persist(ketchup);
         em.persist(sansSel);
         em.persist(mayo);
-        
 
         Droits d01 = new Droits("serveur");
         Droits d02 = new Droits("cuisinier");
@@ -155,7 +149,7 @@ public class JeuDeTest implements JeuDeTestLocal {
         em.persist(d02);
         em.persist(d03);
         em.flush();
-        
+
         Employe e01 = new Employe(001, "Ney", "Mar", "0606060606", "neymar@gmail.com", "neymar");
         Employe e02 = new Employe(002, "Cav", "Ani", "0606060607", "cavani@gmail.com", "cavani");
         Employe e03 = new Employe(003, "Mba", "ppé", "0606060608", "mbappe@gmail.com", "mbappe");
@@ -163,7 +157,7 @@ public class JeuDeTest implements JeuDeTestLocal {
         em.persist(e02);
         em.persist(e03);
         em.flush();
-        
+
         laitue.setFamilleIngredient(legumes);
         tomate.setFamilleIngredient(legumes);
         frites.setFamilleIngredient(legumes);
@@ -205,33 +199,31 @@ public class JeuDeTest implements JeuDeTestLocal {
         em.persist(sauceBalds);
         em.persist(sauceCeasar);
         em.persist(sauceGorgon);
-            
-        
-        Produit cocaCola33 = new Produit("Coca-Cola(33cl)", 2 , null, "boisson sucrée sans sucre.");
-        Produit cocaCola50 = new Produit("Coca-Cola(50cl)", 2.5f , null, "boisson sucrée sans sucre.");
-        Produit cocaColaL33 = new Produit("Coca-Cola light(33cl)", 2 , null, "boisson sans sucre gout sucré.");
-        Produit cocaColaL50 = new Produit("Coca-Cola light(50cl)", 2.5f , null, "boisson sans sucre gout sucré.");
-        Produit orangeJuice33 = new Produit("OrangeJuice(33cl)", 2 , null, "Fait d'orange de sibérie.");
-        Produit orangeJuice50 = new Produit("OrangeJuice(33cl)", 2.5f , null, "Fait d'orange de sibérie.");
-        Produit iceTea33 = new Produit("IceTea(33cl)", 2 , null, "Boisson Froide mais pas trop chaude.");
-        Produit iceTea50 = new Produit("IceTea(50cl)", 2.5f , null, "Boisson Froide mais pas trop chaude.");
-        Produit coors33 = new Produit("Coors(33cl)", 2.5f , null, "Pour mieux faire la course. l'abus de Coors est dangereux pour faire les courses.");
-        Produit coors50 = new Produit("Coors(50cl)", 3.5f , null, "Pour mieux faire la course. l'abus de Coors est dangereux pour faire les courses.");
-        Produit despe33 = new Produit("Desperados(33cl)", 2.5f , null, "un mexicain se cache à l'interieur de cette boisson.");
-        Produit despe50 = new Produit("Desperados(50cl)", 3.5f , null, "un mexicain se cache à l'interieur de cette boisson.");
-        Produit frite = new Produit("Frites", 2.5f , null, "frite fraiches maison.");
-        Produit patatoes = new Produit("Patatoes", 2.5f , null, "Patatoes fraiches maison.");
-        Produit saladeDeChauve = new Produit("Salade de Chauves", 2.5f , null, "Salade composé, recette secrete du chef.");
-        Produit onionRings = new Produit("Onion Rings", 2f , null, "Onion fris dans notre huile de la veille.");
-        Produit mozzaStick = new Produit("Mozza Stick", 2f , null, "Batonnet de Mozart uniquement quand il est là.");
-        Produit brownie = new Produit("Brownie", 3 , null, "Brownie du chef fait avec son chocolat maison.");
-        Produit mousseAuChocolat = new Produit("Mousse au chocolat", 3 , null, "Mousse du chef fait avec son chocolat maison.");
-        Produit leBigBald = new Produit("Le Big Bald", 5.5f , null, "Notre Fameux Burger.");
-        Produit leChrisBurger = new Produit("Le Chris Burger", 7.5f , null, "Inspiré maitre christophe, pour les amoureux de la viande.");
-        Produit leVeganBald = new Produit("Le Vegan Bald", 6.5f , null, "Pour ceux qui ont qui ont rien compris à la vie et qui ne mangent pas de viande.");
-        Produit leCheeseBald = new Produit("Le Big Bald", 5.5f , null, "Si vous etes fan de fromage, ce burger est pour vous.");
-        
-        
+
+        Produit cocaCola33 = new Produit("Coca-Cola(33cl)", 2, null, "boisson sucrée sans sucre.");
+        Produit cocaCola50 = new Produit("Coca-Cola(50cl)", 2.5f, null, "boisson sucrée sans sucre.");
+        Produit cocaColaL33 = new Produit("Coca-Cola light(33cl)", 2, null, "boisson sans sucre gout sucré.");
+        Produit cocaColaL50 = new Produit("Coca-Cola light(50cl)", 2.5f, null, "boisson sans sucre gout sucré.");
+        Produit orangeJuice33 = new Produit("OrangeJuice(33cl)", 2, null, "Fait d'orange de sibérie.");
+        Produit orangeJuice50 = new Produit("OrangeJuice(33cl)", 2.5f, null, "Fait d'orange de sibérie.");
+        Produit iceTea33 = new Produit("IceTea(33cl)", 2, null, "Boisson Froide mais pas trop chaude.");
+        Produit iceTea50 = new Produit("IceTea(50cl)", 2.5f, null, "Boisson Froide mais pas trop chaude.");
+        Produit coors33 = new Produit("Coors(33cl)", 2.5f, null, "Pour mieux faire la course. l'abus de Coors est dangereux pour faire les courses.");
+        Produit coors50 = new Produit("Coors(50cl)", 3.5f, null, "Pour mieux faire la course. l'abus de Coors est dangereux pour faire les courses.");
+        Produit despe33 = new Produit("Desperados(33cl)", 2.5f, null, "un mexicain se cache à l'interieur de cette boisson.");
+        Produit despe50 = new Produit("Desperados(50cl)", 3.5f, null, "un mexicain se cache à l'interieur de cette boisson.");
+        Produit frite = new Produit("Frites", 2.5f, null, "frite fraiches maison.");
+        Produit patatoes = new Produit("Patatoes", 2.5f, null, "Patatoes fraiches maison.");
+        Produit saladeDeChauve = new Produit("Salade de Chauves", 2.5f, null, "Salade composé, recette secrete du chef.");
+        Produit onionRings = new Produit("Onion Rings", 2f, null, "Onion fris dans notre huile de la veille.");
+        Produit mozzaStick = new Produit("Mozza Stick", 2f, null, "Batonnet de Mozart uniquement quand il est là.");
+        Produit brownie = new Produit("Brownie", 3, null, "Brownie du chef fait avec son chocolat maison.");
+        Produit mousseAuChocolat = new Produit("Mousse au chocolat", 3, null, "Mousse du chef fait avec son chocolat maison.");
+        Produit leBigBald = new Produit("Le Big Bald", 5.5f, null, "Notre Fameux Burger.");
+        Produit leChrisBurger = new Produit("Le Chris Burger", 7.5f, null, "Inspiré maitre christophe, pour les amoureux de la viande.");
+        Produit leVeganBald = new Produit("Le Vegan Bald", 6.5f, null, "Pour ceux qui ont qui ont rien compris à la vie et qui ne mangent pas de viande.");
+        Produit leCheeseBald = new Produit("Le Big Bald", 5.5f, null, "Si vous etes fan de fromage, ce burger est pour vous.");
+
         em.persist(cocaCola33);
         em.persist(cocaCola50);
         em.persist(cocaColaL33);
@@ -255,14 +247,13 @@ public class JeuDeTest implements JeuDeTestLocal {
         em.persist(leChrisBurger);
         em.persist(leVeganBald);
         em.persist(leCheeseBald);
-        
-        
+
         Propriete boisson33P = new Propriete("Soda", "33cl", "Volume");
         Propriete boisson50P = new Propriete("Soda", "50cl", "Volume");
-        Propriete boissonA33P= new Propriete("Biere", "33cl", "Volume");
-        Propriete boissonA50P= new Propriete("Biere", "50cl", "Volume");
-        Propriete coorsP= new Propriete("Biere", "3.2%", "Pourcentage d'alcool");
-        Propriete despeP= new Propriete("Biere", "6.3%", "Pourcentage d'alcool");
+        Propriete boissonA33P = new Propriete("Biere", "33cl", "Volume");
+        Propriete boissonA50P = new Propriete("Biere", "50cl", "Volume");
+        Propriete coorsP = new Propriete("Biere", "3.2%", "Pourcentage d'alcool");
+        Propriete despeP = new Propriete("Biere", "6.3%", "Pourcentage d'alcool");
         Propriete friteP = new Propriete("Accompagnement", "300", "calories");
         Propriete patatoesP = new Propriete("Accompagnement", "300", "calories");
         Propriete saladeP = new Propriete("Accompagnement", "152", "calories");
@@ -274,7 +265,7 @@ public class JeuDeTest implements JeuDeTestLocal {
         Propriete leChrisBurgerP = new Propriete("Burger", "1320", "calories");
         Propriete leVeganBaldP = new Propriete("Burger", "965", "calories");
         Propriete leCheeseBaldP = new Propriete("Burger", "9453", "calories");
-        
+
         em.persist(boisson33P);
         em.persist(boisson50P);
         em.persist(boissonA33P);
@@ -292,8 +283,37 @@ public class JeuDeTest implements JeuDeTestLocal {
         em.persist(leChrisBurgerP);
         em.persist(leVeganBaldP);
         em.persist(leCheeseBaldP);
+
+        cocaCola33.getProprietes().add(boisson33P);
+        cocaCola50.getProprietes().add(boisson50P);
+        cocaColaL33.getProprietes().add(boisson33P);
+        cocaColaL50.getProprietes().add(boisson50P);
+        orangeJuice33.getProprietes().add(boisson33P);
+        orangeJuice50.getProprietes().add(boisson50P);
+        iceTea33.getProprietes().add(boisson33P);
+        iceTea50.getProprietes().add(boisson50P);
+        coors33.getProprietes().add(boisson33P);
+        coors50.getProprietes().add(boisson50P);
+        despe33.getProprietes().add(boisson33P);
+        despe50.getProprietes().add(boisson50P);
+        coors33.getProprietes().add(boissonA33P);
+        coors50.getProprietes().add(boissonA50P);
+        despe33.getProprietes().add(boissonA33P);
+        despe50.getProprietes().add(boissonA50P);
+        frite.getProprietes().add(friteP);
+        patatoes.getProprietes().add(patatoesP);
+        saladeDeChauve.getProprietes().add(saladeP);
+        mozzaStick.getProprietes().add(mozzaStickP);
+        onionRings.getProprietes().add(onionRigsP);
+        mousseAuChocolat.getProprietes().add(mousseAuChocolatP);
+        brownie.getProprietes().add(brownieP);
+        leBigBald.getProprietes().add(leBigBaldP);
+        leCheeseBald.getProprietes().add(leCheeseBaldP);
+        leChrisBurger.getProprietes().add(leChrisBurgerP);
+        leVeganBald.getProprietes().add(leVeganBaldP);
         
         
         
+
     }
 }
