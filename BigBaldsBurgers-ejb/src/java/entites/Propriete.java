@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 
 
 @Entity
@@ -24,7 +24,7 @@ public class Propriete implements Serializable {
     private String valeur;
     @Column(nullable = false)
     private String unite;
-    @OneToMany(mappedBy = "propriete")
+    @ManyToMany(mappedBy = "propriete")
     private Collection<Produit> produits;
 
     public Propriete() {

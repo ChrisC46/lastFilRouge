@@ -27,8 +27,8 @@ public class Produit implements Serializable {
     private String description;
     @ManyToMany
     private Collection<Ingredients> ingredients;
-    @ManyToOne
-    private Propriete propriete;
+    @ManyToMany
+    private Collection<Propriete> proprietes;
     @ManyToOne
     private Tva tva;
     @ManyToOne
@@ -47,6 +47,7 @@ public class Produit implements Serializable {
         ligneDeCommandes = new ArrayList();
         typeCuissonProduit = new ArrayList();
         formules = new ArrayList();
+        proprietes = new ArrayList();
     }
 
     public Produit(String nom, float prix, String image, String description) {
@@ -89,14 +90,24 @@ public class Produit implements Serializable {
         this.description = description;
     }
 
-    public Propriete getPropriete() {
-        return propriete;
+    public Collection<Propriete> getProprietes() {
+        return proprietes;
     }
 
-    public void setPropriete(Propriete propriete) {
-        this.propriete = propriete;
+    public void setProprietes(Collection<Propriete> proprietes) {
+        this.proprietes = proprietes;
     }
 
+    public CategorieFormule getCategorieFormuleProduit() {
+        return categorieFormuleProduit;
+    }
+
+    public void setCategorieFormuleProduit(CategorieFormule categorieFormuleProduit) {
+        this.categorieFormuleProduit = categorieFormuleProduit;
+    }
+
+   
+ 
     public CategorieProduit getCategorieProduit() {
         return categorieProduit;
     }
