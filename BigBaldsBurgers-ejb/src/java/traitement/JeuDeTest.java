@@ -62,6 +62,7 @@ public class JeuDeTest implements JeuDeTestLocal {
         Ingredients sauceGorgon = new Ingredients("sauce gorgonzola");
         Ingredients sauceCeasar = new Ingredients("sauce caesar");
         Ingredients mozarella = new Ingredients("mozzarella");
+        Ingredients bunBurger = new Ingredients ("Bunn Burger");
 
         Date today = new GregorianCalendar(2017, 11, 11).getTime();
         Tva tvaAlcool = new Tva("tvaAlcool", 20.00F, today);
@@ -204,6 +205,7 @@ public class JeuDeTest implements JeuDeTestLocal {
         em.persist(sauceBalds);
         em.persist(sauceCeasar);
         em.persist(sauceGorgon);
+        em.persist(bunBurger);
 
         Produit cocaCola33 = new Produit("Coca-Cola(33cl)", 2, null, "boisson sucrée sans sucre.");
         Produit cocaCola50 = new Produit("Coca-Cola(50cl)", 2.5f, null, "boisson sucrée sans sucre.");
@@ -252,6 +254,43 @@ public class JeuDeTest implements JeuDeTestLocal {
         em.persist(leChrisBurger);
         em.persist(leVeganBald);
         em.persist(leCheeseBald);
+        
+        leBigBald.getIngredients().add(oeuf);
+        leBigBald.getIngredients().add(steackHC);
+        leBigBald.getIngredients().add(steackHC);
+        leBigBald.getIngredients().add(tomate);
+        leBigBald.getIngredients().add(laitue);
+        leBigBald.getIngredients().add(cheddar);
+        leBigBald.getIngredients().add(pickles);
+        leBigBald.getIngredients().add(sauceBalds);
+        leBigBald.getIngredients().add(bunBurger);
+        
+        leChrisBurger.getIngredients().add(steackHC);
+        leChrisBurger.getIngredients().add(mozarella);
+        leChrisBurger.getIngredients().add(bacon);
+        leChrisBurger.getIngredients().add(bacon);
+        leChrisBurger.getIngredients().add(sauceGorgon);
+        leChrisBurger.getIngredients().add(oignonCara);
+        leChrisBurger.getIngredients().add(bunBurger);
+        
+        leVeganBald.getIngredients().add(laitue);
+        leVeganBald.getIngredients().add(tomate);
+        leVeganBald.getIngredients().add(sauceCeasar);
+        leVeganBald.getIngredients().add(cornichon);
+        leVeganBald.getIngredients().add(oignonCara);
+        leVeganBald.getIngredients().add(bunBurger);
+        
+        leCheeseBald.getIngredients().add(steackHC);
+        leCheeseBald.getIngredients().add(mozarella);
+        leCheeseBald.getIngredients().add(sauceGorgon);
+        leCheeseBald.getIngredients().add(cheddar);
+        leCheeseBald.getIngredients().add(oeuf);
+        leCheeseBald.getIngredients().add(pickles);
+        leCheeseBald.getIngredients().add(bunBurger);
+        
+        
+        
+        
 
         Propriete boisson33P = new Propriete("Soda", "33cl", "Volume");
         Propriete boisson50P = new Propriete("Soda", "50cl", "Volume");
@@ -316,6 +355,8 @@ public class JeuDeTest implements JeuDeTestLocal {
         leCheeseBald.getProprietes().add(leCheeseBaldP);
         leChrisBurger.getProprietes().add(leChrisBurgerP);
         leVeganBald.getProprietes().add(leVeganBaldP);
+        
+        
         
         
         
