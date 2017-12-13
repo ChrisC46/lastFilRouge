@@ -9,7 +9,6 @@ import entites.BigBaldsBurgers;
 import entites.Carte;
 import entites.CategorieFormule;
 import entites.CategorieProduit;
-import entites.Disponibilite;
 import entites.Droits;
 import entites.Emplacement;
 import entites.Employe;
@@ -63,8 +62,9 @@ public class JeuDeTest implements JeuDeTestLocal {
         Ingredients sauceGorgon = new Ingredients("sauce gorgonzola");
         Ingredients sauceCeasar = new Ingredients("sauce caesar");
         Ingredients mozarella = new Ingredients("mozzarella");
-        Ingredients bunBurger = new Ingredients("Bun Burger");
+        Ingredients bunBurger = new Ingredients("bun burger");
         
+
         Date today = new GregorianCalendar(2017, 11, 11).getTime();
         Tva tvaAlcool = new Tva("tvaAlcool", 20.00F, today);
         Tva tvaCarte = new Tva("tvaCarte", 10.00F, today);
@@ -182,6 +182,7 @@ public class JeuDeTest implements JeuDeTestLocal {
         sauceBalds.setFamilleIngredient(sauces);
         sauceCeasar.setFamilleIngredient(sauces);
         sauceGorgon.setFamilleIngredient(sauces);
+        bunBurger.setFamilleIngredient(pains);
 
         em.persist(legumes);
         em.persist(viandes);
@@ -189,6 +190,7 @@ public class JeuDeTest implements JeuDeTestLocal {
         em.persist(liquides);
         em.persist(fromages);
         em.persist(sauces);
+        
         em.persist(laitue);
         em.persist(tomate);
         em.persist(frites);
@@ -206,7 +208,9 @@ public class JeuDeTest implements JeuDeTestLocal {
         em.persist(sauceBalds);
         em.persist(sauceCeasar);
         em.persist(sauceGorgon);
+        em.persist(oeuf);
         em.persist(bunBurger);
+     
 
         Produit cocaCola33 = new Produit("Coca-Cola(33cl)", 2, null, "boisson sucrée sans sucre.");
         Produit cocaCola50 = new Produit("Coca-Cola(50cl)", 2.5f, null, "boisson sucrée sans sucre.");
@@ -255,40 +259,38 @@ public class JeuDeTest implements JeuDeTestLocal {
         em.persist(leChrisBurger);
         em.persist(leVeganBald);
         em.persist(leCheeseBald);
+        
+        leBigBald.getIngredients().add(oeuf);
+        leBigBald.getIngredients().add(steackHC);
+        leBigBald.getIngredients().add(tomate);
+        leBigBald.getIngredients().add(laitue);
+        leBigBald.getIngredients().add(cheddar);
+        leBigBald.getIngredients().add(pickles);
+        leBigBald.getIngredients().add(sauceBalds);
+        leBigBald.getIngredients().add(bunBurger);
 
-        oeuf.getProduits().add(leBigBald);
-        steackHC.getProduits().add(leBigBald);
-        steackHC.getProduits().add(leBigBald);
-        tomate.getProduits().add(leBigBald);
-        laitue.getProduits().add(leBigBald);
-        cheddar.getProduits().add(leBigBald);
-        pickles.getProduits().add(leBigBald);
-        sauceBalds.getProduits().add(leBigBald);
-        bunBurger.getProduits().add(leBigBald);
-
-        steackHC.getProduits().add(leChrisBurger);
-        mozarella.getProduits().add(leChrisBurger);
-        bacon.getProduits().add(leChrisBurger);
-        bacon.getProduits().add(leChrisBurger);
-        sauceGorgon.getProduits().add(leChrisBurger);
-        oignonCara.getProduits().add(leChrisBurger);
-        bunBurger.getProduits().add(leChrisBurger);
-
-        laitue.getProduits().add(leVeganBald);
-        tomate.getProduits().add(leVeganBald);
-        sauceCeasar.getProduits().add(leVeganBald);
-        cornichon.getProduits().add(leVeganBald);
-        oignonCara.getProduits().add(leVeganBald);
-        bunBurger.getProduits().add(leVeganBald);
-
-        steackHC.getProduits().add(leCheeseBald);
-        mozarella.getProduits().add(leCheeseBald);
-        sauceGorgon.getProduits().add(leCheeseBald);
-        cheddar.getProduits().add(leCheeseBald);
-        oeuf.getProduits().add(leCheeseBald);
-        pickles.getProduits().add(leCheeseBald);
-        bunBurger.getProduits().add(leCheeseBald);
-
+        
+        leChrisBurger.getIngredients().add(steackHC);
+        leChrisBurger.getIngredients().add(mozarella);
+        leChrisBurger.getIngredients().add(bacon);
+        leChrisBurger.getIngredients().add(sauceGorgon);
+        leChrisBurger.getIngredients().add(oignonCara);
+          
+        leVeganBald.getIngredients().add(laitue);
+        leVeganBald.getIngredients().add(tomate);
+        leVeganBald.getIngredients().add(sauceCeasar);
+        leVeganBald.getIngredients().add(cornichon);
+        leVeganBald.getIngredients().add(oignonCara);
+        leVeganBald.getIngredients().add(bunBurger);
+          
+        leCheeseBald.getIngredients().add(steackHC);
+        leCheeseBald.getIngredients().add(mozarella);
+        leCheeseBald.getIngredients().add(sauceGorgon);
+        leCheeseBald.getIngredients().add(cheddar);
+        leCheeseBald.getIngredients().add(oeuf);
+        leCheeseBald.getIngredients().add(pickles);
+        leCheeseBald.getIngredients().add(bunBurger);
+          
         Propriete boisson33P = new Propriete("Soda", "33cl", "Volume");
         Propriete boisson50P = new Propriete("Soda", "50cl", "Volume");
         Propriete boissonA33P = new Propriete("Biere", "33cl", "Volume");
@@ -352,18 +354,23 @@ public class JeuDeTest implements JeuDeTestLocal {
         leCheeseBald.getProprietes().add(leCheeseBaldP);
         leChrisBurger.getProprietes().add(leChrisBurgerP);
         leVeganBald.getProprietes().add(leVeganBaldP);
-
+        
+        
+        
+        
+        
+        
         Formule formule1 = new Formule("StartBaldMeal", "Entrée + burger + boisson(33cl) au choix", 12.99f, null);
         Formule formule2 = new Formule("EndtBaldMeal", "Burger + désert + boisson(33cl) au choix", 13.99f, null);
         Formule formule3 = new Formule("FullBaldMeal", "Entrée + burger + désert + boisson(33cl) au choix", 15.99f, null);
         em.persist(formule1);
         em.persist(formule2);
         em.persist(formule3);
-
+        
         formule1.setCategorieFormule(carteFormule);
         formule2.setCategorieFormule(carteFormule);
         formule3.setCategorieFormule(carteFormule);
-
+ 
         onionRings.getFormules().add(formule1);
         onionRings.getFormules().add(formule3);
         mozzaStick.getFormules().add(formule1);
@@ -396,30 +403,6 @@ public class JeuDeTest implements JeuDeTestLocal {
         iceTea33.getFormules().add(formule1);
         iceTea33.getFormules().add(formule2);
         iceTea33.getFormules().add(formule3);
-
-        Disponibilite dispo = new Disponibilite(true);
-        Disponibilite pasDispo = new Disponibilite(false);
-        em.persist(dispo);
-        em.persist(pasDispo);
-
-        laitue.setDisponibilite(dispo);
-        tomate.setDisponibilite(dispo);
-        frites.setDisponibilite(dispo);
-        potatoes.setDisponibilite(dispo);
-        cornichon.setDisponibilite(dispo);
-        oignonCara.setDisponibilite(dispo);
-        oignonFrit.setDisponibilite(dispo);
-        oignonRouge.setDisponibilite(dispo);
-        pickles.setDisponibilite(dispo);
-        cheddar.setDisponibilite(dispo);
-        emmental.setDisponibilite(dispo);
-        mozarella.setDisponibilite(dispo);
-        steackHC.setDisponibilite(dispo);
-        bacon.setDisponibilite(dispo);
-        sauceBalds.setDisponibilite(dispo);
-        sauceCeasar.setDisponibilite(dispo);
-        sauceGorgon.setDisponibilite(dispo);
-        bunBurger.setDisponibilite(dispo);
-
+ 
     }
 }
