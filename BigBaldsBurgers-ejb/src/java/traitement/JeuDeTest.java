@@ -361,11 +361,6 @@ public class JeuDeTest implements JeuDeTestLocal {
         leChrisBurger.getProprietes().add(leChrisBurgerP);
         leVeganBald.getProprietes().add(leVeganBaldP);
         
-        
-        
-        
-        
-        
         Formule formule1 = new Formule("StartBaldMeal", "Entrée + burger + boisson(33cl) au choix", 12.99f, null);
         Formule formule2 = new Formule("EndtBaldMeal", "Burger + désert + boisson(33cl) au choix", 13.99f, null);
         Formule formule3 = new Formule("FullBaldMeal", "Entrée + burger + désert + boisson(33cl) au choix", 15.99f, null);
@@ -456,7 +451,6 @@ public class JeuDeTest implements JeuDeTestLocal {
         leVeganBald.setCategorieFormuleProduit(carteFormule);
         leCheeseBald.setCategorieFormuleProduit(carteFormule);
 
-        
         LigneDeCommande lCde1 = new LigneDeCommande(1, 5.5f);
         LigneDeCommande lCde2 = new LigneDeCommande(1, 12.99f);
         em.persist(lCde1);

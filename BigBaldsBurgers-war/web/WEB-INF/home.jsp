@@ -13,12 +13,16 @@
             <p> ici interface serveur/cuisinier/resp caisse </p>
             <nav>
                 <ul>
+                    <c:url value="FrontControleur?section=creerJeuDeTest" var="url00" />
+                    <li><a href="${url00}">creerJeuDeTest</a></li>
                     <c:url value="FrontControleur?section=serveur" var="url01" />
                     <li><a href="${url01}">Serveur</a></li>
-                    <c:url value="FrontControleur?section=creerJeuDeTest" var="url02" />
-                    <li><a href="${url02}">creerJeuDeTest</a></li>
-                    <li>Cuisinier</li>
-                    <li>Caisse</li>
+                    <c:url value="FrontControleur?section=client" var="url02" />
+                    <li><a href="${url03}">Client</a></li>
+                    <c:url value="FrontControleur?section=cuisinier" var="url03" />
+                    <li><a href="${url03}">Cuisinier</a></li>
+                    <c:url value="FrontControleur?section=caisse" var="url04" />
+                    <li><a href="${url04}">Caisse</a></li>
                 </ul>
             </nav>
             
