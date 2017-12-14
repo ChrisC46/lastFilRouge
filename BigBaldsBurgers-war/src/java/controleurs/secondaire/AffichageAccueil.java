@@ -13,12 +13,31 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Tofi
  */
-public class AffichageAccueil implements Serializable,SousControleur{
-    
-    
+public class AffichageAccueil implements Serializable, SousControleur {
+
     @Override
-    public String executer(HttpServletRequest request, HttpServletResponse response){
+    public String executer(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            if (request.getParameter("choixAccueil") != null) {
+                if (request.getParameter("choixAccueil").equals("serveur")) {
+
+                }
+                if (request.getParameter("choixAccueil").equals("client")) {
+
+                }
+                if (request.getParameter("choixAccueil").equals("cuisine")) {
+
+                }
+                if (request.getParameter("choixAccueil").equals("caisse")) {
+
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            request.setAttribute("dClasse", "erreur");
+            request.setAttribute("msg", "echec de votre action");
+        }
         return "/WEB-INF/accueil.jsp";
     }
-    
+
 }
