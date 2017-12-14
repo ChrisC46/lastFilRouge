@@ -23,8 +23,8 @@
                     
                     
                     </form>
-                    <c:url value="FrontControleur?section=catalogue" var="url03" />
-                    <li><a href="${url03}">Catalogue</a></li>
+                    <c:url value="FrontControleur?section=categorieCatalogue" var="url03" />
+                    <li><a href="${url03}"> Categorie Catalogue</a></li>
                 </ul>
             </nav>
             
