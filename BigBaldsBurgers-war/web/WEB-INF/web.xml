@@ -10,6 +10,11 @@
         <init-param>
             <param-name>catalogue</param-name>
             <param-value>controleurs.secondaire.Catalogue</param-value>
+        </init-param>
+        <init-param>
+            <param-name>categorieCatalogue</param-name>
+            <param-value>controleurs.secondaire.CategorieCarte</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>FrontControleur</servlet-name>

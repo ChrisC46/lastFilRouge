@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "entites.CategorieFormule.AllCat", query = "select c  FROM CategorieFormule  c")
+    @NamedQuery(name = "entites.Categorie", query = "select c from CategorieFormule c ")
 })
 public class CategorieFormule implements Serializable {
     private static final long serialVersionUID = 1L;
