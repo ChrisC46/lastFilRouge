@@ -4,6 +4,7 @@ package entites;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,9 +16,8 @@ import javax.persistence.OneToMany;
 @Entity
 public class Formule implements Serializable {
     private static final long serialVersionUID = 1L;
+    @Column(nullable = false)
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String nom;
     private String description;
     private float prix;
@@ -43,14 +43,6 @@ public class Formule implements Serializable {
         this.description = description;
         this.prix = prix;
         this.image = image;
-    }
-    
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getNom() {
