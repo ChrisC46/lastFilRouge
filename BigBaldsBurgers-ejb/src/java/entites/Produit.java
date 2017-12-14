@@ -17,10 +17,8 @@ import javax.persistence.OneToMany;
 @Entity
 public class Produit implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     @Column(nullable = false)
+    @Id
     private String nom;
     private float prix;
     private String image;
@@ -111,8 +109,6 @@ public class Produit implements Serializable {
         this.categorieFormuleProduit = categorieFormuleProduit;
     }
 
-   
- 
     public CategorieProduit getCategorieProduit() {
         return categorieProduit;
     }
@@ -193,18 +189,6 @@ public class Produit implements Serializable {
         this.categorieFormuleProduit = categorieFormuleProduit;
     }
     
-    
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    
-
     @Override
     public String toString() {
         return "entites.Produit[ "+nom+" "+prix+"]";

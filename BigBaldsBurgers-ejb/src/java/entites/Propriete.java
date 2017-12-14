@@ -93,10 +93,7 @@ public class Propriete implements Serializable {
     public void setProduits(Collection<Produit> produits) {
         this.produits = produits;
     }
-    
-    
-            
-    
+     
     public Long getId() {
         return id;
     }
@@ -105,7 +102,6 @@ public class Propriete implements Serializable {
         this.id = id;
     }
 
-    
     @Override
     public String toString() {
         return "entites.Propriete[ "+nom+" "+valeur+" "+unite+" ]";

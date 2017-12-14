@@ -18,8 +18,6 @@ import javax.persistence.OneToMany;
 public class CategorieFormule implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     @Column(nullable = false)
     private String nom;
     @OneToMany(mappedBy = "categorieFormule")
@@ -90,18 +88,6 @@ public class CategorieFormule implements Serializable {
         this.carte = carte;
     }
     
-    
-    
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    
-
     @Override
     public String toString() {
         return "entites.CategorieFormule[" + nom + " ]";

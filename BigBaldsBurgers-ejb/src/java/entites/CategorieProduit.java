@@ -14,8 +14,6 @@ public class CategorieProduit implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String nom;
     @OneToMany(mappedBy = "categorieProduit")
     private Collection<Produit> produits;
@@ -30,14 +28,6 @@ public class CategorieProduit implements Serializable {
     public CategorieProduit(String nom) {
         this();
         this.nom = nom;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getNom() {
@@ -67,7 +57,7 @@ public class CategorieProduit implements Serializable {
 
     @Override
     public String toString() {
-        return "entites.CategorieProduit[ id=" + id + " ]";
+        return "entites.CategorieProduit = "+ nom;
     }
 
 }

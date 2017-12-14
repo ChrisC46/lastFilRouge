@@ -164,6 +164,11 @@ public class JeuDeTest implements JeuDeTestLocal {
         em.persist(e02);
         em.persist(e03);
         em.flush();
+        
+        e01.getTypeDroit().add(d01);
+        e01.getTypeDroit().add(d03);
+        e02.getTypeDroit().add(d02);
+        e03.getTypeDroit().add(d03);
 
         laitue.setFamilleIngredient(legumes);
         tomate.setFamilleIngredient(legumes);
@@ -217,7 +222,7 @@ public class JeuDeTest implements JeuDeTestLocal {
         Produit cocaColaL33 = new Produit("Coca-Cola light(33cl)", 2, null, "boisson sans sucre gout sucré.");
         Produit cocaColaL50 = new Produit("Coca-Cola light(50cl)", 2.5f, null, "boisson sans sucre gout sucré.");
         Produit orangeJuice33 = new Produit("OrangeJuice(33cl)", 2, null, "Fait d'orange de sibérie.");
-        Produit orangeJuice50 = new Produit("OrangeJuice(33cl)", 2.5f, null, "Fait d'orange de sibérie.");
+        Produit orangeJuice50 = new Produit("OrangeJuice(50cl)", 2.5f, null, "Fait d'orange de sibérie.");
         Produit iceTea33 = new Produit("IceTea(33cl)", 2, null, "Boisson Froide mais pas trop chaude.");
         Produit iceTea50 = new Produit("IceTea(50cl)", 2.5f, null, "Boisson Froide mais pas trop chaude.");
         Produit coors33 = new Produit("Coors(33cl)", 2.5f, null, "Pour mieux faire la course. l'abus de Coors est dangereux pour faire les courses.");
@@ -234,7 +239,7 @@ public class JeuDeTest implements JeuDeTestLocal {
         Produit leBigBald = new Produit("Le Big Bald", 5.5f, null, "Notre Fameux Burger.");
         Produit leChrisBurger = new Produit("Le Chris Burger", 7.5f, null, "Inspiré maitre christophe, pour les amoureux de la viande.");
         Produit leVeganBald = new Produit("Le Vegan Bald", 6.5f, null, "Pour ceux qui ont qui ont rien compris à la vie et qui ne mangent pas de viande.");
-        Produit leCheeseBald = new Produit("Le Big Bald", 5.5f, null, "Si vous etes fan de fromage, ce burger est pour vous.");
+        Produit leCheeseBald = new Produit("Le cheese Bald", 5.5f, null, "Si vous etes fan de fromage, ce burger est pour vous.");
 
         em.persist(cocaCola33);
         em.persist(cocaCola50);
@@ -298,7 +303,7 @@ public class JeuDeTest implements JeuDeTestLocal {
         Propriete coorsP = new Propriete("Biere", "3.2%", "Pourcentage d'alcool");
         Propriete despeP = new Propriete("Biere", "6.3%", "Pourcentage d'alcool");
         Propriete friteP = new Propriete("Accompagnement", "300", "calories");
-        Propriete patatoesP = new Propriete("Accompagnement", "300", "calories");
+        Propriete patatoesP = new Propriete("Accompagnement", "350", "calories");
         Propriete saladeP = new Propriete("Accompagnement", "152", "calories");
         Propriete onionRigsP = new Propriete("Entree", "235", "calories");
         Propriete mozzaStickP = new Propriete("Entree", "262", "calories");

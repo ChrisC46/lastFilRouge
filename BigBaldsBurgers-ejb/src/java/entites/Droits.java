@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
@@ -27,11 +25,9 @@ import javax.persistence.NamedQuery;
 })
 public class Droits implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     
     @Column (nullable = false)
+    @Id
     private String nom;
 
     @ManyToMany(mappedBy = "typeDroit")
@@ -54,15 +50,6 @@ public class Droits implements Serializable {
         this.employe = employe;
     }
     
-    
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getNom() {
         return nom;
     }

@@ -24,10 +24,8 @@ import javax.persistence.OneToMany;
 public class FamilleIngredient implements Serializable {
     private static final long serialVersionUID = 1L;
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     @Column(nullable = false)
+    @Id
     private String ingredientFamille;
     @OneToMany(mappedBy = "familleIngredient")
     private Collection<Ingredients> ingredients;
@@ -39,14 +37,6 @@ public class FamilleIngredient implements Serializable {
     public FamilleIngredient(String ingredientFamille) {
         this();
         this.ingredientFamille = ingredientFamille;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Collection<Ingredients> getIngredients() {
