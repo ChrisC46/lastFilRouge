@@ -9,6 +9,7 @@ import entites.BigBaldsBurgers;
 import entites.Carte;
 import entites.CategorieFormule;
 import entites.CategorieProduit;
+import entites.Disponibilite;
 import entites.Droits;
 import entites.Emplacement;
 import entites.Employe;
