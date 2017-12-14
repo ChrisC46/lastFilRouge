@@ -16,6 +16,7 @@ import entites.Employe;
 import entites.FamilleIngredient;
 import entites.Formule;
 import entites.Ingredients;
+import entites.LigneDeCommande;
 import entites.Produit;
 import entites.Promotion;
 import entites.Propriete;
@@ -64,7 +65,7 @@ public class JeuDeTest implements JeuDeTestLocal {
         Ingredients sauceCeasar = new Ingredients("sauce caesar");
         Ingredients mozarella = new Ingredients("mozzarella");
         Ingredients bunBurger = new Ingredients("Bun Burger");
-        
+
         Date today = new GregorianCalendar(2017, 11, 11).getTime();
         Tva tvaAlcool = new Tva("tvaAlcool", 20.00F, today);
         Tva tvaCarte = new Tva("tvaCarte", 10.00F, today);
@@ -421,5 +422,35 @@ public class JeuDeTest implements JeuDeTestLocal {
         sauceGorgon.setDisponibilite(dispo);
         bunBurger.setDisponibilite(dispo);
 
+        cocaCola33.setCategorieFormuleProduit(carteFormule);
+        cocaCola50.setCategorieFormuleProduit(carteFormule);
+        cocaColaL33.setCategorieFormuleProduit(carteFormule);
+        cocaColaL50.setCategorieFormuleProduit(carteFormule);
+        iceTea33.setCategorieFormuleProduit(carteFormule);
+        iceTea50.setCategorieFormuleProduit(carteFormule);
+        coors33.setCategorieFormuleProduit(carteFormule);
+        coors50.setCategorieFormuleProduit(carteFormule);
+        despe33.setCategorieFormuleProduit(carteFormule);
+        despe50.setCategorieFormuleProduit(carteFormule);
+        frite.setCategorieFormuleProduit(carteFormule);
+        patatoes.setCategorieFormuleProduit(carteFormule);
+        saladeDeChauve.setCategorieFormuleProduit(carteFormule);
+        onionRings.setCategorieFormuleProduit(carteFormule);
+        mozzaStick.setCategorieFormuleProduit(carteFormule);
+        brownie.setCategorieFormuleProduit(carteFormule);
+        mousseAuChocolat.setCategorieFormuleProduit(carteFormule);
+        leBigBald.setCategorieFormuleProduit(carteFormule);
+        leChrisBurger.setCategorieFormuleProduit(carteFormule);
+        leVeganBald.setCategorieFormuleProduit(carteFormule);
+        leCheeseBald.setCategorieFormuleProduit(carteFormule);
+
+        
+        LigneDeCommande lCde1 = new LigneDeCommande(1, 5.5f);
+        LigneDeCommande lCde2 = new LigneDeCommande(1, 12.99f);
+        em.persist(lCde1);
+        em.persist(lCde2);
+   
+        lCde1.setProduit(leBigBald);
+        lCde2.setFormule(formule1);
     }
 }
