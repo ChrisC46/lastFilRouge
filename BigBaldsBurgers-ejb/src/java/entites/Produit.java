@@ -70,6 +70,11 @@ public class Produit implements Serializable {
         return prix;
     }
 
+    
+    public void setTypeCuissonProduit(Collection<TypeCuisson> typeCuissonProduit) {
+        this.typeCuissonProduit = typeCuissonProduit;
+    }
+
     public void setPrixProduit(float prix) {
         this.prix = prix;
     }
