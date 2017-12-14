@@ -10,7 +10,7 @@
     
         <div>
             <h1>Big Balds Burgers</h1>
-            <p> ici interface serveur/cuisinier/resp caisse </p>
+            <p> ici interface serveur/Client/cuisinier/resp caisse </p>
             <nav>
                 <ul>
                     <c:url value="FrontControleur?section=creerJeuDeTest" var="url00" />
