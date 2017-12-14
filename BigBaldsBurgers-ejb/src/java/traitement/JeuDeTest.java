@@ -9,12 +9,14 @@ import entites.BigBaldsBurgers;
 import entites.Carte;
 import entites.CategorieFormule;
 import entites.CategorieProduit;
+import entites.Disponibilite;
 import entites.Droits;
 import entites.Emplacement;
 import entites.Employe;
 import entites.FamilleIngredient;
 import entites.Formule;
 import entites.Ingredients;
+import entites.LigneDeCommande;
 import entites.Produit;
 import entites.Promotion;
 import entites.Propriete;
@@ -62,8 +64,7 @@ public class JeuDeTest implements JeuDeTestLocal {
         Ingredients sauceGorgon = new Ingredients("sauce gorgonzola");
         Ingredients sauceCeasar = new Ingredients("sauce caesar");
         Ingredients mozarella = new Ingredients("mozzarella");
-        Ingredients bunBurger = new Ingredients("bun burger");
-        
+        Ingredients bunBurger = new Ingredients("Bun Burger");
 
         Date today = new GregorianCalendar(2017, 11, 11).getTime();
         Tva tvaAlcool = new Tva("tvaAlcool", 20.00F, today);
@@ -408,6 +409,60 @@ public class JeuDeTest implements JeuDeTestLocal {
         iceTea33.getFormules().add(formule1);
         iceTea33.getFormules().add(formule2);
         iceTea33.getFormules().add(formule3);
- 
+
+        Disponibilite dispo = new Disponibilite(true);
+        Disponibilite pasDispo = new Disponibilite(false);
+        em.persist(dispo);
+        em.persist(pasDispo);
+
+        laitue.setDisponibilite(dispo);
+        tomate.setDisponibilite(dispo);
+        frites.setDisponibilite(dispo);
+        potatoes.setDisponibilite(dispo);
+        cornichon.setDisponibilite(dispo);
+        oignonCara.setDisponibilite(dispo);
+        oignonFrit.setDisponibilite(dispo);
+        oignonRouge.setDisponibilite(dispo);
+        pickles.setDisponibilite(dispo);
+        cheddar.setDisponibilite(dispo);
+        emmental.setDisponibilite(dispo);
+        mozarella.setDisponibilite(dispo);
+        steackHC.setDisponibilite(dispo);
+        bacon.setDisponibilite(dispo);
+        sauceBalds.setDisponibilite(dispo);
+        sauceCeasar.setDisponibilite(dispo);
+        sauceGorgon.setDisponibilite(dispo);
+        bunBurger.setDisponibilite(dispo);
+
+        cocaCola33.setCategorieFormuleProduit(carteFormule);
+        cocaCola50.setCategorieFormuleProduit(carteFormule);
+        cocaColaL33.setCategorieFormuleProduit(carteFormule);
+        cocaColaL50.setCategorieFormuleProduit(carteFormule);
+        iceTea33.setCategorieFormuleProduit(carteFormule);
+        iceTea50.setCategorieFormuleProduit(carteFormule);
+        coors33.setCategorieFormuleProduit(carteFormule);
+        coors50.setCategorieFormuleProduit(carteFormule);
+        despe33.setCategorieFormuleProduit(carteFormule);
+        despe50.setCategorieFormuleProduit(carteFormule);
+        frite.setCategorieFormuleProduit(carteFormule);
+        patatoes.setCategorieFormuleProduit(carteFormule);
+        saladeDeChauve.setCategorieFormuleProduit(carteFormule);
+        onionRings.setCategorieFormuleProduit(carteFormule);
+        mozzaStick.setCategorieFormuleProduit(carteFormule);
+        brownie.setCategorieFormuleProduit(carteFormule);
+        mousseAuChocolat.setCategorieFormuleProduit(carteFormule);
+        leBigBald.setCategorieFormuleProduit(carteFormule);
+        leChrisBurger.setCategorieFormuleProduit(carteFormule);
+        leVeganBald.setCategorieFormuleProduit(carteFormule);
+        leCheeseBald.setCategorieFormuleProduit(carteFormule);
+
+        
+        LigneDeCommande lCde1 = new LigneDeCommande(1, 5.5f);
+        LigneDeCommande lCde2 = new LigneDeCommande(1, 12.99f);
+        em.persist(lCde1);
+        em.persist(lCde2);
+   
+        lCde1.setProduit(leBigBald);
+        lCde2.setFormule(formule1);
     }
 }
