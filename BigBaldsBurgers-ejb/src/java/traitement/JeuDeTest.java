@@ -341,10 +341,6 @@ public class JeuDeTest implements JeuDeTestLocal {
         orangeJuice50.getProprietes().add(boisson50P);
         iceTea33.getProprietes().add(boisson33P);
         iceTea50.getProprietes().add(boisson50P);
-        coors33.getProprietes().add(boisson33P);
-        coors50.getProprietes().add(boisson50P);
-        despe33.getProprietes().add(boisson33P);
-        despe50.getProprietes().add(boisson50P);
         coors33.getProprietes().add(boissonA33P);
         coors50.getProprietes().add(boissonA50P);
         despe33.getProprietes().add(boissonA33P);

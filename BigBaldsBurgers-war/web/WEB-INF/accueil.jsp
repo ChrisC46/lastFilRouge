@@ -15,10 +15,17 @@
         <div class="separ"></div>
         <div class="container">
             
-            <jsp:include page="${lajsp}"/>
-            <p>${nom}</p>
+              
         </div>
-
+        <p> Formules </P>
+        <c:forEach var="ca" items="${categorieCarte}">            
+        <li>${ca.nom}</li>            
+        </c:forEach>
+        <br><p> Soda </P><br>
+        <c:forEach var="de" items="${soda}">            
+        <li>${de.nom}</li>            
+        </c:forEach>
+        
 
             <jsp:include page="includes/detailsCommande.jsp" />
     </body>
