@@ -7,7 +7,9 @@ package traitement;
 
 import entites.CategorieFormule;
 import entites.Produit;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -36,6 +38,12 @@ public class GestionCategorieCarte implements GestionCategorieCarteLocal {
         Query qr = em.createNamedQuery("entites.Produit.getByProp");
         qr.setParameter("paramNom", nomPropriete);
         List<Produit> produits = qr.getResultList();
+        //Tris Produit Uniques
+        HashSet<Produit> uniqueValues = new HashSet(produits);
+        produits.clear();
+        for(Produit prod :uniqueValues){
+            produits.add(prod);
+        }
         System.out.println("requete : " + qr.toString() );
         return produits;
     }
