@@ -6,8 +6,10 @@
 package controleurs.secondaire;
 
 import entites.CategorieFormule;
+import entites.Produit;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,17 +27,23 @@ public class CategorieCarte implements Serializable, SousControleur  {
    public String executer(HttpServletRequest request, HttpServletResponse response) {
       
        GestionCategorieCarteLocal carte = lookupGestionCategorieCarteLocal();
-       
+      
+       String page = "";
        try {
             request.setAttribute("categorieCarte", carte.getAllCat());
-            request.setAttribute("msg", "chargement de la liste des categories du catalogue OK");
+            request.setAttribute("soda", carte.getProduitByProP("Soda"));
+            
+
+            page = "/WEB-INF/accueil.jsp";            
+            
+            
            } catch (Exception ex) {
                ex.printStackTrace();
                request.setAttribute("dClasse", "erreur");
                request.setAttribute("msg", "echec chargement des categories du catalogue");
            }
 
-           return"/WEB-INF/home.jsp";
+           return page;
    
    }
 
