@@ -158,18 +158,23 @@ public class JeuDeTest implements JeuDeTestLocal {
         em.persist(d03);
         em.flush();
 
-        Employe e01 = new Employe(001, "Ney", "Mar", "0606060606", "neymar@gmail.com", "neymar");
-        Employe e02 = new Employe(002, "Cav", "Ani", "0606060607", "cavani@gmail.com", "cavani");
-        Employe e03 = new Employe(003, "Mba", "ppé", "0606060608", "mbappe@gmail.com", "mbappe");
+        Employe e01 = new Employe(001, "Ney", "Mar", "0606060606", "neymar@gmail.com", "1111");
+        Employe e02 = new Employe(002, "Cav", "Ani", "0606060607", "cavani@gmail.com", "2222");
+        Employe e03 = new Employe(003, "Mba", "ppé", "0606060608", "mbappe@gmail.com", "3333");
+        Employe e04 = new Employe(004,"all","acces","0000000000","allacces@gmail.com","1234");
         em.persist(e01);
         em.persist(e02);
         em.persist(e03);
+        em.persist(e04);
         em.flush();
         
         e01.getTypeDroit().add(d01);
         e01.getTypeDroit().add(d03);
         e02.getTypeDroit().add(d02);
         e03.getTypeDroit().add(d03);
+        e04.getTypeDroit().add(d03);
+        e04.getTypeDroit().add(d02);
+        e04.getTypeDroit().add(d01);
 
         laitue.setFamilleIngredient(legumes);
         tomate.setFamilleIngredient(legumes);

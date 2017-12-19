@@ -5,6 +5,7 @@
  */
 package traitement;
 
+import entites.Droits;
 import entites.Employe;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -30,7 +31,25 @@ public class GestionEmploye implements GestionEmployeLocal {
     }
     
     @Override
+    public List<Droits> findDroitsByLogin(String loginE){
+        Query qr = em.createNamedQuery("entites.Droits.getDroitsParLogin");
+        qr.setParameter("paramLogin", loginE);
+        List<Droits> ld = qr.getResultList();
+        return ld;
+    }
+    
+    @Override
     public Boolean isLogin (String loginE, String droit){
+        List<Droits> lDroits = findDroitsByLogin(loginE);
+        for (Droits d : lDroits){
+            if(d.getNom().equals(droit))
+                return true;
+        }
+        return false;
+    }
+    
+    @Override
+    public Boolean isDroits (String loginE, String droit){
           List<Employe> lEmp =  findAllLoginByDroits(droit);
         for (Employe emp : lEmp){
             if (emp.getLogin().equals(loginE))    

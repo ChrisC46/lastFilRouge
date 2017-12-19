@@ -23,6 +23,7 @@ import javax.persistence.NamedQuery;
 @NamedQueries ({
     @NamedQuery(name = "findAll.Droits", query = "select d from Droits d"),
     @NamedQuery(name = "entites.Droits.getLoginParDroits", query = "select e from Employe e join e.typeDroit td where td.nom  = :paramDroits"),
+    @NamedQuery(name = "entites.Droits.getDroitsParLogin", query = "select d from Droits d join d.employe etd where etd.login = :paramLogin")
     
 })
 public class Droits implements Serializable {
