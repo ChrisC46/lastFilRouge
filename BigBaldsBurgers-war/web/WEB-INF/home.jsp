@@ -18,22 +18,22 @@
                     <c:url value="FrontControleur?section=accueil" var="url01" />
                     <form action="${url01}" method="POST">
                         <div>
-                            <p><input type="radio" name="choixAccueil" value="serveur" CHECKED>
+                            <p><input type="radio" name="choixAccueil" value="serveur">
                                 Serveur
                                 <br>
                                 <input type="radio" name="choixAccueil" value="client">
                                 Client
                                 <br>
-                                <input type="radio" name="choixAccueil" value="cuisine">
+                                <input type="radio" name="choixAccueil" value="cuisinier">
                                 Cuisine
                                 <br>
-                                <input type="radio" name="choixAccueil" value="caisse">
+                                <input type="radio" name="choixAccueil" value="caissier">
                                 Caisse
                                 <br>      
                            </p>
                         </div>
-                        <label for="code">Code secteur : </label><input type="text" maxlength="4" />
-                        <input type="submit" name="c"/>
+                        <label for="code">Code secteur : </label><input type="text" name="login" value="${loginE}" />
+                        <input type="submit" name="code" value="valider"/>
                     </form>
                     <c:url value="FrontControleur?section=categorieCatalogue" var="url03" />
                     <li><a href="${url03}"> Categorie Catalogue</a></li>

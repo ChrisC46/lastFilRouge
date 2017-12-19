@@ -5,7 +5,12 @@
  */
 package traitement;
 
+import entites.Employe;
+import java.util.List;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -13,7 +18,24 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class GestionEmploye implements GestionEmployeLocal {
+    @PersistenceContext(unitName = "BigBaldsBurgers-ejbPU")
+    private EntityManager em;
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+    @Override
+    public List<Employe> findAllLoginByDroits(String droit){
+        Query qr = em.createNamedQuery("entites.Droits.getLoginParDroits");
+        qr.setParameter("paramDroits",droit );
+        List<Employe> le = qr.getResultList();
+        return le;
+    }
+    
+    @Override
+    public Boolean isLogin (String loginE, String droit){
+          List<Employe> lEmp =  findAllLoginByDroits(droit);
+        for (Employe emp : lEmp){
+            if (emp.getLogin().equals(loginE))    
+               return true; 
+            }
+           return false; 
+    }
 }

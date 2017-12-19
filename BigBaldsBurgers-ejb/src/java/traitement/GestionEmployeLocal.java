@@ -5,6 +5,8 @@
  */
 package traitement;
 
+import entites.Employe;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -13,5 +15,9 @@ import javax.ejb.Local;
  */
 @Local
 public interface GestionEmployeLocal {
+
+    public Boolean isLogin(String loginE, String droit);
+
+    public List<Employe> findAllLoginByDroits(String droit);
     
 }
