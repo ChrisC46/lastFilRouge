@@ -218,23 +218,23 @@ public class JeuDeTest implements JeuDeTestLocal {
         em.persist(bunBurger);
      
 
-        Produit cocaCola = new Produit("Coca-Cola", 2, null, "boisson sucrée sans sucre.");
-        Produit cocaColaL = new Produit("Coca-Cola light", 2, null, "boisson sans sucre gout sucré.");
-        Produit orangeJuice = new Produit("OrangeJuice", 2, null, "Fait d'orange de sibérie.");
-        Produit iceTea = new Produit("IceTea", 2, null, "Boisson Froide mais pas trop chaude.");
-        Produit coors = new Produit("Coors", 2.5f, null, "Pour mieux faire la course. l'abus de Coors est dangereux pour faire les courses.");
-        Produit despe = new Produit("Desperados", 2.5f, null, "un mexicain se cache à l'interieur de cette boisson.");
-        Produit frite = new Produit("Frites", 2.5f, null, "frite fraiches maison.");
-        Produit patatoes = new Produit("Patatoes", 2.5f, null, "Patatoes fraiches maison.");
-        Produit saladeDeChauve = new Produit("Salade de Chauves", 2.5f, null, "Salade composé, recette secrete du chef.");
-        Produit onionRings = new Produit("Onion Rings", 2f, null, "Onion fris dans notre huile de la veille.");
-        Produit mozzaStick = new Produit("Mozza Stick", 2f, null, "Batonnet de Mozart uniquement quand il est là.");
-        Produit brownie = new Produit("Brownie", 3, null, "Brownie du chef fait avec son chocolat maison.");
-        Produit mousseAuChocolat = new Produit("Mousse au chocolat", 3, null, "Mousse du chef fait avec son chocolat maison.");
-        Produit leBigBald = new Produit("Le Big Bald", 5.5f, null, "Notre Fameux Burger.");
-        Produit leChrisBurger = new Produit("Le Chris Burger", 7.5f, null, "Inspiré maitre christophe, pour les amoureux de la viande.");
-        Produit leVeganBald = new Produit("Le Vegan Bald", 6.5f, null, "Pour ceux qui ont qui ont rien compris à la vie et qui ne mangent pas de viande.");
-        Produit leCheeseBald = new Produit("Le cheese Bald", 5.5f, null, "Si vous etes fan de fromage, ce burger est pour vous.");
+        Produit cocaCola = new Produit("Coca-Cola", 2, "images/cocacola.png", "boisson sucrée sans sucre.");
+        Produit cocaColaL = new Produit("Coca-Cola light", 2, "images/cocaLight.png", "boisson sans sucre gout sucré.");
+        Produit orangeJuice = new Produit("OrangeJuice", 2, "images/OrangeJuice.png", "Fait d'orange de sibérie.");
+        Produit iceTea = new Produit("IceTea", 2, "images/Lipton.png", "Boisson Froide mais pas trop chaude.");
+        Produit coors = new Produit("Coors", 2.5f, "images/coors.png", "Pour mieux faire la course. l'abus de Coors est dangereux pour faire les courses.");
+        Produit despe = new Produit("Desperados", 2.5f, "images/despe.png", "un mexicain se cache à l'interieur de cette boisson.");
+        Produit frite = new Produit("Frites", 2.5f, "images/frite.png", "frite fraiches maison.");
+        Produit patatoes = new Produit("Patatoes", 2.5f, "images/potatoes.png", "Patatoes fraiches maison.");
+        Produit saladeDeChauve = new Produit("Salade de Chauves", 2.5f, "images/salade.png", "Salade composé, recette secrete du chef.");
+        Produit onionRings = new Produit("Onion Rings", 2f, "images/OnionRings.png", "Onion fris dans notre huile de la veille.");
+        Produit mozzaStick = new Produit("Mozza Stick", 2f, "images/MozzarelaSticks.png", "Batonnet de Mozart uniquement quand il est là.");
+        Produit brownie = new Produit("Brownie", 3, "images/Brownie.png", "Brownie du chef fait avec son chocolat maison.");
+        Produit mousseAuChocolat = new Produit("Mousse au chocolat", 3, "images/mousse.png", "Mousse du chef fait avec son chocolat maison.");
+        Produit leBigBald = new Produit("Le Big Bald", 5.5f, "images/Lebigbalds.png", "Notre Fameux Burger.");
+        Produit leChrisBurger = new Produit("Le Chris Burger", 7.5f, "images/nom2.png", "Inspiré maitre christophe, pour les amoureux de la viande.");
+        Produit leVeganBald = new Produit("Le Vegan Bald", 6.5f, "images/leVegan.png", "Pour ceux qui ont qui ont rien compris à la vie et qui ne mangent pas de viande.");
+        Produit leCheeseBald = new Produit("Le cheese Bald", 5.5f, "images/nom4.png", "Si vous etes fan de fromage, ce burger est pour vous.");
 
         em.persist(cocaCola);
         em.persist(cocaColaL);
@@ -285,10 +285,10 @@ public class JeuDeTest implements JeuDeTestLocal {
         leCheeseBald.getIngredients().add(pickles);
         leCheeseBald.getIngredients().add(bunBurger);
           
-        Propriete boisson33P = new Propriete("Soda", "33cl", "Volume");
-        Propriete boisson50P = new Propriete("Soda", "50cl", "Volume");
-        Propriete boissonA33P = new Propriete("Biere", "33cl", "Volume");
-        Propriete boissonA50P = new Propriete("Biere", "50cl", "Volume");
+        Propriete boisson33P = new Propriete("Boisson", "33cl", "Volume");
+        Propriete boisson50P = new Propriete("Boisson", "50cl", "Volume");
+        Propriete boissonA33P = new Propriete("Boisson", "33cl", "Volume");
+        Propriete boissonA50P = new Propriete("Boisson", "50cl", "Volume");
         Propriete coorsP = new Propriete("Biere", "3.2%", "Pourcentage d'alcool");
         Propriete despeP = new Propriete("Biere", "6.3%", "Pourcentage d'alcool");
         Propriete friteP = new Propriete("Accompagnement", "300", "calories");

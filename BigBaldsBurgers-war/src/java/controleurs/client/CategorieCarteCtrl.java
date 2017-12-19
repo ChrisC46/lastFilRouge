@@ -25,24 +25,36 @@ import traitement.GestionCategorieCarteLocal;
  *
  * @author cdi317
  */
+public class CategorieCarteCtrl implements Serializable, SousControleur {
 
-public class CategorieCarteCtrl implements Serializable, SousControleur  {
-    
-     @Override
+    @Override
     public String executer(HttpServletRequest request, HttpServletResponse response) {
 
         GestionCategorieCarteLocal carte = lookupGestionCategorieCarteLocal();
-        
         String page = "";
-        try {
-            page = "/WEB-INF/accueil.jsp";
 
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            request.setAttribute("dClasse", "erreur");
-            request.setAttribute("msg", "echec chargement des categories du catalogue");
+        if ("Boisson".equals(request.getParameter("section"))) {
+            request.setAttribute("produits", carte.getProduitByProP("Boisson"));
+            page = "/WEB-INF/client/produitsByCat.jsp";
+        }
+        if ("Accompagnement".equals(request.getParameter("section"))) {
+           request.setAttribute("produits", carte.getProduitByProP("Accompagnement"));
+            page = "/WEB-INF/client/produitsByCat.jsp";
+        }
+        if ("Entree".equals(request.getParameter("section"))) {
+           request.setAttribute("produits", carte.getProduitByProP("Entree"));
+            page = "/WEB-INF/client/produitsByCat.jsp";
+        }
+        if ("Dessert".equals(request.getParameter("section"))) {
+            request.setAttribute("produits", carte.getProduitByProP("Dessert"));
+            page = "/WEB-INF/client/produitsByCat.jsp";
+        }
+        if ("Burger".equals(request.getParameter("section"))) {
+            request.setAttribute("produits", carte.getProduitByProP("Burger"));
+            page = "/WEB-INF/client/produitsByCat.jsp";
         }
 
+        
         return page;
 
     }
@@ -56,5 +68,5 @@ public class CategorieCarteCtrl implements Serializable, SousControleur  {
             throw new RuntimeException(ne);
         }
     }
-   
+
 }
