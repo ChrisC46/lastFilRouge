@@ -17,7 +17,7 @@
         </init-param>
         <init-param>
             <param-name>categorieCatalogue</param-name>
-            <param-value>controleurs.secondaire.CategorieCarte</param-value>
+            <param-value>controleurs.client.CarteCtrl</param-value>
         </init-param>
         <init-param>
             <param-name>accueil</param-name>
