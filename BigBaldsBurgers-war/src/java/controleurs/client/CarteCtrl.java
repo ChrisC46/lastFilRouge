@@ -22,7 +22,7 @@ public class CarteCtrl implements Serializable, SousControleur {
     public String executer(HttpServletRequest request, HttpServletResponse response) {
 
         GestionCategorieCarteLocal carte = lookupGestionCategorieCarteLocal();
-            
+        
         String page = "";
         try {
             page = "/WEB-INF/accueil.jsp";

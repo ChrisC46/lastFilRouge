@@ -20,6 +20,26 @@
             <param-value>controleurs.client.CarteCtrl</param-value>
         </init-param>
         <init-param>
+            <param-name>Boisson</param-name>
+            <param-value>controleurs.client.CategorieCarteCtrl</param-value>
+        </init-param>
+        <init-param>
+            <param-name>Accompagnement</param-name>
+            <param-value>controleurs.client.CategorieCarteCtrl</param-value>
+        </init-param>
+        <init-param>
+            <param-name>Entree</param-name>
+            <param-value>controleurs.client.CategorieCarteCtrl</param-value>
+        </init-param>
+        <init-param>
+            <param-name>Dessert</param-name>
+            <param-value>controleurs.client.CategorieCarteCtrl</param-value>
+        </init-param>
+        <init-param>
+            <param-name>Burger</param-name>
+            <param-value>controleurs.client.CategorieCarteCtrl</param-value>
+        </init-param>
+        <init-param>
             <param-name>accueil</param-name>
             <param-value>controleurs.secondaire.AffichageAccueil</param-value>
         </init-param>
