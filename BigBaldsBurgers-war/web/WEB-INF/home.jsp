@@ -13,12 +13,13 @@
             <nav>
                 <ul>
                     <c:url value="FrontControleur?section=creerJeuDeTest" var="url00" />
-                    <li><a href="${url00}">creerJeuDeTest</a></li>
+                    <li><a href="${url00}">creerJeuDeTest</a></li><p class="${dClasse}">${msg}</p>
                     <c:url value="FrontControleur?section=accueil" var="url01" />
                     <form action="${url01}" method="POST">
                         <label class="erreur">${erreur}</label>
                         <div>
-                            <p><input type="radio" name="choixAccueil" value="serveur" >
+                            <p>
+                                <input type="radio" name="choixAccueil" value="serveur" >
                                 <img src="images/serveurHome.png"/>
                                 <br>
                                 <input type="radio" name="choixAccueil" value="client">
@@ -32,7 +33,7 @@
                                 <br>      
                            </p>
                         </div>
-                        <label for="code">Code secteur : </label><input type="text" name="login" value="${loginERR}" />
+                        <label for="code">Code secteur : </label><input type="passwor" name="login" maxlength="4" value="${loginERR}" required/>
                         <label class="erreur">${loginErr}</label>
                         <input type="submit" name="code" value="valider"/>
                     </form>
@@ -41,7 +42,7 @@
                 </ul>
             </nav>
             
-                    <p class="${dClasse}">${msg}</p>
+                   
         </div>
         
     </body>
