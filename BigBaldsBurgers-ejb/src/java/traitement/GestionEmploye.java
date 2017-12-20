@@ -37,9 +37,14 @@ public class GestionEmploye implements GestionEmployeLocal {
         
         HashMap<String, String> mp = new HashMap<>();
         if(loginE == null || loginE.trim().isEmpty()){
-            mp.put("loginErr", "code obligatoire");
+            mp.put("loginERR", "login obligatoire");
+            System.out.println("login vide");
         }else{
-            loginE = loginE.trim();
+            String reg = "^[0-9]+$";
+            if(!loginE.matches(reg)){
+                mp.put("loginERR","login invalide");
+            }
+            
         }
         Query qr = em.createNamedQuery("entites.Droits.getDroitsParLogin");
         qr.setParameter("paramLogin", loginE);
@@ -48,7 +53,7 @@ public class GestionEmploye implements GestionEmployeLocal {
     }
     
     @Override
-    public Boolean isLogin (String loginE, String droit){
+    public Boolean isLogin (String loginE, String droit)throws CustomedException{
         List<Droits> lDroits = findDroitsByLogin(loginE);
         for (Droits d : lDroits){
             if(d.getNom().equals(droit))
@@ -56,14 +61,5 @@ public class GestionEmploye implements GestionEmployeLocal {
         }
         return false;
     }
-    
-//    @Override
-//    public Boolean isDroits (String loginE, String droit){
-//          List<Employe> lEmp =  findAllLoginByDroits(droit);
-//        for (Employe emp : lEmp){
-//            if (emp.getLogin().equals(loginE))    
-//               return true; 
-//            }
-//           return false; 
-//    }
+  
 }

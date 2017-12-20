@@ -24,6 +24,6 @@ public interface GestionEmployeLocal {
 
     public List<Droits> findDroitsByLogin(String loginE) throws CustomedException;
 
-    public Boolean isLogin(String loginE, String droit);
+    public Boolean isLogin(String loginE, String droit)throws CustomedException;
     
 }
