@@ -20,28 +20,48 @@
             <param-value>controleurs.client.CarteCtrl</param-value>
         </init-param>
         <init-param>
-            <param-name>Boisson</param-name>
+            <param-name>BoissonG</param-name>
             <param-value>controleurs.client.CategorieCarteCtrl</param-value>
         </init-param>
         <init-param>
-            <param-name>Accompagnement</param-name>
+            <param-name>AccompagnementG</param-name>
             <param-value>controleurs.client.CategorieCarteCtrl</param-value>
         </init-param>
         <init-param>
-            <param-name>Entree</param-name>
+            <param-name>EntreeG</param-name>
             <param-value>controleurs.client.CategorieCarteCtrl</param-value>
         </init-param>
         <init-param>
-            <param-name>Dessert</param-name>
+            <param-name>DessertG</param-name>
             <param-value>controleurs.client.CategorieCarteCtrl</param-value>
         </init-param>
         <init-param>
-            <param-name>Burger</param-name>
+            <param-name>BurgerG</param-name>
             <param-value>controleurs.client.CategorieCarteCtrl</param-value>
         </init-param>
         <init-param>
             <param-name>accueil</param-name>
             <param-value>controleurs.secondaire.AffichageAccueil</param-value>
+        </init-param>
+         <init-param>
+            <param-name>Boisson</param-name>
+            <param-value>controleurs.client.BoissonCtrl</param-value>
+        </init-param>
+        <init-param>
+            <param-name>Burger</param-name>
+            <param-value>controleurs.client.BurgerCtrl</param-value>
+        </init-param>
+        <init-param>
+            <param-name>Dessert</param-name>
+            <param-value>controleurs.client.DessertCtrl</param-value>
+        </init-param>
+        <init-param>
+            <param-name>Accompagnement</param-name>
+            <param-value>controleurs.client.AccompagnementCtrl</param-value>
+        </init-param>
+        <init-param>
+            <param-name>Entree</param-name>
+            <param-value>controleurs.client.EntreeCtrl</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>
