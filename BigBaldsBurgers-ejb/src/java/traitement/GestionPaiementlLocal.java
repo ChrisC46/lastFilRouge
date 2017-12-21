@@ -12,6 +12,6 @@ import javax.ejb.Local;
  * @author Tofi
  */
 @Local
-public interface GestionAffichageAccueilLocal {
+public interface GestionPaiementlLocal {
     
 }

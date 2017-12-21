@@ -7,23 +7,29 @@
         <title>Big Balds Burgers</title>
     </head>
     <body>
-    
+
         <div>
             <h1>Big Balds Burgers</h1>
             <nav>
                 <ul>
                     <c:url value="FrontControleur?section=creerJeuDeTest" var="url00" />
-                    <li><a href="${url00}">creerJeuDeTest</a></li><p class="${dClasse}">${msg}</p>
-                    <c:url value="FrontControleur?section=accueil" var="url01" />
+                    <li><a href="${url00}">creerJeuDeTest</a><a><p class="${dClasse}">${msg}</p></a></li>
+                            <c:url value="FrontControleur?section=accueil" var="url01" />
                     <form action="${url01}" method="POST">
                         <label class="erreur">${erreur}</label>
                         <div>
-                            <p>
-                                <input type="radio" name="choixAccueil" value="serveur" >
+                            <select>
+                                <option value="serveur">Serveur</option>
+                                <img src="images/serveurHome.png"/>
+                                <option value="client">Client</option>
+                                <option value="cuisinier">Cuisinier</option>
+                                <option value="caissier">Caissier</option>
+                            </select>
+                            <p><input type="radio" name="choixAccueil" value="serveur" >
                                 <img src="images/serveurHome.png"/>
                                 <br>
                                 <input type="radio" name="choixAccueil" value="client">
-                                <img src="images/clientHome.png" class="img-responsive img-rounded" onclick=""/>
+                                <img src="images/clientHome.png"/>
                                 <br>
                                 <input type="radio" name="choixAccueil" value="cuisinier">
                                 <img src="images/cuisineHome.png"/>
@@ -31,9 +37,9 @@
                                 <input type="radio" name="choixAccueil" value="caissier">
                                 <img src="images/caisseHome.png"/>
                                 <br>      
-                           </p>
+                            </p>
                         </div>
-                        <label for="code">Code secteur : </label><input type="passwor" name="login" maxlength="4" value="${loginERR}" required/>
+                        <label for="code">Code secteur : </label><input type="password" name="login" maxlength="4" value="${loginERR}" required/>
                         <label class="erreur">${loginErr}</label>
                         <input type="submit" name="code" value="valider"/>
                     </form>
@@ -41,9 +47,9 @@
                     <li><a href="${url03}"> Categorie Catalogue</a></li>
                 </ul>
             </nav>
-            
-                   
+
+
         </div>
-        
+
     </body>
 </html>

@@ -9,6 +9,7 @@ import entites.BigBaldsBurgers;
 import entites.Carte;
 import entites.CategorieFormule;
 import entites.CategorieProduit;
+import entites.Commande;
 import entites.Disponibilite;
 import entites.Droits;
 import entites.Emplacement;
@@ -139,6 +140,13 @@ public class JeuDeTest implements JeuDeTestLocal {
         em.persist(table03);
         em.persist(table04);
         em.persist(table05);
+        
+        table01.setDispoTable(staTablePasDispo);
+        table02.setDispoTable(staTablePasDispo);
+        table03.setDispoTable(staTablePasDispo);
+        table04.setDispoTable(staTableDispo);
+        table05.setDispoTable(staTableDispo);
+        
 
         BigBaldsBurgers bbg = new BigBaldsBurgers("BigBaldsBurgers", "1 rue de la soif 75008 PARIS", "0172607631", "bigbaldsburgers@bbg.fr", "12345678900043", "www.bigbaldsburgers.com", "X");
         em.persist(bbg);
@@ -268,7 +276,6 @@ public class JeuDeTest implements JeuDeTestLocal {
         leBigBald.getIngredients().add(sauceBalds);
         leBigBald.getIngredients().add(bunBurger);
 
-        
         leChrisBurger.getIngredients().add(steackHC);
         leChrisBurger.getIngredients().add(mozarella);
         leChrisBurger.getIngredients().add(bacon);
@@ -435,12 +442,45 @@ public class JeuDeTest implements JeuDeTestLocal {
         leVeganBald.setCategorieFormuleProduit(carteFormule);
         leCheeseBald.setCategorieFormuleProduit(carteFormule);
 
-        LigneDeCommande lCde1 = new LigneDeCommande(1, 5.5f);
-        LigneDeCommande lCde2 = new LigneDeCommande(1, 12.99f);
-        em.persist(lCde1);
+        LigneDeCommande lCde11 = new LigneDeCommande(1, 5.5f);
+        LigneDeCommande lCde12 = new LigneDeCommande(1, 12.99f);
+        LigneDeCommande lCde2 = new LigneDeCommande(1, 13.99f);
+        LigneDeCommande lCde31 = new LigneDeCommande(1, 15.99f);
+        LigneDeCommande lCde32 = new LigneDeCommande(2, 25.98f);
+        
+        em.persist(lCde11);
+        em.persist(lCde12);
         em.persist(lCde2);
+        em.persist(lCde31);
+        em.persist(lCde32);
    
-        lCde1.setProduit(leBigBald);
-        lCde2.setFormule(formule1);
+        lCde11.setProduit(leBigBald);
+        lCde12.setFormule(formule1);
+        lCde2.setFormule(formule2);
+        lCde31.setFormule(formule3);
+        lCde32.setFormule(formule1);
+        
+        Commande com01 = new Commande(18.49f, today);
+        Commande com02 = new Commande(13.99f,today);
+        Commande com03 = new Commande(41.98f,today);
+        em.persist(com01);
+        em.persist(com02);
+        em.persist(com03);
+        
+        com01.setNumTable(table01);
+        com02.setNumTable(table02);
+        com03.setNumTable(table03);
+        com01.setSuiviCommande(staPret);
+        com02.setSuiviCommande(staEnPrepa);
+        com03.setSuiviCommande(staPret);
+        com01.setServeur(e01);
+        com02.setServeur(e04);
+        com03.setServeur(e01);
+        
+        lCde11.setCommande(com01);
+        lCde12.setCommande(com01);
+        lCde2.setCommande(com02);
+        lCde31.setCommande(com03);
+        lCde32.setCommande(com03);
     }
 }

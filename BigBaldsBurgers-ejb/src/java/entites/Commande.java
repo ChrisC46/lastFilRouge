@@ -10,12 +10,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "findAll.Commande",query = "select c from Commande c"),
+    @NamedQuery(name = "entites.Commande.findCommandeByStatusPret", query = "select c from Commande c where c.suiviCommande = :staPret" )
+})
 public class Commande implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
