@@ -16,22 +16,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import traitement.GestionCategorieCarteLocal;
 
-public class CarteCtrl implements Serializable, SousControleur {
+public class AccompagnementCtrl implements Serializable, SousControleur {
 
     @Override
     public String executer(HttpServletRequest request, HttpServletResponse response) {
 
-       
+        GestionCategorieCarteLocal carte = lookupGestionCategorieCarteLocal();
+        String page = "/WEB-INF/client/detailAccompagnement.jsp";;
+        String idProduit = request.getParameter("id");
         
-        String page = "";
-        try {
-            page = "/WEB-INF/accueil.jsp";
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            request.setAttribute("dClasse", "erreur");
-            request.setAttribute("msg", "echec chargement des categories du catalogue");
-        }
+        request.setAttribute("produit", carte.getProdById(idProduit));
 
         return page;
 
@@ -46,4 +40,5 @@ public class CarteCtrl implements Serializable, SousControleur {
             throw new RuntimeException(ne);
         }
     }
+
 }

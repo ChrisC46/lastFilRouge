@@ -35,16 +35,8 @@
             <div class="container-fluid">
                 <div class="row col-md-9">
 
-                    <c:forEach var="item" items="${produits}">
-                        <div class="col-md-3" style="">
-                            <div class="card">
-                                <div class="card-header">${item.nom}</div>
-                                <c:url value="FrontControleur?section=${categorie}&id=${item.nom}" var="detail" />
-                                <div class="card-body">
-                                    <a href="${detail}"> <img class="img-fluid d-block" src=${item.image}></a> </div>     
-                            </div>
-                        </div>
-                    </c:forEach>
+                   Coucou pute
+                      
 
                 </div>
             </div>
