@@ -52,7 +52,6 @@ public class AffichageAccueil implements Serializable, SousControleur {
                 }
                 }
         } catch (CustomedException ex) {
-            System.out.println("on est dans le catch");
             if (ex.getNumber() == CustomedException.USER_ERR) {
                 request.setAttribute("erreur", loginJSP);
             }

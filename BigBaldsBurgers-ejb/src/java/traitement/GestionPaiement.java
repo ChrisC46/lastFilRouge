@@ -23,6 +23,7 @@ public class GestionPaiement implements GestionPaiementlLocal {
     @PersistenceContext(unitName = "BigBaldsBurgers-ejbPU")
     private EntityManager em;
 
+    @Override
     public List<Commande> findCommandeByStatusPret (){
         Query qr = em.createNamedQuery("entites.Commande.findCommandeByStatusPret");
         List<Commande> lCom = qr.getResultList();

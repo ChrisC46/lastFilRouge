@@ -5,6 +5,8 @@
  */
 package traitement;
 
+import entites.Commande;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -13,5 +15,7 @@ import javax.ejb.Local;
  */
 @Local
 public interface GestionPaiementlLocal {
+
+    public List<Commande> findCommandeByStatusPret();
     
 }

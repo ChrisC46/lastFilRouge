@@ -8,8 +8,8 @@
             <param-value>controleurs.secondaire.DonneesCreateCtrl</param-value>
         </init-param>
         <init-param>
-            <param-name>testLogin</param-name>
-            <param-value>controleurs.secondaire.testLogin</param-value>
+            <param-name>caissier</param-name>
+            <param-value>controleurs.secondaire.PaiementCtrl</param-value>
         </init-param>
         <init-param>
             <param-name>catalogue</param-name>

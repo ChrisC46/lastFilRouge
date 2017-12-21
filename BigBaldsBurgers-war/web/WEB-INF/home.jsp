@@ -20,7 +20,6 @@
                         <div>
                             <select>
                                 <option value="serveur">Serveur</option>
-                                <img src="images/serveurHome.png"/>
                                 <option value="client">Client</option>
                                 <option value="cuisinier">Cuisinier</option>
                                 <option value="caissier">Caissier</option>
