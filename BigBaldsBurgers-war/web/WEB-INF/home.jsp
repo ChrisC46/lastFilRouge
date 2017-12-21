@@ -10,29 +10,31 @@
     
         <div>
             <h1>Big Balds Burgers</h1>
-            <p> ici interface serveur/Client/cuisinier/resp caisse </p>
             <nav>
                 <ul>
                     <c:url value="FrontControleur?section=creerJeuDeTest" var="url00" />
-                    <li><a href="${url00}">creerJeuDeTest</a></li>
+                    <li><a href="${url00}">creerJeuDeTest</a></li><p class="${dClasse}">${msg}</p>
                     <c:url value="FrontControleur?section=accueil" var="url01" />
                     <form action="${url01}" method="POST">
+                        <label class="erreur">${erreur}</label>
                         <div>
-                            <p><input type="radio" name="choixAccueil" value="serveur">
-                                Serveur
+                            <p>
+                                <input type="radio" name="choixAccueil" value="serveur" >
+                                <img src="images/serveurHome.png"/>
                                 <br>
                                 <input type="radio" name="choixAccueil" value="client">
-                                Client
+                                <img src="images/clientHome.png" class="img-responsive img-rounded" onclick=""/>
                                 <br>
                                 <input type="radio" name="choixAccueil" value="cuisinier">
-                                Cuisine
+                                <img src="images/cuisineHome.png"/>
                                 <br>
                                 <input type="radio" name="choixAccueil" value="caissier">
-                                Caisse
+                                <img src="images/caisseHome.png"/>
                                 <br>      
                            </p>
                         </div>
-                        <label for="code">Code secteur : </label><input type="text" name="login" value="${loginE}" />
+                        <label for="code">Code secteur : </label><input type="passwor" name="login" maxlength="4" value="${loginERR}" required/>
+                        <label class="erreur">${loginErr}</label>
                         <input type="submit" name="code" value="valider"/>
                     </form>
                     <c:url value="FrontControleur?section=categorieCatalogue" var="url03" />
@@ -40,7 +42,7 @@
                 </ul>
             </nav>
             
-                    <p class="${dClasse}">${msg}</p>
+                   
         </div>
         
     </body>
