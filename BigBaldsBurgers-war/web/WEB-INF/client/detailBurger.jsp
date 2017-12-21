@@ -31,15 +31,22 @@
             </div>
         </div> 
 
-        <div class="py-3" style="">
-            <div class="container-fluid">
-                <div class="row col-md-9">
-
-                   Coucou pute
+       
                       
 
-                </div>
-            </div>
+          <div class="col-md-3" style="">
+                    <div class="card">
+                        <strong> ${produit.nom}</strong>
+                         <img class="img-fluid d-block" src=${produit.image}>
+                     <p> ${produit.prix}euros</p>
+                      <p> ${produit.description}</p>
+                      
+                     
+                       
+                                 
+                            </div>
+                        
+                   
 
         </div>
 
