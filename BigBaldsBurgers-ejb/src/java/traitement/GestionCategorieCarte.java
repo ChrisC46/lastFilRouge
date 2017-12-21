@@ -33,6 +33,15 @@ public class GestionCategorieCarte implements GestionCategorieCarteLocal {
         return allCat;
     }
     
+    
+    @Override
+    public Produit getProdById(String id) {
+        Query qr = em.createNamedQuery("entites.Produit.getById");
+        qr.setParameter("paramNom", id);
+        Produit prod = (Produit) qr.getSingleResult();
+        return prod;
+    }
+    
     @Override
     public List<Produit> getProduitByProP(String nomPropriete){
         Query qr = em.createNamedQuery("entites.Produit.getByProp");

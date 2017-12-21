@@ -19,6 +19,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import traitement.GestionCategorieCarteLocal;
 
 /**
@@ -31,30 +32,29 @@ public class CategorieCarteCtrl implements Serializable, SousControleur {
     public String executer(HttpServletRequest request, HttpServletResponse response) {
 
         GestionCategorieCarteLocal carte = lookupGestionCategorieCarteLocal();
-        String page = "";
+        String page = "/WEB-INF/client/produitsByCat.jsp";
+       
 
-        if ("Boisson".equals(request.getParameter("section"))) {
+        if ("BoissonG".equals(request.getParameter("section"))) {
             request.setAttribute("produits", carte.getProduitByProP("Boisson"));
-            page = "/WEB-INF/client/produitsByCat.jsp";
+            request.setAttribute("categorie", "Boisson");
         }
-        if ("Accompagnement".equals(request.getParameter("section"))) {
-           request.setAttribute("produits", carte.getProduitByProP("Accompagnement"));
-            page = "/WEB-INF/client/produitsByCat.jsp";
+        if ("AccompagnementG".equals(request.getParameter("section"))) {
+            request.setAttribute("produits", carte.getProduitByProP("Accompagnement"));
+            request.setAttribute("categorie", "Accompagnement");
         }
-        if ("Entree".equals(request.getParameter("section"))) {
-           request.setAttribute("produits", carte.getProduitByProP("Entree"));
-            page = "/WEB-INF/client/produitsByCat.jsp";
+        if ("EntreeG".equals(request.getParameter("section"))) {
+            request.setAttribute("produits", carte.getProduitByProP("Entree"));
+            request.setAttribute("categorie", "Entree");
         }
-        if ("Dessert".equals(request.getParameter("section"))) {
+        if ("DessertG".equals(request.getParameter("section"))) {
             request.setAttribute("produits", carte.getProduitByProP("Dessert"));
-            page = "/WEB-INF/client/produitsByCat.jsp";
+            request.setAttribute("categorie", "Dessert");
         }
-        if ("Burger".equals(request.getParameter("section"))) {
+        if ("BurgerG".equals(request.getParameter("section"))) {
             request.setAttribute("produits", carte.getProduitByProP("Burger"));
-            page = "/WEB-INF/client/produitsByCat.jsp";
+            request.setAttribute("categorie", "Burger");
         }
-
-        
         return page;
 
     }

@@ -19,4 +19,5 @@ public interface GestionCategorieCarteLocal {
     
      public List<CategorieFormule> getAllCat();
      public List<Produit> getProduitByProP(String nomPropriete);
+     public Produit getProdById(String id);
 }
