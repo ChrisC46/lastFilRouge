@@ -31,17 +31,19 @@
             </div>
         </div> 
 
-        <div class="py-3" style="">
-            <div class="container-fluid">
-                <div class="row col-md-9">
-
-                   Coucou pute
-                      
-
-                </div>
-            </div>
-
-        </div>
+      
+          <div class="col-md-3" style="">
+                    <div class="card">
+                        <strong> ${produit.nom}</strong>
+                         <img class="img-fluid d-block" src=${produit.image}>
+                     <p> ${produit.prix}euros</p>
+                      <p> ${produit.description}</p>
+                     
+                     
+                       
+                                 
+                            </div>
+                        
 
         <div class="py-5" style=""></div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
