@@ -24,6 +24,10 @@
             <param-value>controleurs.client.CategorieCarteCtrl</param-value>
         </init-param>
         <init-param>
+            <param-name>formules</param-name>
+            <param-value>controleurs.client.CategorieCarteCtrl</param-value>
+        </init-param>        
+        <init-param>
             <param-name>AccompagnementG</param-name>
             <param-value>controleurs.client.CategorieCarteCtrl</param-value>
         </init-param>

@@ -6,6 +6,7 @@
 package traitement;
 
 import entites.CategorieFormule;
+import entites.Formule;
 import entites.Produit;
 import java.util.HashSet;
 import java.util.List;
@@ -33,6 +34,13 @@ public class GestionCategorieCarte implements GestionCategorieCarteLocal {
         return allCat;
     }
     
+    @Override
+    public List<Formule> getAllFormule() {
+        Query qr = em.createNamedQuery("entites.Formule.AllFormule");
+        List <Formule> allFormule = qr.getResultList();
+        return allFormule;        
+    }
+    
     
     @Override
     public Produit getProdById(String id) {
@@ -41,6 +49,15 @@ public class GestionCategorieCarte implements GestionCategorieCarteLocal {
         Produit prod = (Produit) qr.getSingleResult();
         return prod;
     }
+    
+    @Override
+    public Formule getFormuleById(String id) {
+        Query qr = em.createNamedQuery("entites.Formule.FormuleById");
+        qr.setParameter("paramNom", id);
+        Formule formule = (Formule) qr.getSingleResult();
+        return formule;
+    }
+    
     
     @Override
     public List<Produit> getProduitByProP(String nomPropriete){
