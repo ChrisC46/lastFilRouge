@@ -45,4 +45,8 @@ public class CustomedException extends Exception {
         this.erreurs = erreurs;
     }
 
+    public void setStackTrace(int SQL_ERR) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

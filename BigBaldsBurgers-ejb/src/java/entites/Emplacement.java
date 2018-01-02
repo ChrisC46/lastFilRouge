@@ -8,10 +8,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 
 @Entity
+@NamedQueries ({
+@NamedQuery (name = "rechercheEmplacements", query = "select e from Emplacement e where e.numero=:empNumero"),
+}) 
 public class Emplacement implements Serializable {
     private static final long serialVersionUID = 1L;
     @Column(nullable = false)
