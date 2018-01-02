@@ -26,7 +26,7 @@ public class FormuleCtrl implements Serializable, SousControleur{
         String page = "/WEB-INF/client/detailFormule.jsp";;
 
         String idProduit = request.getParameter("id");
-       // request.setAttribute("produit", carte.getProdById(idProduit));
+        request.setAttribute("produit", carte.getFormuleById(idProduit));
 
         return page;
 
