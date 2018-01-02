@@ -5,7 +5,11 @@
  */
 package traitement;
 
+import com.sun.xml.rpc.processor.modeler.j2ee.xml.string;
+import entites.Emplacement;
+import java.util.List;
 import javax.ejb.Local;
+import outils.CustomedException;
 
 /**
  *
@@ -13,5 +17,11 @@ import javax.ejb.Local;
  */
 @Local
 public interface GestionEmplacementLocal {
-    
+
+    public Emplacement selectionEmplacement(String numero) throws CustomedException;
+
+    public List<Emplacement> selectionListeEmplacements(string numero);
+
+
+
 }
