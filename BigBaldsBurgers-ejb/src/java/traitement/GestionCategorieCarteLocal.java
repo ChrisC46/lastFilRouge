@@ -6,6 +6,7 @@
 package traitement;
 
 import entites.CategorieFormule;
+import entites.Formule;
 import entites.Produit;
 import java.util.List;
 import javax.ejb.Local;
@@ -20,4 +21,6 @@ public interface GestionCategorieCarteLocal {
      public List<CategorieFormule> getAllCat();
      public List<Produit> getProduitByProP(String nomPropriete);
      public Produit getProdById(String id);
+     public List<Formule> getAllFormule();
+     public Formule getFormuleById(String id);
 }
