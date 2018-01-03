@@ -115,9 +115,9 @@ public class JeuDeTest implements JeuDeTestLocal {
         em.persist(especes);
         em.persist(ticketResto);
 
-        Status staTransmis = new Status("commande transmise", "Votre commande est transmise à la cuisine, un instant de patience :-)");
-        Status staEnPrepa = new Status("commande en preparation", "Le chef accepte votre challenge, il active sa team");
-        Status staPret = new Status("commande prete", "Challenge réussi ! Votre commande est prête");
+        Status staTransmis = new Status("transmise", "Votre commande est transmise à la cuisine, un instant de patience :-)");
+        Status staEnPrepa = new Status("preparation", "Le chef accepte votre challenge, il active sa team");
+        Status staPret = new Status("prete", "Challenge réussi ! Votre commande est prête");
         Status staSelect = new Status("selection en cours", "Faite vos jeux ! A tous les coups on se regale");
         Status staTableDispo = new Status("table disponible");
         Status staTablePasDispo = new Status("table non disponible");

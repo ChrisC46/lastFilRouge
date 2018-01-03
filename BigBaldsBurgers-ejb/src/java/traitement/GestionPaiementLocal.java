@@ -14,8 +14,8 @@ import javax.ejb.Local;
  * @author Tofi
  */
 @Local
-public interface GestionPaiementlLocal {
+public interface GestionPaiementLocal {
 
-    public List<Commande> findCommandeByStatusPret();
+    public List<Commande> findCommandeByStatusPret(String status);
     
 }

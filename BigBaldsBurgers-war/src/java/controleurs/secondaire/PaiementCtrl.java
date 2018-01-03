@@ -15,7 +15,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import traitement.GestionPaiementlLocal;
+import traitement.GestionPaiementLocal;
 
 /**
  *
@@ -25,8 +25,8 @@ public class PaiementCtrl implements SousControleur, Serializable {
 
     @Override
     public String executer(HttpServletRequest request, HttpServletResponse response) {
-        GestionPaiementlLocal gestionPaiement = lookupGestionPaiementLocal();
-        List<Commande> lCommande = gestionPaiement.findCommandeByStatusPret();
+        GestionPaiementLocal gestionPaiement = lookupGestionPaiementLocal();
+        List<Commande> lCommande = gestionPaiement.findCommandeByStatusPret("prete");
         System.out.println("liste de table :"+lCommande);
         request.setAttribute("lTable", lCommande);
         String page = "/WEB-INF/caisse.jsp";
@@ -34,10 +34,10 @@ public class PaiementCtrl implements SousControleur, Serializable {
         return page;
     }
 
-    private GestionPaiementlLocal lookupGestionPaiementLocal() {
+    private GestionPaiementLocal lookupGestionPaiementLocal() {
         try {
             Context c = new InitialContext();
-            return (GestionPaiementlLocal) c.lookup("java:global/BigBaldsBurgers/BigBaldsBurgers-ejb/GestionPaiement!traitement.GestionPaiementLocal");
+            return (GestionPaiementLocal) c.lookup("java:global/BigBaldsBurgers/BigBaldsBurgers-ejb/GestionPaiement!traitement.GestionPaiementLocal");
         } catch (NamingException ne) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught PaiementCtrl", ne);
             throw new RuntimeException(ne);

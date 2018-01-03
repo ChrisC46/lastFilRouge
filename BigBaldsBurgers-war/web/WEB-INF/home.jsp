@@ -18,12 +18,16 @@
                     <form action="${url01}" method="POST">
                         <label class="erreur">${erreur}</label>
                         <div>
+
+                            <%--
                             <select>
                                 <option value="serveur">Serveur</option>
                                 <option value="client">Client</option>
                                 <option value="cuisinier">Cuisinier</option>
                                 <option value="caissier">Caissier</option>
                             </select>
+                            --%>
+
                             <p><input type="radio" name="choixAccueil" value="serveur" >
                                 <img src="images/serveurHome.png"/>
                                 <br>

@@ -8,7 +8,7 @@
             <param-value>controleurs.secondaire.DonneesCreateCtrl</param-value>
         </init-param>
         <init-param>
-            <param-name>caissier</param-name>
+            <param-name>PaiementCtrl</param-name>
             <param-value>controleurs.secondaire.PaiementCtrl</param-value>
         </init-param>
         <init-param>

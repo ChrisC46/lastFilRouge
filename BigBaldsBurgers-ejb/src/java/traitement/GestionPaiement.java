@@ -18,16 +18,19 @@ import javax.persistence.Query;
  * @author Tofi
  */
 @Stateless
-public class GestionPaiement implements GestionPaiementlLocal {
+public class GestionPaiement implements GestionPaiementLocal {
     
     @PersistenceContext(unitName = "BigBaldsBurgers-ejbPU")
     private EntityManager em;
-
+    
     @Override
-    public List<Commande> findCommandeByStatusPret (){
+    public List<Commande> findCommandeByStatusPret (String status){
         Query qr = em.createNamedQuery("entites.Commande.findCommandeByStatusPret");
+        qr.setParameter("paramStatus", status);
         List<Commande> lCom = qr.getResultList();
+        System.out.println("gestionPaiement requete :"+qr);
         return lCom;
+        
     }
     
     
