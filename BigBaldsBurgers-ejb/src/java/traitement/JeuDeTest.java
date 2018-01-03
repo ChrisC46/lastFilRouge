@@ -367,7 +367,17 @@ public class JeuDeTest implements JeuDeTestLocal {
         formule1.setCategorieFormule(carteFormule);
         formule2.setCategorieFormule(carteFormule);
         formule3.setCategorieFormule(carteFormule);
- 
+        
+        
+        frite.getFormules().add(formule1);
+        patatoes.getFormules().add(formule1);
+        saladeDeChauve.getFormules().add(formule1);
+        frite.getFormules().add(formule2);
+        patatoes.getFormules().add(formule2);
+        saladeDeChauve.getFormules().add(formule2);
+        frite.getFormules().add(formule3);
+        patatoes.getFormules().add(formule3);
+        saladeDeChauve.getFormules().add(formule3);                
         onionRings.getFormules().add(formule1);
         onionRings.getFormules().add(formule3);
         mozzaStick.getFormules().add(formule1);

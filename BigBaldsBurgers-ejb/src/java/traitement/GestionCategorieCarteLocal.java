@@ -23,4 +23,6 @@ public interface GestionCategorieCarteLocal {
      public Produit getProdById(String id);
      public List<Formule> getAllFormule();
      public Formule getFormuleById(String id);
+     public List<Produit> getProduitByFormule(String nomCategorie, String nomFormule);
+     public List<Produit> getBoissonByFormule(String nomCategorie, String nomFormule);
 }

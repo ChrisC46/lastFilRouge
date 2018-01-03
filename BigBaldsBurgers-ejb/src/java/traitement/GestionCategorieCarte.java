@@ -57,6 +57,27 @@ public class GestionCategorieCarte implements GestionCategorieCarteLocal {
         return formule;
     }
     
+    @Override
+    public List<Produit> getBoissonByFormule(String nomCategorie, String nomFormule){
+        Query qr = em.createNamedQuery("entites.Produit.getBoissonByFormule");
+        qr.setParameter("paramNom", nomCategorie);
+        qr.setParameter("paramForm", nomFormule);
+        qr.setParameter("paramVolume", "33cl");
+        List<Produit> produits = qr.getResultList();
+        System.out.println("requete produit by formule :  " + qr);
+        return produits;        
+    }
+    
+     @Override
+    public List<Produit> getProduitByFormule(String nomCategorie, String nomFormule){
+        Query qr = em.createNamedQuery("entites.Produit.getByFormule");
+        qr.setParameter("paramNom", nomCategorie);
+        qr.setParameter("paramForm", nomFormule);        
+        List<Produit> produits = qr.getResultList();
+        System.out.println("requete produit by formule :  " + qr);
+        return produits;        
+    }
+    
     
     @Override
     public List<Produit> getProduitByProP(String nomPropriete){
