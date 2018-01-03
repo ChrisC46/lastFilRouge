@@ -18,6 +18,7 @@ import javax.persistence.OneToMany;
 @NamedQueries({
     @NamedQuery (name = "entites.Produit.getByProp", query = "select g from Produit g join g.proprietes p where p.nom = :paramNom"),
     @NamedQuery (name = "entites.Produit.getById", query = "select g from Produit g where g.nom = :paramNom"),
+    
 })
 public class Produit implements Serializable {
     private static final long serialVersionUID = 1L;
