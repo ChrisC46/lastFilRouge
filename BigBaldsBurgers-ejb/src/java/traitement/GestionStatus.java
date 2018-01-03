@@ -1,19 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package traitement;
 
+import entites.Status;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
-/**
- *
- * @author cdi317
- */
 @Stateless
 public class GestionStatus implements GestionStatusLocal {
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+    @PersistenceContext(unitName = "BigBaldsBurgers-ejbPU")
+    private EntityManager em;
+
+    @Override
+    public Status statusEmplacment(String nom) {
+        Query qr = em.createNamedQuery("statusEmp");
+        qr.setParameter("typeStatus", nom);
+        Status status = (Status) qr.getSingleResult();
+        return status;
+    }
+    
 }

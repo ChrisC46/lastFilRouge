@@ -24,6 +24,10 @@
             <param-value>controleurs.client.CategorieCarteCtrl</param-value>
         </init-param>
         <init-param>
+            <param-name>formules</param-name>
+            <param-value>controleurs.client.CategorieCarteCtrl</param-value>
+        </init-param>        
+        <init-param>
             <param-name>AccompagnementG</param-name>
             <param-value>controleurs.client.CategorieCarteCtrl</param-value>
         </init-param>
@@ -63,6 +67,10 @@
             <param-name>Entree</param-name>
             <param-value>controleurs.client.EntreeCtrl</param-value>
         </init-param>
+        <init-param>
+            <param-name>Formule</param-name>
+            <param-value>controleurs.client.FormuleCtrl</param-value>
+        </init-param>  
     </servlet>
     <servlet-mapping>
         <servlet-name>FrontControleur</servlet-name>

@@ -31,7 +31,7 @@
             </div>
         </div> 
 
-       
+    
           <div class="col-md-3" style="">
                     <div class="card">
                         <strong> ${produit.nom}</strong>
