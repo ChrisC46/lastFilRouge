@@ -27,6 +27,7 @@ public class EntreeCtrl implements Serializable, SousControleur {
         String idProduit = request.getParameter("id");
         request.setAttribute("produit", carte.getProdById(idProduit));
         request.setAttribute("proprietes", carte.getProprieteByProd(idProduit));
+        
        
         return page;
 

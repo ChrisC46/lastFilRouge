@@ -39,8 +39,9 @@
                         <strong> ${produit.nom}</strong>
                          <img class="img-fluid d-block" src=${produit.image}>
                      <p> ${produit.prix}euros</p>
-                      <p> ${produit.description}</p>
-                       <p>${proprietes} </p>
+                     <p> ${produit.description}</p>
+                     <p>${proprietes} </p>
+                     <p>${ingredients} </p>
                        <button type="button" class="btn btn-primary btn-lg btn-block">Selectionner</button>
                      
                        

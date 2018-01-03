@@ -7,6 +7,7 @@ package traitement;
 
 import entites.CategorieFormule;
 import entites.Formule;
+import entites.Ingredients;
 import entites.Produit;
 import entites.Propriete;
 import java.util.HashSet;
@@ -89,7 +90,20 @@ public class GestionCategorieCarte implements GestionCategorieCarteLocal {
         return proprietes;
     }
     
-    
+     @Override
+    public List<Ingredients> getIngredientsByProd(String id){
+        Query qr = em.createNamedQuery("entites.Ingredients.getByProd");
+        qr.setParameter("paramNom", id);
+        List<Ingredients> ingredients = qr.getResultList();
+        //Tris Produit Uniques
+         HashSet<Ingredients> uniqueValues = new HashSet(ingredients);
+        ingredients.clear();
+        for(Ingredients ing :uniqueValues){
+            ingredients.add(ing);
+        }
+        System.out.println("requete : " + qr.toString() );
+        return ingredients;
+    }
     
     
     public void persist(Object object) {

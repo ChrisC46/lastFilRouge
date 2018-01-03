@@ -27,6 +27,7 @@ public class BurgerCtrl implements Serializable, SousControleur {
 
         request.setAttribute("produit", carte.getProdById(idProduit));
          request.setAttribute("proprietes", carte.getProprieteByProd(idProduit));
+         request.setAttribute("ingredients", carte.getIngredientsByProd(idProduit));
 
         return page;
 

@@ -39,6 +39,7 @@
                      <p> ${produit.prix}euros</p>
                       <p> ${produit.description}</p
                       <p>${proprietes} </p>
+                      
                        <button type="button" class="btn btn-primary btn-lg btn-block">Selectionner</button>
                      
                        

@@ -7,6 +7,7 @@ package traitement;
 
 import entites.CategorieFormule;
 import entites.Formule;
+import entites.Ingredients;
 import entites.Produit;
 import entites.Propriete;
 import java.util.List;
@@ -25,6 +26,8 @@ public interface GestionCategorieCarteLocal {
      public List<Formule> getAllFormule();
      public Formule getFormuleById(String id);
      public List<Propriete> getProprieteByProd(String id);
+
+    public List<Ingredients> getIngredientsByProd(String id);
 
    
 }
