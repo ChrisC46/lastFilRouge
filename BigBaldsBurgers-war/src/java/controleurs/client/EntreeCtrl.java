@@ -25,8 +25,10 @@ public class EntreeCtrl implements Serializable, SousControleur {
         String page = "/WEB-INF/client/detailEntree.jsp";;
 
         String idProduit = request.getParameter("id");
-        request.setAttribute("produit", carte.getFormuleById(idProduit));
-
+        request.setAttribute("produit", carte.getProdById(idProduit));
+        request.setAttribute("proprietes", carte.getProprieteByProd(idProduit));
+        
+       
         return page;
 
     }

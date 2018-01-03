@@ -18,7 +18,8 @@ import javax.persistence.NamedQuery;
 @Entity
 @NamedQueries({
     @NamedQuery (name = "entites.Propriete.getProprieteParNom", query = "select g from Propriete g where g.nom = :paramNom"),
-    @NamedQuery (name = "entites.Propriete.getAllProptiete", query = "select g from Propriete g ")
+    @NamedQuery (name = "entites.Propriete.getAllProptiete", query = "select g from Propriete g "),
+    @NamedQuery (name = "entites.Propriete.getByProd", query = "select g from Propriete g join g.produits p where p.nom = :paramNom") 
 })
 public class Propriete implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -111,7 +112,7 @@ public class Propriete implements Serializable {
 
     @Override
     public String toString() {
-        return "entites.Propriete[ "+nom+" "+valeur+" "+unite+" ]";
+        return " "+valeur+" "+unite;
     }
     
 }

@@ -15,11 +15,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
-/**
- *
- * @author Tofi
- */
+@NamedQueries({
+    
+    @NamedQuery (name = "entites.Ingredients.getByProd", query = "select g from Ingredients g join g.produits p where p.nom = :paramNom") 
+})
 @Entity
 public class Ingredients implements Serializable {
 
@@ -102,7 +104,7 @@ public class Ingredients implements Serializable {
     
     @Override
     public String toString() {
-        return "entites.Ingredients nom = " + nom;
+        return  nom;
     }
 
 }
