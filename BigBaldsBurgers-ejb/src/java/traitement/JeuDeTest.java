@@ -237,23 +237,23 @@ public class JeuDeTest implements JeuDeTestLocal {
         em.persist(bunBurger);
      
 
-        Produit cocaCola = new Produit("Coca-Cola", 2, "images/cocacola.png", "boisson sucrée sans sucre.");
-        Produit cocaColaL = new Produit("Coca-Cola light", 2, "images/cocaLight.png", "boisson sans sucre gout sucré.");
-        Produit orangeJuice = new Produit("OrangeJuice", 2, "images/OrangeJuice.png", "Fait d'orange de sibérie.");
-        Produit iceTea = new Produit("IceTea", 2, "images/Lipton.png", "Boisson Froide mais pas trop chaude.");
-        Produit coors = new Produit("Coors", 2.5f, "images/coors.png", "Pour mieux faire la course. l'abus de Coors est dangereux pour faire les courses.");
-        Produit despe = new Produit("Desperados", 2.5f, "images/despe.png", "un mexicain se cache à l'interieur de cette boisson.");
-        Produit frite = new Produit("Frites", 2.5f, "images/frite.png", "frite fraiches maison.");
-        Produit patatoes = new Produit("Patatoes", 2.5f, "images/potatoes.png", "Patatoes fraiches maison.");
-        Produit saladeDeChauve = new Produit("Salade de Chauves", 2.5f, "images/salade.png", "Salade composé, recette secrete du chef.");
-        Produit onionRings = new Produit("Onion Rings", 2f, "images/OnionRings.png", "Onion fris dans notre huile de la veille.");
-        Produit mozzaStick = new Produit("Mozza Stick", 2f, "images/MozzarelaSticks.png", "Batonnet de Mozart uniquement quand il est là.");
-        Produit brownie = new Produit("Brownie", 3, "images/Brownie.png", "Brownie du chef fait avec son chocolat maison.");
-        Produit mousseAuChocolat = new Produit("Mousse au chocolat", 3, "images/mousse.png", "Mousse du chef fait avec son chocolat maison.");
-        Produit leBigBald = new Produit("Le Big Bald", 5.5f, "images/Lebigbalds.png", "Notre Fameux Burger.");
-        Produit leChrisBurger = new Produit("Le Chris Burger", 7.5f, "images/nom2.png", "Inspiré maitre christophe, pour les amoureux de la viande.");
-        Produit leVeganBald = new Produit("Le Vegan Bald", 6.5f, "images/leVegan.png", "Pour ceux qui ont qui ont rien compris à la vie et qui ne mangent pas de viande.");
-        Produit leCheeseBald = new Produit("Le cheese Bald", 5.5f, "images/nom4.png", "Si vous etes fan de fromage, ce burger est pour vous.");
+        Produit cocaCola = new Produit("Coca-Cola", 1.8f, "images/cocacola.png", "boisson sucrée sans sucre.");
+        Produit cocaColaL = new Produit("Coca-Cola light", 1.8f, "images/cocaLight.png", "boisson sans sucre gout sucré.");
+        Produit orangeJuice = new Produit("OrangeJuice", 1.8f, "images/OrangeJuice.png", "Fait d'orange de sibérie.");
+        Produit iceTea = new Produit("IceTea", 1.8f, "images/Lipton.png", "Boisson Froide mais pas trop chaude.");
+        Produit coors = new Produit("Coors", 2, "images/coors.png", "Pour mieux faire la course. l'abus de Coors est dangereux pour faire les courses.");
+        Produit despe = new Produit("Desperados", 2, "images/despe.png", "un mexicain se cache à l'interieur de cette boisson.");
+        Produit frite = new Produit("Frites", 2.25f, "images/frite.png", "frite fraiches maison.");
+        Produit patatoes = new Produit("Patatoes", 2.25f, "images/potatoes.png", "Patatoes fraiches maison.");
+        Produit saladeDeChauve = new Produit("Salade de Chauves", 2.25f, "images/salade.png", "Salade composé, recette secrete du chef.");
+        Produit onionRings = new Produit("Onion Rings", 1.8f, "images/OnionRings.png", "Onion fris dans notre huile de la veille.");
+        Produit mozzaStick = new Produit("Mozza Stick", 1.8f, "images/MozzarelaSticks.png", "Batonnet de Mozart uniquement quand il est là.");
+        Produit brownie = new Produit("Brownie", 2.7f, "images/Brownie.png", "Brownie du chef fait avec son chocolat maison.");
+        Produit mousseAuChocolat = new Produit("Mousse au chocolat", 2.7f, "images/mousse.png", "Mousse du chef fait avec son chocolat maison.");
+        Produit leBigBald = new Produit("Le Big Bald", 4.95f, "images/Lebigbalds.png", "Notre Fameux Burger.");
+        Produit leChrisBurger = new Produit("Le Chris Burger", 6.75f, "images/nom2.png", "Inspiré maitre christophe, pour les amoureux de la viande.");
+        Produit leVeganBald = new Produit("Le Vegan Bald", 5.85f, "images/leVegan.png", "Pour ceux qui ont qui ont rien compris à la vie et qui ne mangent pas de viande.");
+        Produit leCheeseBald = new Produit("Le cheese Bald", 4.95f, "images/nom4.png", "Si vous etes fan de fromage, ce burger est pour vous.");
 
         em.persist(cocaCola);
         em.persist(cocaColaL);
@@ -363,9 +363,9 @@ public class JeuDeTest implements JeuDeTestLocal {
         leChrisBurger.getProprietes().add(leChrisBurgerP);
         leVeganBald.getProprietes().add(leVeganBaldP);
         
-        Formule formule1 = new Formule("StartBaldMeal", "Entrée + burger  + boisson(33cl) au choix", 12.99f, "images/FormuleFull.jpg");
-        Formule formule2 = new Formule("EndBaldMeal", "Burger + déssert + boisson(33cl) au choix", 13.99f, "images/FormuleFull.jpg");
-        Formule formule3 = new Formule("FullBaldMeal", "Entrée + burger + déssert + boisson(33cl) au choix", 15.99f, "images/FormuleFull.jpg");
+        Formule formule1 = new Formule("StartBaldMeal", "Entrée + burger  + boisson(33cl) au choix", 11.69f, "images/FormuleFull.jpg");
+        Formule formule2 = new Formule("EndBaldMeal", "Burger + déssert + boisson(33cl) au choix", 12.59f, "images/FormuleFull.jpg");
+        Formule formule3 = new Formule("FullBaldMeal", "Entrée + burger + déssert + boisson(33cl) au choix", 14.39f, "images/FormuleFull.jpg");
         em.persist(formule1);
         em.persist(formule2);
         em.persist(formule3);
@@ -458,13 +458,13 @@ public class JeuDeTest implements JeuDeTestLocal {
         leVeganBald.setCategorieFormuleProduit(carteFormule);
         leCheeseBald.setCategorieFormuleProduit(carteFormule);
 
-        LigneDeCommande lCde11 = new LigneDeCommande(1, 5.5f);
-        LigneDeCommande lCde12 = new LigneDeCommande(1, 12.99f);
-        LigneDeCommande lCde13 = new LigneDeCommande(1, 2.5f);
-        LigneDeCommande lCde2 = new LigneDeCommande(1, 13.99f);
-        LigneDeCommande lCde31 = new LigneDeCommande(1, 15.99f);
-        LigneDeCommande lCde32 = new LigneDeCommande(2, 25.98f);
-        LigneDeCommande lCde33 = new LigneDeCommande(3, 7.50f);
+        LigneDeCommande lCde11 = new LigneDeCommande(1, 4.95f);
+        LigneDeCommande lCde12 = new LigneDeCommande(1, 11.69f);
+        LigneDeCommande lCde13 = new LigneDeCommande(1, 2);
+        LigneDeCommande lCde2 = new LigneDeCommande(1, 12.59f);
+        LigneDeCommande lCde31 = new LigneDeCommande(1, 14.39f);
+        LigneDeCommande lCde32 = new LigneDeCommande(2, 23.38f);
+        LigneDeCommande lCde33 = new LigneDeCommande(3, 6);
         
         em.persist(lCde11);
         em.persist(lCde12);
@@ -482,9 +482,9 @@ public class JeuDeTest implements JeuDeTestLocal {
         lCde32.setFormule(formule1);
         lCde33.setProduit(despe);
         
-        Commande com01 = new Commande(20.99f, today);
-        Commande com02 = new Commande(13.99f,today);
-        Commande com03 = new Commande(49.47f,today);
+        Commande com01 = new Commande(18.64f, today);
+        Commande com02 = new Commande(12.59f,today);
+        Commande com03 = new Commande(43.77f,today);
         em.persist(com01);
         em.persist(com02);
         em.persist(com03);

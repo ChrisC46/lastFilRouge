@@ -33,9 +33,10 @@
                             
                             <thead>
                                 <tr>
-                                    <th>Quantité</th>
+                                    <th>Qte</th>
                                     <th>Produit</th>
-                                    <th>Montant</th>
+                                    <th>Prix HT</th>
+                                    <th>Prix TTC</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,7 +45,7 @@
                                 <tr>
                                     <td>${d.qteCommande}</td>
                                     <td>${d.formule.nom}${d.produit.nom}</td>
-                                    <td>${d.prixLigneDeCo} €</td>
+                                    <td>${d.prixLigneDeCo}€</td>
                                 </tr>
                                 </c:forEach>
                            
@@ -79,20 +80,24 @@
               --%>
             <tbody>
               <tr>
-                <td>Montant HT :</td>
-                <td>€</td>
+                <td>Montant HT :</td><td>€</td>
+              </tr>
+              <c:forEach var="t" items="${lTva}">
+              <tr>
+                <td>TVA à ${t.nom}${t.taux}:</td><td>€</td>
               </tr>
               <tr>
-                <td>TVA à ...  :</td>
-                <td>€</td>
+                <td>TVA à ${t.nom}${t.taux}:</td> <td>€</td>
               </tr>
               <tr>
-                <td>TVA à ...  :</td>
-                <td>€</td>
+                <td>TVA à ${t.nom}${t.taux}:</td><td>€</td>
+              </tr>
+              </c:forEach>
+              <tr>
+                <td>Montant TTC :</td><td>€</td>
               </tr>
               <tr>
-                <td>Montant TTC :</td>
-                <td>€</td>
+                <td>Reste à payer :</td><td>€</td>
               </tr>
             </tbody>
           </table>

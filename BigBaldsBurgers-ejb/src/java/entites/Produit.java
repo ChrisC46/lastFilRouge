@@ -200,4 +200,6 @@ public class Produit implements Serializable {
         return "entites.Produit[ "+nom+" "+prix+"]";
     }
     
+    
+    
 }
