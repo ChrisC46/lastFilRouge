@@ -45,21 +45,48 @@
 
                 </div>
 
-                <div class="col-md-6 " style="">        
+                <div class="col-md-6 " style="">
+                    <c:if test="${entrees!=null}">
+                        <hr> <strong> Choix de l'entrée </strong><hr>  <br>
+                        <c:forEach var="entrees" items="${entrees}">
+                            <label class="radio-inline">
+                                <img class="img-fluid d-block" style="width: 120px" src=${entrees.image}>
+                                <input type="radio" name="optradio5">${entrees.nom}
+                            </label>
+                        </c:forEach>
+                    </c:if>
                     <hr> <strong> Choix du Burger </strong><hr> <br>
                     <c:forEach var="burger" items="${burger}">
-
-                        <label class="radio-inline"><img class="img-fluid d-block" onclick="" style="width: 120px" src=${burger.image}><input type="radio" name="optradio">${burger.nom}</label>
+                        <label class="radio-inline">
+                            <img class="img-fluid d-block"  style="width: 120px" src=${burger.image}>
+                            <input type="radio" name="optradio"/>
+                            <div>${burger.nom}</div>
+                        </label>
                     </c:forEach><br>
-                   <hr> <strong> Choix de l'accompagnement </strong> <hr> <br>
+                    <hr> <strong> Choix de l'accompagnement </strong> <hr> <br>
                     <c:forEach var="accompagnement" items="${accompagnement}">
-
-                        <label class="radio-inline"><img class="img-fluid d-block"  style="width: 120px" src=${accompagnement.image}><input type="radio" name="optradio2">${accompagnement.nom}</label>
+                        <label class="radio-inline">
+                            <img class="img-fluid d-block"  style="width: 120px" src=${accompagnement.image}>
+                            <input type="radio" name="optradio2">${accompagnement.nom}
+                        </label>
                     </c:forEach><br>
-                   <hr> <strong> Choix de la boisson </strong><hr>  <br>
+                    <hr> <strong> Choix de la boisson </strong><hr>  <br>
                     <c:forEach var="boisson" items="${boisson}">
-                        <label class="radio-inline"><img class="img-fluid d-block" style="width: 120px" src=${boisson.image}><input type="radio" name="optradio3">${boisson.nom}</label>
+                        <label class="radio-inline">
+                            <img class="img-fluid d-block" style="width: 120px" src=${boisson.image}>
+                            <input type="radio" name="optradio3">${boisson.nom}
+                        </label>
+                    </c:forEach>
+                    <c:if test="${dessert!=null}">
+                        <hr> <strong> Choix du dessert </strong><hr>  <br>
+                        <c:forEach var="dessert" items="${dessert}">
+                            <label class="radio-inline">
+                                <img class="img-fluid d-block" style="width: 120px" src=${dessert.image}>
+                                <input type="radio" name="optradio4">${dessert.nom}
+                            </label>
                         </c:forEach>
+                    </c:if>
+
                     <button type="button" class="btn btn-primary btn-lg btn-block">Valider</button>
                 </div>
             </div>
