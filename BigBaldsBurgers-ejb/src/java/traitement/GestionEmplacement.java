@@ -1,4 +1,3 @@
-
 package traitement;
 
 import com.sun.xml.rpc.processor.modeler.j2ee.xml.string;
@@ -29,11 +28,31 @@ public class GestionEmplacement implements GestionEmplacementLocal {
     }
 
     @Override
-    public List<Emplacement> selectionListeEmplacements(string numero) {
+    public List<Emplacement> selectionListeEmplacements(String numero) {
         Query qr = em.createNamedQuery("rechercheEmplacements");
         qr.setParameter("empNumero", numero);
         List<Emplacement> lEmp = qr.getResultList();
         return lEmp;
     }
 
+    @Override
+    public List<Emplacement> allEmplacements() {
+        Query qr = em.createNamedQuery("rechercheAllEmplacements");
+        List<Emplacement> lEmp = qr.getResultList();
+        return lEmp;
+    }
+   
+    @Override
+    public List<Emplacement> emplacementDispo() {
+        Query qr = em.createNamedQuery("rechercheEmplacementDispo");
+        List<Emplacement> listEmpDispo = qr.getResultList();
+        return listEmpDispo;
+    }
+    
+    @Override
+    public List<Emplacement> emplacementOccupe() {
+        Query qr = em.createNamedQuery("rechercheEmplacementOccupe");
+        List<Emplacement> listEmpOccu = qr.getResultList();
+        return listEmpOccu;
+    }
 }

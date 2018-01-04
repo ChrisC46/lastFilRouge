@@ -1,4 +1,3 @@
-
 package entites;
 
 import java.io.Serializable;
@@ -12,12 +11,15 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
-
 @Entity
-@NamedQueries ({
-@NamedQuery (name = "rechercheEmplacements", query = "select e from Emplacement e where e.numero=:empNumero"),
-}) 
+@NamedQueries({
+    @NamedQuery(name = "rechercheEmplacements", query = "select e from Emplacement e where e.numero=:empNumero"),
+    @NamedQuery(name = "rechercheAllEmplacements", query = "select e from Emplacement e "),
+    @NamedQuery(name = "rechercheEmplacementDispo", query = "select e.numero from Emplacement e WHERE e.dispoTable.nom='table disponible'"),
+    @NamedQuery(name = "rechercheEmplacementOccupe", query = "select e.numero from Emplacement e WHERE e.dispoTable.nom='table non disponible'")
+})
 public class Emplacement implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Column(nullable = false)
     @Id
@@ -25,12 +27,11 @@ public class Emplacement implements Serializable {
     @Column(nullable = false)
     private int nbrePlaces;
 
-    
     @OneToMany(mappedBy = "numTable")
     private Collection<Commande> commandeEmplacement;
     @ManyToOne
     private Status dispoTable;
-    
+
     public Emplacement() {
         commandeEmplacement = new ArrayList();
     }
@@ -56,7 +57,7 @@ public class Emplacement implements Serializable {
     public void setDispoTable(Status dispoTable) {
         this.dispoTable = dispoTable;
     }
-       
+
     public String getNumero() {
         return numero;
     }
@@ -73,11 +74,9 @@ public class Emplacement implements Serializable {
         this.nbrePlaces = nbrePlaces;
     }
 
-      
-
     @Override
     public String toString() {
         return "Numéro de table : " + numero + ". " + "Nombre places : " + nbrePlaces;
     }
-    
+
 }

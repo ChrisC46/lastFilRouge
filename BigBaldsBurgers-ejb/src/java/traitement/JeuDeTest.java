@@ -161,9 +161,11 @@ public class JeuDeTest implements JeuDeTestLocal {
         Droits d01 = new Droits("serveur");
         Droits d02 = new Droits("cuisinier");
         Droits d03 = new Droits("caissier");
+        Droits d04 = new Droits("client");
         em.persist(d01);
         em.persist(d02);
         em.persist(d03);
+        em.persist(d04);
         em.flush();
 
         Employe e01 = new Employe(001, "Ney", "Mar", "0606060606", "neymar@gmail.com", "1111");
@@ -178,9 +180,13 @@ public class JeuDeTest implements JeuDeTestLocal {
         
         e01.getTypeDroit().add(d01);
         e01.getTypeDroit().add(d03);
+        e01.getTypeDroit().add(d04);
         e02.getTypeDroit().add(d02);
+        e02.getTypeDroit().add(d04);
         e03.getTypeDroit().add(d03);
+        e03.getTypeDroit().add(d04);
         e04.getTypeDroit().add(d03);
+        e04.getTypeDroit().add(d04);
         e04.getTypeDroit().add(d02);
         e04.getTypeDroit().add(d01);
 
@@ -454,25 +460,31 @@ public class JeuDeTest implements JeuDeTestLocal {
 
         LigneDeCommande lCde11 = new LigneDeCommande(1, 5.5f);
         LigneDeCommande lCde12 = new LigneDeCommande(1, 12.99f);
+        LigneDeCommande lCde13 = new LigneDeCommande(1, 2.5f);
         LigneDeCommande lCde2 = new LigneDeCommande(1, 13.99f);
         LigneDeCommande lCde31 = new LigneDeCommande(1, 15.99f);
         LigneDeCommande lCde32 = new LigneDeCommande(2, 25.98f);
+        LigneDeCommande lCde33 = new LigneDeCommande(3, 7.50f);
         
         em.persist(lCde11);
         em.persist(lCde12);
+        em.persist(lCde13);
         em.persist(lCde2);
         em.persist(lCde31);
         em.persist(lCde32);
+        em.persist(lCde33);
    
         lCde11.setProduit(leBigBald);
         lCde12.setFormule(formule1);
+        lCde13.setProduit(coors);
         lCde2.setFormule(formule2);
         lCde31.setFormule(formule3);
         lCde32.setFormule(formule1);
+        lCde33.setProduit(despe);
         
-        Commande com01 = new Commande(18.49f, today);
+        Commande com01 = new Commande(20.99f, today);
         Commande com02 = new Commande(13.99f,today);
-        Commande com03 = new Commande(41.98f,today);
+        Commande com03 = new Commande(49.47f,today);
         em.persist(com01);
         em.persist(com02);
         em.persist(com03);
@@ -489,8 +501,10 @@ public class JeuDeTest implements JeuDeTestLocal {
         
         lCde11.setCommande(com01);
         lCde12.setCommande(com01);
+        lCde13.setCommande(com01);
         lCde2.setCommande(com02);
         lCde31.setCommande(com03);
         lCde32.setCommande(com03);
+        lCde33.setCommande(com03);
     }
 }

@@ -14,7 +14,8 @@ import javax.persistence.OneToMany;
 @Entity
 @NamedQueries ({
     @NamedQuery (name= "statusEmp", query = "SELECT e FROM Status s JOIN s.occupationTable e WHERE e.dispoTable =:dispoTable"),
-    @NamedQuery (name = "statusAllEmp,", query = "SELECT e FROM Status s JOIN s.occupationTable e ORDER BY e.numero")
+    @NamedQuery (name = "statusAllEmp,", query = "SELECT e FROM Status s JOIN s.occupationTable e ORDER BY e.numero"),
+    @NamedQuery (name = "status,", query = "SELECT s FROM Status s")
 })
 
 public class Status implements Serializable {
