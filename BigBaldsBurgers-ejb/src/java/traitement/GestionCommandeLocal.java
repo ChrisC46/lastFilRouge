@@ -5,6 +5,8 @@
  */
 package traitement;
 
+import entites.LigneDeCommande;
+import java.util.Collection;
 import javax.ejb.Local;
 
 /**
@@ -13,5 +15,14 @@ import javax.ejb.Local;
  */
 @Local
 public interface GestionCommandeLocal {
+
+    public Collection<LigneDeCommande> getListe();
+
+    public int getNombreProduit();
+
+    public void ajouter(String reference);
     
+    public void del(String reference);
+
+    public void dec(String reference);
 }

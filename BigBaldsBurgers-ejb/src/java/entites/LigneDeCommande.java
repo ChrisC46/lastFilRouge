@@ -47,7 +47,15 @@ public class LigneDeCommande implements Serializable {
         sousLigneDeCo = new ArrayList<>();
         
     }
-
+ public LigneDeCommande(Produit p) throws IllegalArgumentException {
+        if (produit != null) {
+            this.produit = produit;
+            qteCommande = 1;
+        } else {
+            throw new IllegalArgumentException("le produit est null!!!");
+        }
+    }
+ 
     public LigneDeCommande(int qteCommande, float prixLigneDeCo) {
         this();
         this.qteCommande = qteCommande;
