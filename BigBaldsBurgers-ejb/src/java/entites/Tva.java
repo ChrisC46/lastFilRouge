@@ -19,7 +19,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @NamedQueries({
-@NamedQuery(name = "entites.Tva.findTVA",query = "select t. from TVA t") 
+@NamedQuery(name = "entites.Tva.findTVA",query = "select t from TVA t") 
 })
 public class Tva implements Serializable {
     private static final long serialVersionUID = 1L;
