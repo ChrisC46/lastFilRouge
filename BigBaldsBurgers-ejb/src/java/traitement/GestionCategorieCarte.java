@@ -7,7 +7,9 @@ package traitement;
 
 import entites.CategorieFormule;
 import entites.Formule;
+import entites.Ingredients;
 import entites.Produit;
+import entites.Propriete;
 import java.util.HashSet;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -57,6 +59,27 @@ public class GestionCategorieCarte implements GestionCategorieCarteLocal {
         return formule;
     }
     
+    @Override
+    public List<Produit> getBoissonByFormule(String nomCategorie, String nomFormule){
+        Query qr = em.createNamedQuery("entites.Produit.getBoissonByFormule");
+        qr.setParameter("paramNom", nomCategorie);
+        qr.setParameter("paramForm", nomFormule);
+        qr.setParameter("paramVolume", "33cl");
+        List<Produit> produits = qr.getResultList();
+        System.out.println("requete produit by formule :  " + qr);
+        return produits;        
+    }
+    
+     @Override
+    public List<Produit> getProduitByFormule(String nomCategorie, String nomFormule){
+        Query qr = em.createNamedQuery("entites.Produit.getByFormule");
+        qr.setParameter("paramNom", nomCategorie);
+        qr.setParameter("paramForm", nomFormule);        
+        List<Produit> produits = qr.getResultList();
+        System.out.println("requete produit by formule :  " + qr);
+        return produits;        
+    }
+    
     
     @Override
     public List<Produit> getProduitByProP(String nomPropriete){
@@ -73,7 +96,37 @@ public class GestionCategorieCarte implements GestionCategorieCarteLocal {
         return produits;
     }
     
-
+    @Override
+    public List<Propriete> getProprieteByProd(String id){
+        Query qr = em.createNamedQuery("entites.Propriete.getByProd");
+        qr.setParameter("paramNom", id);
+        List<Propriete> proprietes = qr.getResultList();
+        //Tris Produit Uniques
+         HashSet<Propriete> uniqueValues = new HashSet(proprietes);
+        proprietes.clear();
+        for(Propriete pro :uniqueValues){
+            proprietes.add(pro);
+        }
+        System.out.println("requete : " + qr.toString() );
+        return proprietes;
+    }
+    
+     @Override
+    public List<Ingredients> getIngredientsByProd(String id){
+        Query qr = em.createNamedQuery("entites.Ingredients.getByProd");
+        qr.setParameter("paramNom", id);
+        List<Ingredients> ingredients = qr.getResultList();
+        //Tris Produit Uniques
+         HashSet<Ingredients> uniqueValues = new HashSet(ingredients);
+        ingredients.clear();
+        for(Ingredients ing :uniqueValues){
+            ingredients.add(ing);
+        }
+        System.out.println("requete : " + qr.toString() );
+        return ingredients;
+    }
+    
+    
     public void persist(Object object) {
         em.persist(object);
     }

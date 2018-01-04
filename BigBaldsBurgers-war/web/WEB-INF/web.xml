@@ -23,6 +23,10 @@
             <param-name>categorieCatalogue</param-name>
             <param-value>controleurs.client.CarteCtrl</param-value>
         </init-param>
+         <init-param>
+            <param-name>emplacement</param-name>
+            <param-value>controleurs.secondaire.EmplacementCtrl</param-value>
+        </init-param>
         <init-param>
             <param-name>BoissonG</param-name>
             <param-value>controleurs.client.CategorieCarteCtrl</param-value>
