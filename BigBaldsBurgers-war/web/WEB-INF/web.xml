@@ -12,6 +12,10 @@
             <param-value>controleurs.secondaire.PaiementCtrl</param-value>
         </init-param>
         <init-param>
+            <param-name>DetailPaiementCtrl</param-name>
+            <param-value>controleurs.secondaire.DetailPaiementCtrl</param-value>
+        </init-param>
+        <init-param>
             <param-name>catalogue</param-name>
             <param-value>controleurs.secondaire.Catalogue</param-value>
         </init-param>

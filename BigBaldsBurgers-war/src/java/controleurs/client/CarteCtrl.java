@@ -25,7 +25,7 @@ public class CarteCtrl implements Serializable, SousControleur {
         
         String page = "";
         try {
-            page = "/WEB-INF/accueil.jsp";
+            page = "/WEB-INF/client.jsp";
 
         } catch (Exception ex) {
             ex.printStackTrace();
