@@ -47,7 +47,7 @@
                        
                                  
                             </div>
-                        
+                        <%@include file="/WEB-INF/includes/detailsCommande.jsp" %>
                    
 
         </div>

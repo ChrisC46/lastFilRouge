@@ -29,6 +29,9 @@ public class Produit implements Serializable {
     private float prix;
     private String image;
     private String description;
+    private int qteCommande;
+
+   
     @ManyToMany
     private Collection<Ingredients> ingredients;
     @ManyToMany
@@ -62,6 +65,16 @@ public class Produit implements Serializable {
         this.description = description;
     }
 
+    
+     public int getQteCommande() {
+        return qteCommande;
+    }
+
+    public void setQteCommande(int qteCommande) {
+        this.qteCommande = qteCommande;
+    }
+    
+    
     public String getNomProduit() {
         return nom;
     }
