@@ -9,10 +9,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 
 @Entity
+@NamedQueries({
+@NamedQuery(name = "entites.LigneDeCommande.detailCommandeByEmplacement", query = "select lc from LigneDeCommande lc where lc.commande.numTable.numero = :paramNumEmplacement")
+})
 public class LigneDeCommande implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

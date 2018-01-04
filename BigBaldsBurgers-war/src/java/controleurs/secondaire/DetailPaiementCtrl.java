@@ -5,7 +5,7 @@
  */
 package controleurs.secondaire;
 
-import entites.Commande;
+import entites.LigneDeCommande;
 import java.io.Serializable;
 import java.util.List;
 import java.util.logging.Level;
@@ -21,21 +21,20 @@ import traitement.GestionPaiementLocal;
  *
  * @author CDI305
  */
-public class PaiementCtrl implements SousControleur, Serializable {
 
-    @Override
+public class DetailPaiementCtrl implements SousControleur, Serializable{
+@Override
     public String executer(HttpServletRequest request, HttpServletResponse response) {
+        System.out.println("detailPaiementCtrl");
         GestionPaiementLocal gestionPaiement = lookupGestionPaiementLocal();
-        List<Commande> lCommande = gestionPaiement.findCommandeByStatusPret("prete");
-        //System.out.println("liste de table :"+lCommande);
-        request.setAttribute("lTable", lCommande);
-        String page = "/WEB-INF/caisse.jsp";
+        List<LigneDeCommande> listDetailCommande = gestionPaiement.detailCommandeByEmplacement(request.getParameter("numTable"));
+        System.out.println("detail d'une commande :"+listDetailCommande);
+        request.setAttribute("lDetail", listDetailCommande);
         
+        String page = "/WEB-INF/caisse.jsp";
         return page;
     }
     
-   
-
     private GestionPaiementLocal lookupGestionPaiementLocal() {
         try {
             Context c = new InitialContext();
@@ -46,5 +45,6 @@ public class PaiementCtrl implements SousControleur, Serializable {
         }
     }
     
-    
 }
+
+

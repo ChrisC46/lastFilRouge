@@ -6,6 +6,7 @@
 package traitement;
 
 import entites.Commande;
+import entites.LigneDeCommande;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -17,5 +18,7 @@ import javax.ejb.Local;
 public interface GestionPaiementLocal {
 
     public List<Commande> findCommandeByStatusPret(String status);
+
+    public List<LigneDeCommande> detailCommandeByEmplacement(String numEmplacement);
     
 }
