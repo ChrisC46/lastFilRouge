@@ -20,8 +20,12 @@ public interface GestionEmplacementLocal {
 
     public Emplacement selectionEmplacement(String numero) throws CustomedException;
 
-    public List<Emplacement> selectionListeEmplacements(string numero);
+    public List<Emplacement> allEmplacements();
 
+    public List<Emplacement> selectionListeEmplacements(String numero);
 
+    public List<Emplacement> emplacementDispo();
+
+    public List<Emplacement> emplacementOccupe();
 
 }

@@ -6,6 +6,7 @@
 package traitement;
 
 import entites.Status;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -15,5 +16,9 @@ import javax.ejb.Local;
 @Local
 public interface GestionStatusLocal {
         public Status statusEmplacment(String nom);
+
+    public Status statusEmplacements();
+
+    public List<Status> satusAllEmplacements();
     
 }
