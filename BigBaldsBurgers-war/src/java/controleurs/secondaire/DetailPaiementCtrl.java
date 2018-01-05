@@ -28,7 +28,7 @@ public class DetailPaiementCtrl implements SousControleur, Serializable{
         System.out.println("detailPaiementCtrl");
         GestionPaiementLocal gestionPaiement = lookupGestionPaiementLocal();
         List<LigneDeCommande> listDetailCommande = gestionPaiement.detailCommandeByEmplacement(request.getParameter("numTable"));
-        System.out.println("detail d'une commande :"+listDetailCommande);
+//        System.out.println("detail d'une commande :"+listDetailCommande);
         request.setAttribute("lDetail", listDetailCommande);
         
         String page = "/WEB-INF/caisse.jsp";

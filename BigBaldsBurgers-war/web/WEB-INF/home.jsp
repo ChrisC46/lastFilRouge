@@ -99,6 +99,7 @@
                     <form action="${url01}" method="POST">
                         <label class="erreur">${erreur}</label>
                         <div>
+                            
 
                             <p><label class="radio-inline"><img src="images/serveurHome.png"/><input type="radio" name="choixAccueil" value="serveur" ></label>
                                <label class="radio-inline"><img src="images/clientHome.png"/><input type="radio" name="choixAccueil" value="client"></label>

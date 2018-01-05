@@ -82,13 +82,7 @@
               <tr>
                 <td>Montant HT :</td><td>€</td>
               </tr>
-              <c:forEach var="t" items="${lTva}">
-              <tr>
-                <td>TVA à ${t.nom}${t.taux}:</td><td>€</td>
-              </tr>
-              <tr>
-                <td>TVA à ${t.nom}${t.taux}:</td> <td>€</td>
-              </tr>
+              <c:forEach   var="t" items="${lTva}">
               <tr>
                 <td>TVA à ${t.nom}${t.taux}:</td><td>€</td>
               </tr>
