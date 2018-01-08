@@ -1,5 +1,7 @@
 
 import controleurs.secondaire.SousControleur;
+import entites.LigneDeCommande;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.Context;
@@ -22,6 +24,9 @@ public class CuisineCtrl implements SousControleur {
         
         GestionCuisineLocal gestionCuisine = lookupGestionCuisineLocal();
         
+        List<LigneDeCommande> lCdeCuisine = gestionCuisine.listeProduitsCuisine();
+        request.setAttribute("ligneCdeProduit", lCdeCuisine);
+        System.out.println("=====liste cde / produits ===== " + lCdeCuisine);
         return page;
     }
     
