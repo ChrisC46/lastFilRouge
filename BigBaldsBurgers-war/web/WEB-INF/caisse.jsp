@@ -84,7 +84,7 @@
               </tr>
               <c:forEach   var="t" items="${lTva}">
               <tr>
-                <td>TVA à ${t.nom}${t.taux}:</td><td>€</td>
+                <td>${t.nom} ${t.taux} %:</td><td>€</td>
               </tr>
               </c:forEach>
               <tr>
