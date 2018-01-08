@@ -7,6 +7,7 @@ package traitement;
 
 import com.sun.xml.rpc.processor.modeler.j2ee.xml.string;
 import entites.Emplacement;
+import entites.Status;
 import java.util.List;
 import javax.ejb.Local;
 import outils.CustomedException;
@@ -27,5 +28,19 @@ public interface GestionEmplacementLocal {
     public List<Emplacement> emplacementDispo();
 
     public List<Emplacement> emplacementOccupe();
+    
+    public void updateEtat(Emplacement p);
+    
+    public Status selectEtatDisponible();
+    
+    public Status selectEtatOccupe();
+    
+    public Status selectEtatANettoyer();
+    
+    public void setEtatDisponible(Emplacement p);
+    
+    public void setEtatOccupe(Emplacement p);
+    
+    public void setEtatANettoyer(Emplacement p);
 
 }

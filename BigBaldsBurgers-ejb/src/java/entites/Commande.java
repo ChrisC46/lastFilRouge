@@ -47,6 +47,13 @@ public class Commande implements Serializable {
         ligneDeCo = new ArrayList<>();
     }
 
+    public Commande(Emplacement numTable) {
+        this();
+        this.numTable = numTable;
+    }
+    
+    
+
     public Commande(Float prixTotal, Date date) {
         this();
         this.prixTotal = prixTotal;

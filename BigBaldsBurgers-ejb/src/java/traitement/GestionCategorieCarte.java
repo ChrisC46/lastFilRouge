@@ -10,6 +10,7 @@ import entites.Formule;
 import entites.Ingredients;
 import entites.Produit;
 import entites.Propriete;
+import entites.Specification;
 import java.util.HashSet;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -124,6 +125,13 @@ public class GestionCategorieCarte implements GestionCategorieCarteLocal {
         }
         System.out.println("requete : " + qr.toString() );
         return ingredients;
+    }
+    @Override
+    public Specification getSpecificationByID(Long id){
+        Query qr = em.createNamedQuery("entites.Specification.getById");
+        qr.setParameter("paramID", id);
+        Specification spec = (Specification)qr.getSingleResult();
+        return spec;
     }
     
     
