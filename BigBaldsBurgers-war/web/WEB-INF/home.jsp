@@ -87,7 +87,7 @@
                             </p>
                         </div>
 
-                        <table border="1">
+                        <table border="2" solid blue>
                             <tr>
                                 <td>7</td>
                                 <td>8</td>
@@ -117,7 +117,7 @@
     
     text-decoration: underline;color:white; /* Normalement */"/></a>
                         
-                        <label for="code">Code secteur : </label><input type="text" onFocus="activeinput = this" name="login" maxlength="4" value="${loginERR}" required/>
+                        <label for="code">Code secteur : </label><input type="password"  autofocus="activeinput = this" onfocus="activeinput = this"  name="login" maxlength="4" value="${loginERR}" required/>
                         <label class="erreur">${loginErr}</label>
                         <a class="btn btn-primary"><input type="submit" name="code"  value="valider" style="    margin: 0;
     padding: 0;

@@ -17,7 +17,8 @@ import javax.persistence.OneToMany;
 @Entity
 @NamedQueries({
     @NamedQuery (name= "listePlatsCuisine", query= "SELECT p.nom, FROM Produit p "),
-@NamedQuery(name = "entites.LigneDeCommande.detailCommandeByEmplacement", query = "select lc from LigneDeCommande lc, lc.formule.tva ftva, lc.produit.tva ptva, lc.commande.numTable num where num.numero= :paramNumEmplacement")
+@NamedQuery(name = "entites.LigneDeCommande.detailCommandeByEmplacement", query = "select lc from LigneDeCommande lc join lc.commande c where c.numTable.numero = :paramNumEmplacement")
+//@NamedQuery(name = "entites.LigneDeCommande.detailCommandeByEmplacement2", query = "select lc from LigneDeCommande lc, lc.formule.tva ftva, lc.produit.tva ptva, lc.commande.numTable num where num.numero= :paramNumEmplacement")
 })
 public class LigneDeCommande implements Serializable {
     private static final long serialVersionUID = 1L;
