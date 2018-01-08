@@ -68,9 +68,9 @@ public class JeuDeTest implements JeuDeTestLocal {
         Ingredients bunBurger = new Ingredients("Bun Burger");
 
         Date today = new GregorianCalendar(2017, 11, 11).getTime();
-        Tva tvaAlcool = new Tva("tvaAlcool", 20.00F, today);
-        Tva tvaCarte = new Tva("tvaCarte", 10.00F, today);
-        Tva tvaFormule = new Tva("tvaFormule", 10.00F, today);
+        Tva tvaAlcool = new Tva("tva alcool", 20.00F, today);
+        Tva tvaCarte = new Tva("tva carte", 10.00F, today);
+        Tva tvaFormule = new Tva("tva formule", 10.00F, today);
         em.persist(tvaAlcool);
         em.persist(tvaCarte);
         em.persist(tvaFormule);
