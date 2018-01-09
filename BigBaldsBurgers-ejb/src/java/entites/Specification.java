@@ -7,14 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 
 
 @Entity
-@NamedQueries({
-    @NamedQuery (name = "entites.Specification.getById", query = "select g from Specification g where g.id = :paramID")
-})
 public class Specification implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

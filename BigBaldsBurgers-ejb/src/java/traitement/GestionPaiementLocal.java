@@ -20,5 +20,7 @@ public interface GestionPaiementLocal {
     public List<Commande> findCommandeByStatusPret(String status);
 
     public List<LigneDeCommande> detailCommandeByEmplacement(String numEmplacement);
+
+    public Float getPrixTotalHT(List<LigneDeCommande> ligneDeCo);
     
 }

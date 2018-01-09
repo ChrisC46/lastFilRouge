@@ -5,10 +5,8 @@
  */
 package traitement;
 
-import entites.Commande;
 import entites.LigneDeCommande;
 import java.util.Collection;
-import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -27,13 +25,4 @@ public interface GestionCommandeLocal {
     public void del(String reference);
 
     public void dec(String reference);
-    
-    public List<Commande> selectAllCommandesValideesFromDB();
-    
-    public void instancierCommande(String numeroTable);
-    
-    public Commande selectCommandeForPlace(String numeroTable);
-    
- 
-    
 }
