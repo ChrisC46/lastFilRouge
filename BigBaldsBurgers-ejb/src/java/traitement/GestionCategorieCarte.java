@@ -10,19 +10,17 @@ import entites.Formule;
 import entites.Ingredients;
 import entites.Produit;
 import entites.Propriete;
-<<<<<<< HEAD
 import entites.Specification;
+
 import entites.TypeCuisson;
-=======
->>>>>>> master
+
+
 import java.util.HashSet;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import outils.CustomedException;
 
 /**
  *
@@ -147,6 +145,11 @@ public class GestionCategorieCarte implements GestionCategorieCarteLocal {
     
     public void persist(Object object) {
         em.persist(object);
+    }
+
+    @Override
+    public Specification getSpecificationByID(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

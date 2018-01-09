@@ -6,25 +6,29 @@
 package traitement;
 
 import entites.Commande;
-<<<<<<< HEAD
+
 import entites.Emplacement;
 import entites.Formule;
-import entites.LigneDeCommande;
-import entites.Produit;
 import entites.Specification;
 import entites.TypeCuisson;
-=======
+
 import entites.LigneDeCommande;
 import entites.Produit;
->>>>>>> master
+
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateful;
-import javax.ejb.Stateless;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import outils.CustomedException;
 
 /**
  *
@@ -35,82 +39,69 @@ public class GestionCommande implements GestionCommandeLocal {
 
     @PersistenceContext(unitName = "BigBaldsBurgers-ejbPU")
     private EntityManager em;
-<<<<<<< HEAD
 
-=======
-    
- 
-    
->>>>>>> master
     private HashMap<String, LigneDeCommande> panier;
-    
+
     @PostConstruct
-    public void init(){        
+    public void init() {
         panier = new HashMap<>();
     }
-    
+
     @Override
-    public void ajouter(String reference){
-        if(reference != null){
+    public void ajouter(String reference) {
+        if (reference != null) {
             reference = reference.trim();
         }
-        
-        if(panier.containsKey(reference)){
+
+        if (panier.containsKey(reference)) {
             LigneDeCommande lp = panier.get(reference);
-            
+
             int newQte = lp.getQteCommande() + 1;
-            if(newQte > lp.getProduit().getQteCommande()){
+            if (newQte > lp.getProduit().getQteCommande()) {
                 newQte = lp.getProduit().getQteCommande();
             }
             lp.setQteCommande(newQte);
-        }else{
+        } else {
             Produit p = em.find(Produit.class, reference);
-            try{
+            try {
                 LigneDeCommande nlp = new LigneDeCommande(p);
                 panier.put(reference, nlp);
-            }catch(IllegalArgumentException ex){
-               
+            } catch (IllegalArgumentException ex) {
+
             }
         }
     }
-    
-   
+
     @Override
-    public void dec(String reference){
+    public void dec(String reference) {
         LigneDeCommande lp = panier.get(reference);
-        if(lp.getQteCommande()>1){
+        if (lp.getQteCommande() > 1) {
             reference = reference.trim();
-        
-       
-            
+
             int newQte = lp.getQteCommande() - 1;
-            
+
             lp.setQteCommande(newQte);
-        }}
-           
-    
-    
-    
-    
+        }
+    }
+
     @Override
-    public void del(String reference){ 
+    public void del(String reference) {
         this.panier.remove(reference);
     }
-    
+
     @Override
-    public Collection<LigneDeCommande> getListe(){
+    public Collection<LigneDeCommande> getListe() {
         return panier.values();
     }
-    
+
     @Override
-    public int getNombreProduit(){
+    public int getNombreProduit() {
         int somme = 0;
-        for(LigneDeCommande lp : panier.values()){
+        for (LigneDeCommande lp : panier.values()) {
             somme += lp.getQteCommande();
         }
         return somme;
     }
-<<<<<<< HEAD
 
     @Override
     public List<Commande> selectAllCommandesValideesFromDB() {
@@ -146,8 +137,9 @@ public class GestionCommande implements GestionCommandeLocal {
             }
         }
     }
+
     @Override
-    public void ajouterProduit(String numeroTable, String idProduit, List<Long> specification)  {
+    public void ajouterProduit(String numeroTable, String idProduit, List<Long> specification) {
         Commande c = selectCommandeForPlace(numeroTable);
         LigneDeCommande lc = new LigneDeCommande();
         c.getLigneDeCo().add(lc);
@@ -161,15 +153,14 @@ public class GestionCommande implements GestionCommandeLocal {
                 lc.getCommentSpec().add(sp);
             }
         }
-              
+
         lc.setCommande(c);
     }
-    
-    public void definirCuisson(LigneDeCommande lc, String typeCuisson){
-       TypeCuisson cuisson = lookupGestionCategorieCarteLocal().getCuissonByNom(typeCuisson);
-       lc.setTypeCuissonLigneCo(cuisson);
+
+    public void definirCuisson(LigneDeCommande lc, String typeCuisson) {
+        TypeCuisson cuisson = lookupGestionCategorieCarteLocal().getCuissonByNom(typeCuisson);
+        lc.setTypeCuissonLigneCo(cuisson);
     }
-    
 
     @Override
     public void ajouterFormule(String numeroTable, String idFormule, List<Produit> produit) {
@@ -213,20 +204,21 @@ public class GestionCommande implements GestionCommandeLocal {
             throw new RuntimeException(ne);
         }
     }
-=======
-    
-    
-}
-   
-    
->>>>>>> master
 
+    private GestionCommandeEnCoursLocal lookupCommandesEnCoursLocal() {
 
-<<<<<<< HEAD
+        try {
+            Context c = new InitialContext();
+            return (GestionCommandeEnCoursLocal) c.lookup("java:global/BigBaldsBurgers/BigBaldsBurgers-ejb/GestionCommandeEnCours!traitement.GestionCommandeEnCoursLocal");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            throw new RuntimeException(ne);
+        }
+
+    }
+
     public void persist(Object object) {
         em.persist(object);
     }
 
 }
-=======
->>>>>>> master
