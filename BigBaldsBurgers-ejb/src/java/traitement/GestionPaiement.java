@@ -7,6 +7,7 @@ package traitement;
 
 import entites.Commande;
 import entites.LigneDeCommande;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -37,9 +38,21 @@ public class GestionPaiement implements GestionPaiementLocal {
         Query qr = em.createNamedQuery("entites.LigneDeCommande.detailCommandeByEmplacement");
         qr.setParameter("paramNumEmplacement", numEmplacement);
         List<LigneDeCommande> detailCom = qr.getResultList();
-        System.out.println("gestionPaiement requete num commande :"+qr);
+        //System.out.println("gestionPaiement requete num commande :"+qr.toString());
         return detailCom;
     }
+    
+        @Override
+   public Float getPrixTotalHT(List<LigneDeCommande> ligneDeCo){
+       //List<Float> prixListHT = new ArrayList<>();
+       Float totalHT = 0.00f;
+       for (LigneDeCommande list : ligneDeCo){
+           totalHT+=list.getPrixLigneDeCo();
+           
+       }
+      
+       return totalHT;
+   }
     
     
     

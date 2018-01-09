@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +21,8 @@ import javax.persistence.TemporalType;
 @Entity
 @NamedQueries({
     @NamedQuery(name = "findAll.Commande",query = "select c from Commande c"),
-    @NamedQuery(name = "entites.Commande.findCommandeByStatusPret", query = "select c.numTable from Commande c where c.suiviCommande.nom = :paramStatus" ) 
+    @NamedQuery(name = "entites.Commande.findCommandeByStatusPret", query = "select c.numTable from Commande c where c.suiviCommande.nom = :paramStatus" ),
+    
 })
 public class Commande implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -46,14 +48,12 @@ public class Commande implements Serializable {
         payer = new ArrayList<>();
         ligneDeCo = new ArrayList<>();
     }
-
-    public Commande(Emplacement numTable) {
-        this();
-        this.numTable = numTable;
-    }
     
-    
-
+       public Commande(Emplacement numTable) { 
+        this(); 
+        this.numTable = numTable; 
+    } 
+     
     public Commande(Float prixTotal, Date date) {
         this();
         this.prixTotal = prixTotal;
@@ -126,6 +126,14 @@ public class Commande implements Serializable {
         this.date = date;
     }
 
+    public Float getPrixTotalHT(List<LigneDeCommande> ligneDeCo){
+       Float totalHT = 0.00f;
+       for (LigneDeCommande list : ligneDeCo){
+           totalHT+=list.getPrixLigneDeCo();
+           
+       }
+       return totalHT;
+    }
   
     @Override
     public String toString() {

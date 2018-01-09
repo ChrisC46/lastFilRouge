@@ -1,6 +1,5 @@
 package traitement;
 
-import com.sun.xml.rpc.processor.modeler.j2ee.xml.string;
 import entites.Emplacement;
 import entites.Status;
 import java.util.List;
@@ -57,46 +56,41 @@ public class GestionEmplacement implements GestionEmplacementLocal {
         return listEmpOccu;
     }
     
-    
-    @Override
-    public void updateEtat(Emplacement p) {
-        em.merge(p);
-    }
-
-    @Override
-    public Status selectEtatDisponible() {
-        return new Status("table disponible");
-    }
-
-    @Override
-    public Status selectEtatOccupe() {
-        return new Status("table non disponible");
-    }
-
-    @Override
-    public Status selectEtatANettoyer() {
-        return new Status("table à debarasser");
-    }
-
-    @Override
-    public void setEtatDisponible(Emplacement p) {
-        p.setDispoTable(selectEtatDisponible());
-        updateEtat(p);
-    }
-
-    @Override
-    public void setEtatOccupe(Emplacement p) {
-        p.setDispoTable(selectEtatOccupe());
-        updateEtat(p);
-    }
-
-    @Override
-    public void setEtatANettoyer(Emplacement p) {
-        p.setDispoTable(selectEtatANettoyer());
-        updateEtat(p);
-    }
-    
-    
-    
-    
+    @Override 
+    public void updateEtat(Emplacement p) { 
+        em.merge(p); 
+    } 
+ 
+    @Override 
+    public Status selectEtatDisponible() { 
+        return new Status("table disponible"); 
+    } 
+ 
+    @Override 
+    public Status selectEtatOccupe() { 
+        return new Status("table non disponible"); 
+    } 
+ 
+    @Override 
+    public Status selectEtatANettoyer() { 
+        return new Status("table à debarasser"); 
+    } 
+ 
+    @Override 
+    public void setEtatDisponible(Emplacement p) { 
+        p.setDispoTable(selectEtatDisponible()); 
+        updateEtat(p); 
+    } 
+ 
+    @Override 
+    public void setEtatOccupe(Emplacement p) { 
+        p.setDispoTable(selectEtatOccupe()); 
+        updateEtat(p); 
+    } 
+ 
+    @Override 
+    public void setEtatANettoyer(Emplacement p) { 
+        p.setDispoTable(selectEtatANettoyer()); 
+        updateEtat(p); 
+    } 
 }

@@ -80,7 +80,7 @@
               --%>
             <tbody>
               <tr>
-                <td>Montant HT :</td><td>€</td>
+                <td>Montant HT :</td><td>${totalHT}€</td>
               </tr>
               <c:forEach   var="t" items="${lTva}">
               <tr>
