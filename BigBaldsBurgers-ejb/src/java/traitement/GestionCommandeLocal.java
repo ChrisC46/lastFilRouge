@@ -7,6 +7,7 @@ package traitement;
 
 import entites.Commande;
 import entites.LigneDeCommande;
+import entites.Produit;
 import java.util.Collection;
 import java.util.List;
 import javax.ejb.Local;
@@ -33,6 +34,10 @@ public interface GestionCommandeLocal {
     public void instancierCommande(String numeroTable);
     
     public Commande selectCommandeForPlace(String numeroTable);
+    
+    public void ajouterFormule(String numeroTable, String idFormule, List<Produit> produit);
+    
+    public void ajouterProduit(String numeroTable, String idProduit, List<Long> specification);
     
  
     

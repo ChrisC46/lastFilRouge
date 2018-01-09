@@ -11,12 +11,15 @@ import entites.Ingredients;
 import entites.Produit;
 import entites.Propriete;
 import entites.Specification;
+import entites.TypeCuisson;
 import java.util.HashSet;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import outils.CustomedException;
 
 /**
  *
@@ -133,6 +136,17 @@ public class GestionCategorieCarte implements GestionCategorieCarteLocal {
         Specification spec = (Specification)qr.getSingleResult();
         return spec;
     }
+    
+    @Override
+    public TypeCuisson getCuissonByNom(String typeCuisson){
+        Query qr = em.createNamedQuery("entites.TypeCuisson.getByNom");
+        qr.setParameter("paramID", typeCuisson);
+        TypeCuisson cuisson = (TypeCuisson)qr.getSingleResult();
+        return cuisson;
+    }
+    
+   
+    
     
     
     public void persist(Object object) {

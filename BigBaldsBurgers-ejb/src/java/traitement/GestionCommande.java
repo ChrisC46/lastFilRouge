@@ -7,9 +7,11 @@ package traitement;
 
 import entites.Commande;
 import entites.Emplacement;
+import entites.Formule;
 import entites.LigneDeCommande;
 import entites.Produit;
 import entites.Specification;
+import entites.TypeCuisson;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -32,11 +34,9 @@ import outils.CustomedException;
  */
 @Stateful
 public class GestionCommande implements GestionCommandeLocal {
-    
+
     @PersistenceContext(unitName = "BigBaldsBurgers-ejbPU")
     private EntityManager em;
-
-  
 
     private HashMap<String, LigneDeCommande> panier;
 
@@ -100,7 +100,7 @@ public class GestionCommande implements GestionCommandeLocal {
         }
         return somme;
     }
-    
+
     @Override
     public List<Commande> selectAllCommandesValideesFromDB() {
         Query qr = em.createNamedQuery("persistence.entites.Commande.selectCommandesByStatus");
@@ -111,15 +111,14 @@ public class GestionCommande implements GestionCommandeLocal {
         }
         return lc;
     }
-    
+
     @Override
     public Commande selectCommandeForPlace(String numeroTable) {
         GestionCommandeEnCoursLocal commandesEnCours = lookupCommandesEnCoursLocal();
         Commande cmde = commandesEnCours.selectCommandeForPlace(numeroTable);
         return cmde;
     }
-    
-    
+
     @Override
     public void instancierCommande(String numeroTable) {
         GestionCommandeEnCoursLocal commandesEnCours = lookupCommandesEnCoursLocal();
@@ -136,27 +135,55 @@ public class GestionCommande implements GestionCommandeLocal {
             }
         }
     }
-    
-    
-    
-    public void ajouterProduit(String numeroTable, String idProduit, List<Long> specification) throws CustomedException {
+    @Override
+    public void ajouterProduit(String numeroTable, String idProduit, List<Long> specification)  {
         Commande c = selectCommandeForPlace(numeroTable);
         LigneDeCommande lc = new LigneDeCommande();
         c.getLigneDeCo().add(lc);
         Produit p = lookupGestionCategorieCarteLocal().getProdById(idProduit);
         lc.setProduit(p);
         lc.setPrixLigneDeCo(p.getPrix());
-        lc.getProduit().setTva(p.getTva());     
+        lc.getProduit().setTva(p.getTva());
         if (!specification.isEmpty()) {
             for (Long spe : specification) {
                 Specification sp = lookupGestionCategorieCarteLocal().getSpecificationByID(spe);
                 lc.getCommentSpec().add(sp);
             }
         }
+              
         lc.setCommande(c);
     }
     
-     private GestionCategorieCarteLocal lookupGestionCategorieCarteLocal() {
+    public void definirCuisson(LigneDeCommande lc, String typeCuisson){
+       TypeCuisson cuisson = lookupGestionCategorieCarteLocal().getCuissonByNom(typeCuisson);
+       lc.setTypeCuissonLigneCo(cuisson);
+    }
+    
+
+    @Override
+    public void ajouterFormule(String numeroTable, String idFormule, List<Produit> produit) {
+        Commande c = selectCommandeForPlace(numeroTable);
+        LigneDeCommande lc = new LigneDeCommande();
+        Formule f = lookupGestionCategorieCarteLocal().getFormuleById(idFormule);
+        lc.setFormule(f);
+        lc.setCommande(c);
+        lc.setPrixLigneDeCo(f.getPrix());
+
+        if (!produit.isEmpty()) {
+            for (Produit p : produit) {
+                LigneDeCommande sousLc = new LigneDeCommande();
+                sousLc.setProduit(p);
+//                sousLc.getSousLigneDeCo().add(lc);               
+                sousLc.setCommande(c);
+                lc.getSousLigneDeCo().add(sousLc);
+//                c.getLigneDeCo().add(sousLc);
+            }
+        }
+
+        c.getLigneDeCo().add(lc);
+    }
+
+    private GestionCategorieCarteLocal lookupGestionCategorieCarteLocal() {
         try {
             Context c = new InitialContext();
             return (GestionCategorieCarteLocal) c.lookup("java:global/BigBaldsBurgers/BigBaldsBurgers-ejb/GestionCatalogue!metiers.GestionCatalogueLocal");
@@ -165,10 +192,8 @@ public class GestionCommande implements GestionCommandeLocal {
             throw new RuntimeException(ne);
         }
     }
-    
-    
-    
-     private GestionEmplacementLocal lookupGestionEmplacementLocal() {
+
+    private GestionEmplacementLocal lookupGestionEmplacementLocal() {
         try {
             Context c = new InitialContext();
             return (GestionEmplacementLocal) c.lookup("java:global/BigBaldsBurgers/BigBaldsBurgers-ejb/GestionEmplacementLocal!traitement.GestionEmplacementLocal");
@@ -191,7 +216,5 @@ public class GestionCommande implements GestionCommandeLocal {
     public void persist(Object object) {
         em.persist(object);
     }
-    
-    
 
 }

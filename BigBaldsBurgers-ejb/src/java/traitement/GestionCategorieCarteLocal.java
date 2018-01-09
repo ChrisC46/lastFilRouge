@@ -11,6 +11,7 @@ import entites.Ingredients;
 import entites.Produit;
 import entites.Propriete;
 import entites.Specification;
+import entites.TypeCuisson;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -30,7 +31,8 @@ public interface GestionCategorieCarteLocal {
      public List<Produit> getBoissonByFormule(String nomCategorie, String nomFormule);
      public List<Propriete> getProprieteByProd(String id);
      public Specification getSpecificationByID(Long id);
-    public List<Ingredients> getIngredientsByProd(String id);
+     public List<Ingredients> getIngredientsByProd(String id);
+     public TypeCuisson getCuissonByNom(String typeCuisson);
 
    
 }
