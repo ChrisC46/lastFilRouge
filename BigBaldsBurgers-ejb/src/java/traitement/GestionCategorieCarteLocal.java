@@ -10,8 +10,11 @@ import entites.Formule;
 import entites.Ingredients;
 import entites.Produit;
 import entites.Propriete;
+<<<<<<< HEAD
 import entites.Specification;
 import entites.TypeCuisson;
+=======
+>>>>>>> master
 import java.util.List;
 import javax.ejb.Local;
 
@@ -30,9 +33,14 @@ public interface GestionCategorieCarteLocal {
      public List<Produit> getProduitByFormule(String nomCategorie, String nomFormule);
      public List<Produit> getBoissonByFormule(String nomCategorie, String nomFormule);
      public List<Propriete> getProprieteByProd(String id);
+<<<<<<< HEAD
      public Specification getSpecificationByID(Long id);
      public List<Ingredients> getIngredientsByProd(String id);
      public TypeCuisson getCuissonByNom(String typeCuisson);
+=======
+
+    public List<Ingredients> getIngredientsByProd(String id);
+>>>>>>> master
 
    
 }

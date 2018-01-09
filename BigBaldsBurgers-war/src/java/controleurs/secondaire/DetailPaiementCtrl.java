@@ -31,11 +31,15 @@ public class DetailPaiementCtrl implements SousControleur, Serializable{
         GestionPaiementLocal gestionPaiement = lookupGestionPaiementLocal();
         List<LigneDeCommande> listDetailCommande = gestionPaiement.detailCommandeByEmplacement(request.getParameter("numTable"));
 //        System.out.println("detail d'une commande :"+listDetailCommande);
+        System.out.println("totalHT"+gestionPaiement.getPrixTotalHT(listDetailCommande));
+        request.setAttribute("totalHT", gestionPaiement.getPrixTotalHT(listDetailCommande));
         request.setAttribute("lDetail", listDetailCommande);
         
         GestionTvaLocal gestionTva = lookupGestionTvaLocal();
         List<Tva> listTva = gestionTva.findTVA();
         request.setAttribute("lTva", listTva);
+        
+        
         
         String page = "/WEB-INF/caisse.jsp";
         return page;

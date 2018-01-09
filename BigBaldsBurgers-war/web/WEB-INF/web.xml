@@ -55,10 +55,6 @@
             <param-name>accueil</param-name>
             <param-value>controleurs.secondaire.AffichageAccueil</param-value>
         </init-param>
-        <init-param>
-            <param-name>cuisine</param-name>
-            <param-value>controleurs.secondaire.CuisineCtrl</param-value>
-        </init-param>
          <init-param>
             <param-name>Boisson</param-name>
             <param-value>controleurs.client.BoissonCtrl</param-value>

@@ -46,7 +46,16 @@ public class EmplacementCtrl implements SousControleur {
         return page;
 
     }
-    
+//        String numEmplacement = request.getParameter("selection");
+//        String action = request.getParameter("action");
+
+//        if ("attribuer-emplacement".equals(action)) {
+//            try {
+//                gestionEmplacement.selectionEmplacement(numEmplacement);
+//            } catch (CustomedException ex) {
+//                System.out.println("emplacement : " + numEmplacement);
+//            }
+//        }
     private GestionEmplacementLocal lookupGestionEmplacementLocal() {
         try {
             Context c = new InitialContext();
