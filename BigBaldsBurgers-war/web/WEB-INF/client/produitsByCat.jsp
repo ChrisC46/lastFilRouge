@@ -7,6 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../../css/baldcss.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
         <link rel="stylesheet" href="https://v40.pingendo.com/assets/bootstrap/bootstrap-4.0.0-beta.1.css" type="text/css"> </head>
 
@@ -33,10 +34,10 @@
 
         <div class="py-3" style="">
             <div class="container-fluid">
-                <div class="row col-md-9">
+                <div class="row col-md-9" style="float:left">
 
                     <c:forEach var="item" items="${produits}">
-                        <div class="col-md-3" style="">
+                        <div class="col-md-3">
                             <div class="card">
                                 <div class="card-header">${item.nom}</div>
                                 <c:url value="FrontControleur?section=${categorie}&id=${item.nom}" var="detail" />
@@ -47,11 +48,14 @@
                     </c:forEach>
 
                 </div>
+<%@include file="../includes/detailsCommande.jsp" %>                
             </div>
 
         </div>
+        
+        
 
-        <div class="py-5" style=""></div>
+        <div class="py-5"></div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
