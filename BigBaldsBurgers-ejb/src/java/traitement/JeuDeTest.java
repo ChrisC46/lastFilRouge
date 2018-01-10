@@ -518,7 +518,14 @@ public class JeuDeTest implements JeuDeTestLocal {
         lCde11.setTypeCuissonLigneCo(roseVolailles);
         lCde12.setTypeCuissonLigneCo(aPoint);
         lCde2.setTypeCuissonLigneCo(saignant);
-        lCde32.setTypeCuissonLigneCo(bleu);
+        lCde32.setTypeCuissonLigneCo(bleu);        
+        
+        ketchup.setLigneDeCo(lCde33);
+        ketchup.setLigneDeCo(lCde11);
+        ketchup.setLigneDeCo(lCde31);
+        mayo.setLigneDeCo(lCde33);
+        mayo.setLigneDeCo(lCde32);
+        sansSel.setLigneDeCo(lCde13);
         
         
     }
