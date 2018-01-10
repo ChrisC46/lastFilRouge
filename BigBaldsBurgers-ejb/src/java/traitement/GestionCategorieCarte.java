@@ -11,6 +11,10 @@ import entites.Ingredients;
 import entites.Produit;
 import entites.Propriete;
 import entites.Specification;
+
+import entites.TypeCuisson;
+
+
 import java.util.HashSet;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -126,17 +130,26 @@ public class GestionCategorieCarte implements GestionCategorieCarteLocal {
         System.out.println("requete : " + qr.toString() );
         return ingredients;
     }
+    
     @Override
-    public Specification getSpecificationByID(Long id){
-        Query qr = em.createNamedQuery("entites.Specification.getById");
-        qr.setParameter("paramID", id);
-        Specification spec = (Specification)qr.getSingleResult();
-        return spec;
+    public TypeCuisson getCuissonByNom(String typeCuisson){
+        Query qr = em.createNamedQuery("entites.TypeCuisson.getByNom");
+        qr.setParameter("paramID", typeCuisson);
+        TypeCuisson cuisson = (TypeCuisson)qr.getSingleResult();
+        return cuisson;
     }
+    
+   
+    
     
     
     public void persist(Object object) {
         em.persist(object);
+    }
+
+    @Override
+    public Specification getSpecificationByID(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

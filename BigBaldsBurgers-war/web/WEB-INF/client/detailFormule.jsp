@@ -63,6 +63,13 @@
                             <div>${burger.nom}</div>
                         </label>
                     </c:forEach><br>
+                    <h5>Type De Cuisson</h5>
+                    <select>
+                        <Option value="bleu">Bleu</option>
+                        <Option value="saignant">Saignant</option>
+                        <Option value="aPoint">A point</option>
+                        <Option value="bienCuit">Bien cuit</option>
+                    </select>
                     <hr> <strong> Choix de l'accompagnement </strong> <hr> <br>
                     <c:forEach var="accompagnement" items="${accompagnement}">
                         <label class="radio-inline">

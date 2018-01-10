@@ -7,6 +7,7 @@ package traitement;
 
 import entites.Commande;
 import entites.LigneDeCommande;
+import entites.Produit;
 import java.util.Collection;
 import java.util.List;
 import javax.ejb.Local;
@@ -27,6 +28,7 @@ public interface GestionCommandeLocal {
     public void del(String reference);
 
     public void dec(String reference);
+
     
     public List<Commande> selectAllCommandesValideesFromDB();
     
@@ -34,6 +36,11 @@ public interface GestionCommandeLocal {
     
     public Commande selectCommandeForPlace(String numeroTable);
     
+    public void ajouterFormule(String numeroTable, String idFormule, List<Produit> produit);
+    
+    public void ajouterProduit(String numeroTable, String idProduit, List<Long> specification);
+    
  
     
+
 }

@@ -1,0 +1,40 @@
+
+.opacity {
+	position: absolute;
+	opacity: 50;
+	width: 50;		/* for internet explorer */
+}
+
+.visibility {
+	visibility: hidden;
+}
+
+.nodisplay {
+	display: none;
+}
+
+input[type=radio]+label {
+	font-weight: normal;
+}
+input[type=radio]:checked+label {
+	font-weight: bold;
+}
+input[type=radio]:focus+label {
+	border: 1px dotted #000;
+}
+
+td {cursor:hand;}
+            .up {border: outset 10 px red;
+                  height:50px;
+                  width:50px;
+                  font-family:verdana;
+                  text-align:center;
+            }
+
+            .down {border: inset 10 px red;
+                   height:50px;
+                   width:50px;
+                   font-family:verdana;
+                   text-align:center;
+            }
+            

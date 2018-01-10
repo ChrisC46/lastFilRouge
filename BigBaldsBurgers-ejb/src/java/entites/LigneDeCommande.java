@@ -14,11 +14,11 @@ import javax.persistence.OneToMany;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "CommandesCuisine", query = "SELECT l FROM LigneDeCommande l WHERE l.suiviCuisine.nom='transmise' OR l.suiviCuisine.nom='preparation' OR l.suiviCuisine.nom='prete' OR l.suiviCuisine.nom IS NULL"),
-    @NamedQuery(name = "CommandesCuisineTransmise", query = "SELECT l FROM LigneDeCommande l WHERE l.suiviCuisine.nom='transmise'"),
-    @NamedQuery(name = "CommandesCuisineEnPrepa", query = "SELECT l FROM LigneDeCommande l WHERE l.suiviCuisine.nom='preparation'"),
+@NamedQuery(name = "entites.LigneDeCommande.detailCommandeByEmplacement", query = "select lc from LigneDeCommande lc join lc.commande c where c.numTable.numero = :paramNumEmplacement")
     @NamedQuery(name = "CommandesCuisineprete", query = "SELECT l FROM LigneDeCommande l WHERE l.suiviCuisine.nom='prete'"),
-    @NamedQuery(name = "entites.LigneDeCommande.detailCommandeByEmplacement", query = "select lc from LigneDeCommande lc join lc.commande c where c.numTable.numero = :paramNumEmplacement")
+    @NamedQuery(name = "CommandesCuisineEnPrepa", query = "SELECT l FROM LigneDeCommande l WHERE l.suiviCuisine.nom='preparation'"),
+    @NamedQuery(name = "CommandesCuisineTransmise", query = "SELECT l FROM LigneDeCommande l WHERE l.suiviCuisine.nom='transmise'"),
+    @NamedQuery(name = "CommandesCuisine", query = "SELECT l FROM LigneDeCommande l WHERE l.suiviCuisine.nom='transmise' OR l.suiviCuisine.nom='preparation' OR l.suiviCuisine.nom='prete' OR l.suiviCuisine.nom IS NULL"),
 //@NamedQuery(name = "entites.LigneDeCommande.detailCommandeByEmplacement2", query = "select lc from LigneDeCommande lc, lc.formule.tva ftva, lc.produit.tva ptva, lc.commande.numTable num where num.numero= :paramNumEmplacement")
 })
 public class LigneDeCommande implements Serializable {
