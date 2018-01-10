@@ -109,7 +109,7 @@ public class JeuDeTest implements JeuDeTestLocal {
         TypeDePaiement cb = new TypeDePaiement("CB");
         TypeDePaiement cheque = new TypeDePaiement("cheque");
         TypeDePaiement especes = new TypeDePaiement("especes");
-        TypeDePaiement ticketResto = new TypeDePaiement("ticket resto");
+        TypeDePaiement ticketResto = new TypeDePaiement("tResto");
         em.persist(cb);
         em.persist(cheque);
         em.persist(especes);
@@ -340,28 +340,45 @@ public class JeuDeTest implements JeuDeTestLocal {
         em.persist(leCheeseBaldP);
 
         cocaCola.getProprietes().add(boisson33P);
+        cocaCola.setTva(tvaCarte);
         cocaCola.getProprietes().add(boisson50P);
         cocaColaL.getProprietes().add(boisson33P);
         cocaColaL.getProprietes().add(boisson50P);
+        cocaColaL.setTva(tvaCarte);
         orangeJuice.getProprietes().add(boisson33P);
         orangeJuice.getProprietes().add(boisson50P);
+        orangeJuice.setTva(tvaCarte);
         iceTea.getProprietes().add(boisson33P);
         iceTea.getProprietes().add(boisson50P);
+        iceTea.setTva(tvaCarte);
         coors.getProprietes().add(boissonA33P);
         coors.getProprietes().add(boissonA50P);
+        coors.setTva(tvaAlcool);
         despe.getProprietes().add(boissonA33P);
         despe.getProprietes().add(boissonA50P);
+        despe.setTva(tvaAlcool);
         frite.getProprietes().add(friteP);
+        frite.setTva(tvaCarte);
         patatoes.getProprietes().add(patatoesP);
+        patatoes.setTva(tvaCarte);
         saladeDeChauve.getProprietes().add(saladeP);
+        saladeDeChauve.setTva(tvaCarte);
         mozzaStick.getProprietes().add(mozzaStickP);
+        mozzaStick.setTva(tvaCarte);
         onionRings.getProprietes().add(onionRigsP);
+        onionRings.setTva(tvaCarte);
         mousseAuChocolat.getProprietes().add(mousseAuChocolatP);
+        mousseAuChocolat.setTva(tvaCarte);
         brownie.getProprietes().add(brownieP);
+        brownie.setTva(tvaCarte);
         leBigBald.getProprietes().add(leBigBaldP);
+        leBigBald.setTva(tvaCarte);
         leCheeseBald.getProprietes().add(leCheeseBaldP);
+        leCheeseBald.setTva(tvaCarte);
         leChrisBurger.getProprietes().add(leChrisBurgerP);
+        leChrisBurger.setTva(tvaCarte);
         leVeganBald.getProprietes().add(leVeganBaldP);
+        leVeganBald.setTva(tvaCarte);
         
         Formule formule1 = new Formule("StartBaldMeal", "Entrée + burger  + boisson(33cl) au choix", 11.69f, "images/FormuleFull.jpg");
         Formule formule2 = new Formule("EndBaldMeal", "Burger + déssert + boisson(33cl) au choix", 12.59f, "images/FormuleFull.jpg");
@@ -373,6 +390,9 @@ public class JeuDeTest implements JeuDeTestLocal {
         formule1.setCategorieFormule(carteFormule);
         formule2.setCategorieFormule(carteFormule);
         formule3.setCategorieFormule(carteFormule);
+        formule1.setTva(tvaFormule);
+        formule2.setTva(tvaFormule);
+        formule3.setTva(tvaFormule);
         
         
         frite.getFormules().add(formule1);

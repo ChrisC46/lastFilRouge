@@ -127,6 +127,8 @@ public class LigneDeCommande implements Serializable {
     public float getPrixLigneDeCo() {
         return prixLigneDeCo;
     }
+    
+    
 
     public Formule getFormule() {
         return formule;

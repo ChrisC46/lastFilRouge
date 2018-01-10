@@ -23,28 +23,26 @@ import traitement.GestionTvaLocal;
  *
  * @author CDI305
  */
+public class DetailPaiementCtrl implements SousControleur, Serializable {
 
-public class DetailPaiementCtrl implements SousControleur, Serializable{
-@Override
+    @Override
     public String executer(HttpServletRequest request, HttpServletResponse response) {
         //System.out.println("detailPaiementCtrl");
         GestionPaiementLocal gestionPaiement = lookupGestionPaiementLocal();
         List<LigneDeCommande> listDetailCommande = gestionPaiement.detailCommandeByEmplacement(request.getParameter("numTable"));
-//        System.out.println("detail d'une commande :"+listDetailCommande);
-        System.out.println("totalHT"+gestionPaiement.getPrixTotalHT(listDetailCommande));
+        //System.out.println("detail d'une commande :"+listDetailCommande);
+        //System.out.println("totalHT"+gestionPaiement.getPrixTotalHT(listDetailCommande));
         request.setAttribute("totalHT", gestionPaiement.getPrixTotalHT(listDetailCommande));
         request.setAttribute("lDetail", listDetailCommande);
         
         GestionTvaLocal gestionTva = lookupGestionTvaLocal();
         List<Tva> listTva = gestionTva.findTVA();
         request.setAttribute("lTva", listTva);
-        
-        
-        
+
         String page = "/WEB-INF/caisse.jsp";
         return page;
     }
-    
+
     private GestionPaiementLocal lookupGestionPaiementLocal() {
         try {
             Context c = new InitialContext();
@@ -54,8 +52,8 @@ public class DetailPaiementCtrl implements SousControleur, Serializable{
             throw new RuntimeException(ne);
         }
     }
-    
-    private GestionTvaLocal lookupGestionTvaLocal(){
+
+    private GestionTvaLocal lookupGestionTvaLocal() {
         try {
             Context c = new InitialContext();
             return (GestionTvaLocal) c.lookup("java:global/BigBaldsBurgers/BigBaldsBurgers-ejb/GestionTva!traitement.GestionTvaLocal");
@@ -64,7 +62,5 @@ public class DetailPaiementCtrl implements SousControleur, Serializable{
             throw new RuntimeException(ne);
         }
     }
-    
+
 }
-
-

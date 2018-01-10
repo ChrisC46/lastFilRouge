@@ -113,6 +113,9 @@ public class Formule implements Serializable {
         this.categorieFormule = categorieFormule;
     }
     
+    public Float getPrixTTC(){
+       return this.prix+(prix*(getTva().getTaux()/100));
+    }
 
     @Override
     public String toString() {

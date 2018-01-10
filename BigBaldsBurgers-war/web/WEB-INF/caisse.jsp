@@ -5,8 +5,8 @@
 <html>
 
     <head>
-        <link rel="stylesheet" href="css/radioButtonHidden.css" /><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Big Balds Burgers</title>
+        <link rel="stylesheet" href="css/radioButtonHidden.css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
@@ -48,6 +48,7 @@
                                         <td>${d.qteCommande}</td>
                                         <td>${d.formule.nom}${d.produit.nom}</td>
                                         <td>${d.prixLigneDeCo}€</td>
+                                        <td>${d.formule.getPrixTTC()}${d.produit.getPrixTTC()}€</td>
                                     </tr>
                                 </c:forEach>
 
@@ -120,15 +121,6 @@
             <div class="row">
                 <div class="col-md-12">
                     <table class="table">
-                        <%--
-                      <thead>
-                        <tr>
-                          <th></th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                        </tr>
-                      </thead>
-                        --%>
                         <tbody>
                             <tr>
                                 <td>Montant HT :</td><td>${totalHT}€</td>
