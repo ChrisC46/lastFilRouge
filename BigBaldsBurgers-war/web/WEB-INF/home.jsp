@@ -10,8 +10,6 @@
 <html>
     <head>
         <link rel="stylesheet" href="css/radioButtonHidden.css" />
-
-
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Big Balds Burgers</title>
         <meta charset="utf-8">
@@ -31,8 +29,9 @@
                 </div>
             </div>
         </div>
+        <h1>Big Balds Burgers</h1>            
         <div>
-            <h1>Big Balds Burgers</h1>
+
             <nav>
                 <div>
 
@@ -47,7 +46,9 @@
 
                         </div>
 
+  
                         <table border="2">
+                          
                             <tr>
                                 <td>7</td>
                                 <td>8</td>
@@ -65,14 +66,14 @@
                             </tr>
                             <tr>
                                 <td colspan=1>0</td>
-                                <td colspan=2><a class="btn btn-primary"><input type="reset" name="clear" style="    margin: 0;
+                                <td colspan=2><input type="reset" name="clear" style="    margin: 0;
                                                                                 padding: 0;
                                                                                 line-height: 100%; /* Si ça fonctionne pas mets 0 */
                                                                                 border: 0;
                                                                                 background: none; /* ou transparent je sais plus... */
                                                                                 font: /* Définis le même font qu'un lien traditionnel */
 
-                                                                                text-decoration: underline;color:white; /* Normalement */"/></a></td>
+                                                                                text-decoration: underline;color:white; /* Normalement */"/></td>
                             </tr>
 
                         </table>
