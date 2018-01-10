@@ -19,6 +19,10 @@
             <param-name>catalogue</param-name>
             <param-value>controleurs.secondaire.Catalogue</param-value>
         </init-param>
+             <init-param>
+            <param-name>cuisine</param-name>
+            <param-value>controleurs.secondaire.CuisineCtrl</param-value>
+        </init-param>
         <init-param>
             <param-name>categorieCatalogue</param-name>
             <param-value>controleurs.client.CarteCtrl</param-value>

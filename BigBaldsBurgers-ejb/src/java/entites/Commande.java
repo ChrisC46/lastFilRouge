@@ -48,7 +48,12 @@ public class Commande implements Serializable {
         payer = new ArrayList<>();
         ligneDeCo = new ArrayList<>();
     }
-
+    
+       public Commande(Emplacement numTable) { 
+        this(); 
+        this.numTable = numTable; 
+    } 
+     
     public Commande(Float prixTotal, Date date) {
         this();
         this.prixTotal = prixTotal;

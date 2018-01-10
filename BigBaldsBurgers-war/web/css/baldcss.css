@@ -21,7 +21,7 @@ li  {
 }
 
 h1 {
-    
+
 }
 .container {
     width: 70%;
@@ -49,19 +49,16 @@ h1 {
 .produit-grid{
     width: 15%;
     margin: 0% 2% 2% 2%;
-    
-       border: 1px solid red;
+
+    border: 1px solid red;
     float:left;
 }
 
 .produit {
-    
-    
+
+
 }
 
-.separ {
-    clear:both;
-}
 
 .prix{
     text-align:right;
@@ -73,7 +70,7 @@ h1 {
     float:left;
 }
 
-.menu-choix-input{
+.centerText{
     text-align: center;
 }
 

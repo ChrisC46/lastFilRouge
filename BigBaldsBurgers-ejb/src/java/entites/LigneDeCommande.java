@@ -1,4 +1,3 @@
-
 package entites;
 
 import java.io.Serializable;
@@ -13,26 +12,30 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
-
 @Entity
 @NamedQueries({
-@NamedQuery(name = "entites.LigneDeCommande.detailCommandeByEmplacement", query = "select lc from LigneDeCommande lc join lc.commande c where c.numTable.numero = :paramNumEmplacement")
+    @NamedQuery(name = "CommandesCuisine", query = "SELECT l FROM LigneDeCommande l WHERE l.suiviCuisine.nom='transmise' OR l.suiviCuisine.nom='preparation' OR l.suiviCuisine.nom='prete'"),
+    @NamedQuery(name = "CommandesCuisineprete", query = "SELECT l FROM LigneDeCommande l WHERE l.suiviCuisine.nom='prete'"),
+    @NamedQuery(name = "CommandesCuisineEnPrepa", query = "SELECT l FROM LigneDeCommande l WHERE l.suiviCuisine.nom='preparation'"),
+    @NamedQuery(name = "CommandesCuisineTransmise", query = "SELECT l FROM LigneDeCommande l WHERE l.suiviCuisine.nom='transmise'"),
+    @NamedQuery(name = "entites.LigneDeCommande.detailCommandeByEmplacement", query = "select lc from LigneDeCommande lc join lc.commande c where c.numTable.numero = :paramNumEmplacement")
 //@NamedQuery(name = "entites.LigneDeCommande.detailCommandeByEmplacement2", query = "select lc from LigneDeCommande lc, lc.formule.tva ftva, lc.produit.tva ptva, lc.commande.numTable num where num.numero= :paramNumEmplacement")
 })
 public class LigneDeCommande implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int qteCommande;
     private float prixLigneDeCo;
-    
+
     @ManyToOne
     private Status suiviCuisine;
     @ManyToOne
     private Commande commande;
     @OneToMany
-    private Collection<Specification>commentSpec;
+    private Collection<Specification> commentSpec;
     @ManyToOne
     private CategorieProduit categorieProduit;
     @ManyToOne
@@ -43,12 +46,14 @@ public class LigneDeCommande implements Serializable {
     private TypeCuisson typeCuissonLigneCo;
     @OneToMany
     private Collection<LigneDeCommande> sousLigneDeCo;
+
     public LigneDeCommande() {
         commentSpec = new ArrayList<>();
         sousLigneDeCo = new ArrayList<>();
-        
+
     }
- public LigneDeCommande(Produit p) throws IllegalArgumentException {
+
+    public LigneDeCommande(Produit p) throws IllegalArgumentException {
         if (produit != null) {
             this.produit = produit;
             qteCommande = 1;
@@ -56,7 +61,7 @@ public class LigneDeCommande implements Serializable {
             throw new IllegalArgumentException("le produit est null!!!");
         }
     }
- 
+
     public LigneDeCommande(int qteCommande, float prixLigneDeCo) {
         this();
         this.qteCommande = qteCommande;
@@ -87,7 +92,6 @@ public class LigneDeCommande implements Serializable {
         this.commentSpec = commentSpec;
     }
 
-    
     public Commande getCommande() {
         return commande;
     }
@@ -103,8 +107,7 @@ public class LigneDeCommande implements Serializable {
     public void setSuiviCuisine(Status suiviCuisine) {
         this.suiviCuisine = suiviCuisine;
     }
-    
-    
+
     public Long getId() {
         return id;
     }
@@ -152,8 +155,6 @@ public class LigneDeCommande implements Serializable {
     public void setProduit(Produit produit) {
         this.produit = produit;
     }
-
- 
 
     @Override
     public String toString() {

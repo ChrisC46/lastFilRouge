@@ -506,5 +506,27 @@ public class JeuDeTest implements JeuDeTestLocal {
         lCde31.setCommande(com03);
         lCde32.setCommande(com03);
         lCde33.setCommande(com03);
+        
+        lCde11.setSuiviCuisine(staTransmis);
+        lCde12.setSuiviCuisine(staEnPrepa);
+        lCde13.setSuiviCuisine(staTransmis);
+        lCde2.setSuiviCuisine(staPret);
+        lCde31.setSuiviCuisine(staTransmis);
+        lCde32.setSuiviCuisine(staEnPrepa);
+        lCde33.setSuiviCuisine(staPret);
+        
+        lCde11.setTypeCuissonLigneCo(roseVolailles);
+        lCde12.setTypeCuissonLigneCo(aPoint);
+        lCde2.setTypeCuissonLigneCo(saignant);
+        lCde32.setTypeCuissonLigneCo(bleu);        
+        
+        ketchup.setLigneDeCo(lCde33);
+        ketchup.setLigneDeCo(lCde11);
+        ketchup.setLigneDeCo(lCde31);
+        mayo.setLigneDeCo(lCde33);
+        mayo.setLigneDeCo(lCde32);
+        sansSel.setLigneDeCo(lCde13);
+        
+        
     }
 }
