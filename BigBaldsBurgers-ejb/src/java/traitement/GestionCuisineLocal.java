@@ -16,6 +16,17 @@ import javax.ejb.Local;
 @Local
 public interface GestionCuisineLocal {
 
-    public List<LigneDeCommande> listeProduitsCuisine();
+    public List<LigneDeCommande> listeCommandesCuisine();
+
+    public List<LigneDeCommande> listeCommandesCuisineTransmise();
+
+    public List<LigneDeCommande> listeCommandesCuisineEnPrepa();
+
+    public List<LigneDeCommande> listeCommandesCuisineEnPrete();
+
+
+
+
+
     
 }

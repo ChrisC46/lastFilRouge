@@ -1,5 +1,5 @@
+package controleurs.secondaire;
 
-import controleurs.secondaire.SousControleur;
 import entites.LigneDeCommande;
 import java.util.List;
 import java.util.logging.Level;
@@ -11,26 +11,43 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import traitement.GestionCuisineLocal;
-import traitement.GestionEmplacementLocal;
 
 public class CuisineCtrl implements SousControleur {
 
     @Override
     public String executer(HttpServletRequest request, HttpServletResponse response) {
-    
+
         HttpSession session = request.getSession();
-        
+
         String page = "/WEB-INF/cuisine.jsp";
-        
+
         GestionCuisineLocal gestionCuisine = lookupGestionCuisineLocal();
-        
-        List<LigneDeCommande> lCdeCuisine = gestionCuisine.listeProduitsCuisine();
-        request.setAttribute("ligneCdeProduit", lCdeCuisine);
-        System.out.println("=====liste cde / produits ===== " + lCdeCuisine);
+
+        if ("all".equals(request.getParameter("describe"))) {
+            List<LigneDeCommande> commandesCuisine = gestionCuisine.listeCommandesCuisine();
+            request.setAttribute("ligneCommande", commandesCuisine);
+        }
+
+        if ("transmis".equals(request.getParameter("describe"))) {
+            List<LigneDeCommande> commandeCuisine = gestionCuisine.listeCommandesCuisineTransmise();
+            request.setAttribute("ligneCommande", commandeCuisine);
+        }
+
+        if ("preparation".equals(request.getParameter("describe"))) {
+            List<LigneDeCommande> commandeCuisine = gestionCuisine.listeCommandesCuisineEnPrepa();
+            request.setAttribute("ligneCommande", commandeCuisine);
+        }
+
+        if ("pret".equals(request.getParameter("describe"))) {
+            List<LigneDeCommande> commandeCuisine = gestionCuisine.listeCommandesCuisineEnPrete();
+            request.setAttribute("ligneCommande", commandeCuisine);
+        }
+
         return page;
+
     }
-    
-        private GestionCuisineLocal lookupGestionCuisineLocal() {
+
+    private GestionCuisineLocal lookupGestionCuisineLocal() {
         try {
             Context c = new InitialContext();
             return (GestionCuisineLocal) c.lookup("java:global/BigBaldsBurgers/BigBaldsBurgers-ejb/GestionCuisine!traitement.GestionCuisineLocal");
@@ -39,5 +56,5 @@ public class CuisineCtrl implements SousControleur {
             throw new RuntimeException(ne);
         }
     }
-    
+
 }
