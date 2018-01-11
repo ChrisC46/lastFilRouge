@@ -98,7 +98,7 @@
                                                          background: none; /* ou transparent je sais plus... */
                                                          font: /* Définis le même font qu'un lien traditionnel */
 
-                                                         text-decoration: underline;color:white; /* Normalement */"/></td>
+                                                         //text-decoration: underline;color:white; /* Normalement */"/></td>
                                 </tr>
 
                             </table>
@@ -112,7 +112,7 @@
                                                               background: none; /* ou transparent je sais plus... *
                                                               font: /* Définis le même font qu'un lien traditionnel */
                                                               color: /* La même couleur... */
-                                                              text-decoration: underline;color:white; /* Normalement */"/></a>
+                                                              //text-decoration: underline;color:white; /* Normalement */"/></a>
 
                         </form>
                     </div>
