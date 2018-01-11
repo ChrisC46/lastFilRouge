@@ -42,7 +42,12 @@
                     <p> ${produit.description}</p>
                     <p>${proprietes} </p>
                     <p>${ingredients} </p>
-                    <button type="button" class="btn btn-primary btn-lg btn-block">Selectionner</button>
+                    
+                        <c:url value="FrontControleur?section=CommandeCtrl" var="url00" />
+                        <a href="${url00}" class="btn btn-primary btn-lg btn-block">Selectionner</a>
+                        
+                    </div>
+                  
                 </div>
 
 

@@ -13,6 +13,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Query;
+import utils.PriceCalculation;
 
 
 @Entity
@@ -210,7 +211,9 @@ public class Produit implements Serializable {
     }
     
     public Float getPrixTTC(){
-        return this.prix+(prix*(getTva().getTaux()/100));
+       Float prixa = this.prix+(prix*(getTva().getTaux()/100));
+        Float newPrix = PriceCalculation.getRoundedPrice(prixa);
+       return newPrix;
         
     }
     

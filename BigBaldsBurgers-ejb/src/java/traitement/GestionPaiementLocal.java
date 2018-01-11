@@ -23,10 +23,12 @@ public interface GestionPaiementLocal {
 
     public Float getPrixTotalHT(List<LigneDeCommande> ligneDeCo);
 
-    public Float getPrixTTC(LigneDeCommande ligneDeCo);
+    public Float getPrixTTCFormule(LigneDeCommande ligneDeCo);
 
     public Float getPrixTotalTTC(List<LigneDeCommande> ligneDeCo);
 
     public Float getTvaLigneDeCo(LigneDeCommande ligneDeCo);
+
+    public Float getPrixTTCProduit(LigneDeCommande ligneDeCo);
     
 }

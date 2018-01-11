@@ -79,7 +79,7 @@
                         </table>
 
                         <br>
-                        <label for="code">Code secteur : </label><input type="password" name="login" maxlength="4" value="${loginERR}" required  autofocus="activeinput = this" onfocus="activeinput = this"  />
+                        <label for="code">Code secteur : </label><input type="password" name="login" maxlength="4" value="${loginERR}" readonly="true" required  autofocus="activeinput = this" onfocus="activeinput = this"  />
                         <label class="erreur">${loginErr}</label>
                         <a class="btn btn-primary"><input type="submit" name="code"  value="valider" style="    margin: 0;
                                                           padding: 0;

@@ -5,6 +5,8 @@
 <html>
 
     <head>
+        <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+        <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
         <link rel="stylesheet" href="css/radioButtonHidden.css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
@@ -12,11 +14,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
         <link rel="stylesheet" href="https://v40.pingendo.com/assets/bootstrap/bootstrap-4.0.0-beta.1.css" type="text/css"> 
     </head>
-    <body class="text-center text-uppercase">
+    <body class="text-center text-uppercase" onload='populateTd()'>
         <div class="py-5 my-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                         <ul class="nav nav-pills flex-column">
                             <li class="nav-item">
                                 <c:url value="FrontControleur?section=PaiementCtrl" var="url21" />  
@@ -25,12 +27,12 @@
                             <c:forEach items="${lTable}" var="t">
                                 <li class="nav-item">
                                     <c:url value="FrontControleur?section=DetailPaiementCtrl&numTable=${t.numero}" var="url22" />
-                                    <a class="nav-link" href="${url22}">table numéro ${t.numero}</a>
+                                    <a class="nav-link" href="${url22}">table ${t.numero}</a>
                                 </li>
                             </c:forEach>
                         </ul>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <table class="table">
 
                             <thead>
@@ -48,7 +50,10 @@
                                         <td>${d.qteCommande}</td>
                                         <td>${d.formule.nom}${d.produit.nom}</td>
                                         <td>${d.prixLigneDeCo}€</td>
-                                        <td>${d.formule.getPrixTTC()}${d.produit.getPrixTTC()}€</td>
+                                        <fmt:setLocale value="fr_FR" scope="session" />
+                                        <td><fmt:formatNumber value="${d.formule.getPrixTTC()*d.qteCommande}${d.produit.getPrixTTC()*d.qteCommande}" type="currency" /></td>
+                                        
+
                                     </tr>
                                 </c:forEach>
 
@@ -93,12 +98,12 @@
                                                          background: none; /* ou transparent je sais plus... */
                                                          font: /* Définis le même font qu'un lien traditionnel */
 
-                                                         text-decoration: underline;color:white; /* Normalement */"/></td>
+                                                         //text-decoration: underline;color:white; /* Normalement */"/></td>
                                 </tr>
 
                             </table>
                             <br>
-                            <label for="code">Montant : </label><input type="text" name="montantPaye" maxlength="4"  required  autofocus="activeinput = this" onfocus="activeinput = this"  />
+                            <label for="code">Montant : </label><input type="text" name="montantPaye" maxlength="4" required  autofocus="activeinput = this" onfocus="activeinput = this"  />
                             <label class="erreur">${loginErr}</label>
                             <a class="btn btn-primary"><input type="submit" name=""  value="valider" style="    margin: 0;
                                                               padding: 0;
@@ -107,7 +112,7 @@
                                                               background: none; /* ou transparent je sais plus... *
                                                               font: /* Définis le même font qu'un lien traditionnel */
                                                               color: /* La même couleur... */
-                                                              text-decoration: underline;color:white; /* Normalement */"/></a>
+                                                              //text-decoration: underline;color:white; /* Normalement */"/></a>
 
                         </form>
                     </div>
@@ -131,7 +136,7 @@
                                 </tr>
                             </c:forEach>
                             <tr>
-                                <td>Montant TTC :</td><td>€</td>
+                                <td>Montant TTC :</td><td>${totalTTC}€</td>
                             </tr>
                             <tr>
                                 <td>Reste à payer :</td><td>€</td>

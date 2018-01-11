@@ -21,7 +21,8 @@ import javax.persistence.TemporalType;
 @Entity
 @NamedQueries({
     @NamedQuery(name = "findAll.Commande",query = "select c from Commande c"),
-    @NamedQuery(name = "entites.Commande.findCommandeByStatusPret", query = "select c.numTable from Commande c where c.suiviCommande.nom = :paramStatus" ),
+    @NamedQuery(name = "entites.Commande.findCommandeByStatusPret", query = "select c.numTable from Commande c "
+            + "where c.suiviCommande.nom = :paramStatus" ),
     
 })
 public class Commande implements Serializable {
