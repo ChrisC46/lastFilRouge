@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
         <link rel="stylesheet" href="https://v40.pingendo.com/assets/bootstrap/bootstrap-4.0.0-beta.1.css" type="text/css"> 
     </head>
-    <body class="text-center text-uppercase">
+    <body class="text-center text-uppercase" onload='populateTd()'>
         <div class="py-5 my-5">
             <div class="container">
                 <div class="row">
@@ -103,7 +103,7 @@
 
                             </table>
                             <br>
-                            <label for="code">Montant : </label><input type="text" name="montantPaye" maxlength="4"  required  autofocus="activeinput = this" onfocus="activeinput = this"  />
+                            <label for="code">Montant : </label><input type="text" name="montantPaye" maxlength="4" required  autofocus="activeinput = this" onfocus="activeinput = this"  />
                             <label class="erreur">${loginErr}</label>
                             <a class="btn btn-primary"><input type="submit" name=""  value="valider" style="    margin: 0;
                                                               padding: 0;

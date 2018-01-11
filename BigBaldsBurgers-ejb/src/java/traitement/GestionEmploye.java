@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package traitement;
 
 import entites.Droits;
-import entites.Employe;
 import java.util.HashMap;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -15,23 +10,13 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import outils.CustomedException;
 
-/**
- *
- * @author cdi317
- */
+
 @Stateless
 public class GestionEmploye implements GestionEmployeLocal {
     @PersistenceContext(unitName = "BigBaldsBurgers-ejbPU")
     private EntityManager em;
 
-//    @Override
-//    public List<Employe> findAllLoginByDroits(String droit){
-//        Query qr = em.createNamedQuery("entites.Droits.getLoginParDroits");
-//        qr.setParameter("paramDroits",droit );
-//        List<Employe> le = qr.getResultList();
-//        return le;
-//    }
-    
+   
     @Override
     public List<Droits> findDroitsByLogin(String loginE) throws CustomedException{
         

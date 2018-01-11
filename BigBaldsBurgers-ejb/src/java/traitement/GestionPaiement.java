@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package traitement;
 
 import entites.Commande;
@@ -14,10 +10,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import utils.PriceCalculation;
 
-/**
- *
- * @author Tofi
- */
+
 @Stateless
 public class GestionPaiement implements GestionPaiementLocal {
 
@@ -38,8 +31,6 @@ public class GestionPaiement implements GestionPaiementLocal {
         Query qr = em.createNamedQuery("entites.LigneDeCommande.detailCommandeByEmplacement");
         qr.setParameter("paramNumEmplacement", numEmplacement);
         List<LigneDeCommande> detailCom = qr.getResultList();
-
-        //System.out.println("gestionPaiement requete num commande :"+qr);
         return detailCom;
     }
 
@@ -48,9 +39,6 @@ public class GestionPaiement implements GestionPaiementLocal {
         Float tvaLigneDeCo = 0.00f;
         if (ligneDeCo.getFormule() != null) {
             tvaLigneDeCo = ligneDeCo.getFormule().getTva().getTaux();
-//            Query qr = em.createNamedQuery("entites.Tva.findTVA");
-//            qr.setParameter("paramNom", "tva formule");
-//            tvaLigneDeCo = (Float) qr.getSingleResult();
         } else {
             if ("Biere".equals(ligneDeCo.getProduit().getProprietes().toString())) {
 
@@ -97,7 +85,8 @@ public class GestionPaiement implements GestionPaiementLocal {
         System.out.println("on est dans GP getprixtotalttc");
         Float totalTTC = 0f;
         for (LigneDeCommande list : ligneDeCo) {
-            totalTTC += (list.getQteCommande() * (list.getFormule().getPrixTTC()))+ (list.getQteCommande() * (list.getProduit().getPrixTTC()));
+            totalTTC += (list.getQteCommande() * (list.getFormule().getPrixTTC()))
+                    + (list.getQteCommande() * (list.getProduit().getPrixTTC()));
 
         }
         System.out.println("detail list prixtotalTTC" + totalTTC);
