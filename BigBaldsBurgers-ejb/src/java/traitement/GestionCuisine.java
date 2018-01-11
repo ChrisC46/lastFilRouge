@@ -1,8 +1,6 @@
 package traitement;
 
 import entites.LigneDeCommande;
-import entites.Produit;
-import java.util.HashMap;
 import java.util.List;
 import javax.ejb.Stateful;
 import javax.persistence.EntityManager;

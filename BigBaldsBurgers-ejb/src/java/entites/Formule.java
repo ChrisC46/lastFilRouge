@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import utils.PriceCalculation;
 
 @Entity
 @NamedQueries({
@@ -114,8 +115,12 @@ public class Formule implements Serializable {
     }
     
     public Float getPrixTTC(){
-       return this.prix+(prix*(getTva().getTaux()/100));
+        Float prixa = this.prix+(prix*(getTva().getTaux()/100));
+        Float newPrix = PriceCalculation.getRoundedPrice(prixa);
+       return newPrix;
     }
+    
+    
 
     @Override
     public String toString() {

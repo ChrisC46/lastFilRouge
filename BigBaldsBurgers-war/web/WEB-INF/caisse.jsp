@@ -5,6 +5,8 @@
 <html>
 
     <head>
+        <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+        <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
         <link rel="stylesheet" href="css/radioButtonHidden.css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
@@ -16,7 +18,7 @@
         <div class="py-5 my-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                         <ul class="nav nav-pills flex-column">
                             <li class="nav-item">
                                 <c:url value="FrontControleur?section=PaiementCtrl" var="url21" />  
@@ -25,12 +27,12 @@
                             <c:forEach items="${lTable}" var="t">
                                 <li class="nav-item">
                                     <c:url value="FrontControleur?section=DetailPaiementCtrl&numTable=${t.numero}" var="url22" />
-                                    <a class="nav-link" href="${url22}">table numéro ${t.numero}</a>
+                                    <a class="nav-link" href="${url22}">table ${t.numero}</a>
                                 </li>
                             </c:forEach>
                         </ul>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <table class="table">
 
                             <thead>
@@ -48,7 +50,10 @@
                                         <td>${d.qteCommande}</td>
                                         <td>${d.formule.nom}${d.produit.nom}</td>
                                         <td>${d.prixLigneDeCo}€</td>
-                                        <td>${d.formule.getPrixTTC()}${d.produit.getPrixTTC()}€</td>
+                                        <fmt:setLocale value="fr_FR" scope="session" />
+                                        <td><fmt:formatNumber value="${d.formule.getPrixTTC()*d.qteCommande}${d.produit.getPrixTTC()*d.qteCommande}" type="currency" /></td>
+                                        
+
                                     </tr>
                                 </c:forEach>
 
@@ -131,7 +136,7 @@
                                 </tr>
                             </c:forEach>
                             <tr>
-                                <td>Montant TTC :</td><td>€</td>
+                                <td>Montant TTC :</td><td>${totalTTC}€</td>
                             </tr>
                             <tr>
                                 <td>Reste à payer :</td><td>€</td>
