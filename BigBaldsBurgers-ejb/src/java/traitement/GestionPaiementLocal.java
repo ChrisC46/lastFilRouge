@@ -22,5 +22,11 @@ public interface GestionPaiementLocal {
     public List<LigneDeCommande> detailCommandeByEmplacement(String numEmplacement);
 
     public Float getPrixTotalHT(List<LigneDeCommande> ligneDeCo);
+
+    public Float getPrixTTC(LigneDeCommande ligneDeCo);
+
+    public Float getPrixTotalTTC(List<LigneDeCommande> ligneDeCo);
+
+    public Float getTvaLigneDeCo(LigneDeCommande ligneDeCo);
     
 }

@@ -1,40 +1,54 @@
 
 .opacity {
-	position: absolute;
-	opacity: 50;
-	width: 50;		/* for internet explorer */
+    position: absolute;
+    opacity: 50;
+    width: 50;		/* for internet explorer */
 }
 
 .visibility {
-	visibility: hidden;
+    visibility: hidden;
 }
 
 .nodisplay {
-	display: none;
+    display: none;
 }
 
 input[type=radio]+label {
-	font-weight: normal;
+    font-weight: normal;
 }
 input[type=radio]:checked+label {
-	font-weight: bold;
+    font-weight: bold;
 }
 input[type=radio]:focus+label {
-	border: 1px dotted #000;
+    border: 1px dotted #000;
 }
 
-td {cursor:hand;}
-            .up {border: outset 10 px red;
-                  height:50px;
-                  width:50px;
-                  font-family:verdana;
-                  text-align:center;
-            }
+h1 {
+    color: blue    
+}
 
-            .down {border: inset 10 px red;
-                   height:50px;
-                   width:50px;
-                   font-family:verdana;
-                   text-align:center;
-            }
-            
+table{
+    
+    background-color: #0066ff
+    
+}
+
+td {cursor:hand;
+    //color: white
+
+}
+.up {border: outset 20 px red;
+     height:70px;
+     width:70px;
+     font-family:verdana;
+     text-align:center;
+}
+
+.down {border: inset 20 px red;
+       height:70px;
+       width:70px;
+       font-family:verdana;
+       text-align:center;
+}
+
+

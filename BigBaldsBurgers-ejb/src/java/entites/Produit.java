@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Query;
 
 
 @Entity
@@ -206,6 +207,11 @@ public class Produit implements Serializable {
 
     public void setCategorieFormule(CategorieFormule categorieFormuleProduit) {
         this.categorieFormuleProduit = categorieFormuleProduit;
+    }
+    
+    public Float getPrixTTC(){
+        return this.prix+(prix*(getTva().getTaux()/100));
+        
     }
     
     @Override
