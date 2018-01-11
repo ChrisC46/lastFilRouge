@@ -1,6 +1,7 @@
 package controleurs.secondaire;
 
 import entites.LigneDeCommande;
+import entites.Status;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,6 +44,11 @@ public class CuisineCtrl implements SousControleur {
             request.setAttribute("ligneCommande", commandeCuisine);
         }
 
+        if ("update".equals(request.getAttribute("action"))) {
+            Status statusUpdate = gestionCuisine.changerCommandeStatut(request.getAttributeNames().toString());
+            request.setAttribute("commandeUpdate", statusUpdate);
+        }
+        
         return page;
 
     }

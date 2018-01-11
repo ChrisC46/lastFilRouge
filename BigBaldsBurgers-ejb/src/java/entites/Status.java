@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -15,7 +13,8 @@ import javax.persistence.OneToMany;
 @NamedQueries ({
     @NamedQuery (name= "statusEmp", query = "SELECT e FROM Status s JOIN s.occupationTable e WHERE e.dispoTable =:dispoTable"),
     @NamedQuery (name = "statusAllEmp,", query = "SELECT e FROM Status s JOIN s.occupationTable e ORDER BY e.numero"),
-    @NamedQuery (name = "status,", query = "SELECT s FROM Status s")
+    @NamedQuery (name = "status,", query = "SELECT s FROM Status s"),
+    @NamedQuery (name = "selectStatus", query = "SELECT s FROM Status s WHERE s.nom LIKE :statusName")
 })
 
 public class Status implements Serializable {

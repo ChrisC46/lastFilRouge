@@ -6,6 +6,7 @@
 package traitement;
 
 import entites.LigneDeCommande;
+import entites.Status;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -23,6 +24,9 @@ public interface GestionCuisineLocal {
     public List<LigneDeCommande> listeCommandesCuisineEnPrepa();
 
     public List<LigneDeCommande> listeCommandesCuisineEnPrete();
+
+    public Status changerCommandeStatut(String nom);
+
 
 
 

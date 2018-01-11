@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="https://v40.pingendo.com/assets/bootstrap/bootstrap-4.0.0-beta.1.css" type="text/css"> </head>
 
     <body>
-                    <div class="py-5">
+        <div class="py-5">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -30,38 +30,32 @@
                 </div>
             </div>
         </div> 
-        
+
         <div class="py-5">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">         
                         <c:url value="FrontControleur?section=cuisine&describe=all" var="comAll"/>
                         <a href="${comAll}" class="btn btn-outline-primary">Toutes les commandes</a>
-                          <c:url value="FrontControleur?section=cuisine&describe=transmis" var="comTran"/>
+                        <c:url value="FrontControleur?section=cuisine&describe=transmis" var="comTran"/>
                         <a href="${comTran}" class="btn btn-outline-primary">Commandes transmises</a>
-                          <c:url value="FrontControleur?section=cuisine&describe=preparation" var="comPrepa"/>
+                        <c:url value="FrontControleur?section=cuisine&describe=preparation" var="comPrepa"/>
                         <a href="${comPrepa}" class="btn btn-outline-primary">Commandes en préparations</a>
-                             <c:url value="FrontControleur?section=cuisine&describe=pret" var="comPret"/>
+                        <c:url value="FrontControleur?section=cuisine&describe=pret" var="comPret"/>
                         <a href="${comPret}" class="btn btn-outline-primary">Commandes prêtes</a>
                     </div>
                 </div>
             </div>
-        </div><br>
+        </div><br> 
         <div class="py-5">
-            <div class="container">
+            <div class="container">       
                 <div class="row">
-                    <div class="col-md-3">Réf | Statut commande</div><br>
-                    <div class="col-md-3">Nom | Quantité produit </div><br>
-                    <div class="col-md-3">Type Cuisson | Commentaire</div><br>
-                    <div class="col-md-3">Envoyer </div><br>
-                   
                     <c:forEach var="ligneCom" items="${ligneCommande}">
-                        <div class="col-md-3">Cde n°${ligneCom.commande.id} : ${ligneCom.suiviCuisine.nom}</div>
-                        <div class="col-md-3">${ligneCom.produit.nom} ${ligneCom.formule.nom} : x ${ligneCom.qteCommande}  </div> 
-                        <div class="col-md-3">${ligneCom.typeCuissonLigneCo.cuisson} | ${ligneCom.commentSpec}</div>
-                        <div class="col-md-3"><a class="btn btn-primary" href=""> Prêt à servir</a></div>
-                        
-                    </c:forEach>    
+                        <div class="col-md-3">Commande n°${ligneCom.commande.id} </div>
+                        <div class="col-md-3">${ligneCom.produit.nom} ${ligneCom.formule.nom} | Quantité : ${ligneCom.qteCommande}  </div> 
+                        <div class="col-md-3">Cuisson : ${ligneCom.typeCuissonLigneCo.cuisson} | + ${ligneCom.commentSpec}</div>
+                        <div class="col-md-3"><a class="btn btn-primary" href="" onclick="${commandeUpdate}" > ${ligneCom.suiviCuisine.nom} </a></div>
+                        </c:forEach>    
                 </div>
             </div>
         </div>
