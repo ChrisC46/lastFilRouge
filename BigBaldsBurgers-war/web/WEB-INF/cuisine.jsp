@@ -58,7 +58,7 @@
                     <c:forEach var="ligneCom" items="${ligneCommande}">
                         <div class="col-md-3">Cde n°${ligneCom.commande.id} : ${ligneCom.suiviCuisine.nom}</div>
                         <div class="col-md-3">${ligneCom.produit.nom} ${ligneCom.formule.nom} : x ${ligneCom.qteCommande}  </div> 
-                        <div class="col-md-3">${ligneCom.typeCuissonLigneCo.cuisson} | ${ligneCom.commentSpec.id}</div>
+                        <div class="col-md-3">${ligneCom.typeCuissonLigneCo.cuisson} | ${ligneCom.commentSpec}</div>
                         <div class="col-md-3"><a class="btn btn-primary" href=""> Prêt à servir</a></div>
                         
                     </c:forEach>    
