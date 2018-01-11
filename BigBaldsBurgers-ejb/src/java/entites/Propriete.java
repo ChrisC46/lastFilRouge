@@ -112,7 +112,7 @@ public class Propriete implements Serializable {
 
     @Override
     public String toString() {
-        return nom;
+        return valeur+" calories";
     }
     
 }
