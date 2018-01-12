@@ -1,6 +1,9 @@
 package traitement;
 
 import entites.LigneDeCommande;
+import entites.Produit;
+import entites.Status;
+import java.util.HashMap;
 import java.util.List;
 import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
@@ -41,4 +44,20 @@ public class GestionCuisine implements GestionCuisineLocal {
         return listeCommandes;
     }
 
+    @Override
+    public Status changerCommandeStatut (String nom) {
+        Query qr = em.createNamedQuery("selectStatus");
+                qr.setParameter("statusName", nom);
+        Status status = (Status) qr.getSingleResult();
+     
+//        if ("transmise".equals(status.getNom()))  {
+//           status.setNom("preparation");
+//        }
+//        if ("preparation".equals(status.getNom())) {
+//            status.setNom("prete");
+//        }
+        System.out.println("*****status changé******" + status) ;
+        return status;  
+    }
+    
 }
