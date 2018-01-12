@@ -15,8 +15,10 @@ import javax.persistence.OneToMany;
 @NamedQueries({
     @NamedQuery(name = "rechercheEmplacements", query = "select e from Emplacement e where e.numero=:empNumero"),
     @NamedQuery(name = "rechercheAllEmplacements", query = "select e from Emplacement e "),
-    @NamedQuery(name = "rechercheEmplacementDispo", query = "select e.numero from Emplacement e WHERE e.dispoTable.nom='table disponible'"),
-    @NamedQuery(name = "rechercheEmplacementOccupe", query = "select e.numero from Emplacement e WHERE e.dispoTable.nom='table non disponible'")
+    @NamedQuery(name = "rechercheEmplacementDispo", 
+            query = "select e.numero from Emplacement e WHERE e.dispoTable.nom='table disponible'"),
+    @NamedQuery(name = "rechercheEmplacementOccupe", 
+            query = "select e.numero from Emplacement e WHERE e.dispoTable.nom='table non disponible'")
 })
 public class Emplacement implements Serializable {
 

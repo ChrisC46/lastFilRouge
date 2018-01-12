@@ -32,14 +32,9 @@ public class DetailPaiementCtrl implements SousControleur, Serializable {
         request.setAttribute("totalHT",gestionPaiement.getPrixTotalHT(listDetailCommande));
         //request.setAttribute("totalTTC",gestionPaiement.getPrixTotalTTC(listDetailCommande));
         request.setAttribute("lDetail", listDetailCommande);
-        
-        
-        
-        
         GestionTvaLocal gestionTva = lookupGestionTvaLocal();
         List<Tva> listTva = gestionTva.findTVA();
         request.setAttribute("lTva", listTva);
-
         String page = "/WEB-INF/caisse.jsp";
         return page;
     }
